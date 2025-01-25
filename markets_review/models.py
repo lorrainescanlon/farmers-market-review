@@ -41,4 +41,4 @@ class Review(models.Model):
         ordering = ["created_on"]
     
     def __str__(self):
-        return f"{self.name} {self.stars_rating} * by {self.author} on {self.created_on}"
+        return f"{self.name} {self.stars_rating} * review by {self.author} on {self.created_on}"
