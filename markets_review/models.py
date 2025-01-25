@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
-RATING = ((0, "5 *"), (1, "4 *"), (2, "3 *"), (3, "2 *"), (4, "1 *"), (5, "0 *"))
+RATING = ((0, "0 *"), (1, "1 *"), (2, "2 *"), (3, "3 *"), (4, "4 *"), (5, "5 *"))
 VISIT = ((0, "Yes"), (1, "No"))
 
 # Create your models here.
@@ -31,13 +31,14 @@ class Review(models.Model):
     name = models.ForeignKey(Market, on_delete=models.CASCADE, related_name="market_reviews")
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="review_author")
     body = models.TextField(max_length=400)
-    stars_rating = models.IntegerField(choices=RATING, default=0)
+    stars_rating = models.IntegerField(choices=RATING, default= 5)
     visit_again = models.IntegerField(choices=VISIT, default = 0)
     approved = models.BooleanField(default=False)
-    created_on = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateField(auto_now_add=True)
+
 
     class Meta:
         ordering = ["created_on"]
     
     def __str__(self):
-        return f"{self.name} {stars_rating} {created_on} | by {author}"
+        return f"{self.name} {self.stars_rating} * by {self.author} on {self.created_on}"
