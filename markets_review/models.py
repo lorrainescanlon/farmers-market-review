@@ -48,4 +48,4 @@ class Ratings(models.Model):
     stars = models.IntegerField()
 
     def __str__(self):
-        return f"{self.name} {self.stars}"
+        return f"{self.name} - {self.stars}"

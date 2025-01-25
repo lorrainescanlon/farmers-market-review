@@ -1,7 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from .models import Market
 
 # Create your views here.
-def index(request):
-    return HttpResponse("Hello, World!")
+
+class MarketList(generic.ListView):
+    queryset = Market.objects.all()
+    template_name = "market_list.html"
     
