@@ -4,7 +4,7 @@ from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Market)
 class MarketAdmin(SummernoteModelAdmin):
-    list_display = ('name', 'status')
+    list_display = ('name', 'status', 'created_on')
     search_fields = ['name']
     list_filter = ('status',)
     prepopulated_fields = {'slug': ('name',)}
