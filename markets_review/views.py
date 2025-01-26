@@ -6,5 +6,5 @@ from .models import Market
 
 class MarketList(generic.ListView):
     queryset = Market.objects.all()
-    template_name = "market_list.html"
-    
+    template_name = "markets_review/index.html"
+    paginate_by = 6

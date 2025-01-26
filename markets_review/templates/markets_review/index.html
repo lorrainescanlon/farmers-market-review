@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Index.html content starts here -->
+
+<div class = "container-fluid">
+  <div class = "row">
+      <!-- markets column-->
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          {% for market in market_list %}
+          <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ market.name }}</h5>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>        
+    </div>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+
+<!-- Index.html content ends here -->
+ {% endblock %}
