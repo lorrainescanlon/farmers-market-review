@@ -5,19 +5,14 @@ body {
 .hero-section {
     background-image: url('https://res.cloudinary.com/dr6yvvzcb/image/upload/v1737981063/stackedVeg2_c2awy2.jpg');
     background-size: cover;
-    /*background-position: center;*/
     color: #F9FAFC; /*rgb(51, 170, 51) /*#4A4A4F*/
-    /*max-height: 300px;*/
-    /*padding: 100px 0;*/
     border: 1px solid #4A4A4F;
-
 }
 
 .hero-section h1 {
     font-size: 3rem;
     /*background-color: rgba(74, 74, 79, 0.5)/* rgba(51, 170, 51, 0.2)*/
     font-weight: bold;
-    /*margin-left: 0;*/
     align-self: start;
 }
 
@@ -55,7 +50,6 @@ body {
     background-color: transparent;
     padding: 5%;
     text-align: center;
-    
 }
 
 .mkt-box {
