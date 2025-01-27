@@ -4,33 +4,53 @@
 {% block content %}
 
 <!-- Index.html content starts here -->
+<section class="hero-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <h1>Welcome to Farmers Market Review</h1>
+        <p>Please find a list of reviewed markets below & please feel free to submit your own review!</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class = "container-fluid">
-  <div class = "row">
-      <!-- markets column-->
+<div class="container-fluid market-grid">
+  <div class="row">
+    <!-- Newsletter -->
+    <div class="col-2 news-sbar">
+      Newsletter column
+    </div>
+    <!-- markets column-->
+    <div class="col-10">
       <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for market in market_list %}
-        <div class="col">          
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
+        <div class="col-md-4">
+          <div class="card mb-4 mkt-box">
+            {% if "placeholder" in market.image.url %}
+            <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+            {% else %}
+            <img class="card-img-top" src="{{ market.image.url}}" alt="{{ market.name }}">
+            {% endif %}
             <div class="card-body">
               <h5 class="card-title">{{ market.name }}</h5>
             </div>
-          </div>       
+          </div>
         </div>
         {% endfor %}
-      </div>        
+      </div>
     </div>
     {% if is_paginated %}
     <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-            {% endif %}
-        </ul>
+      <ul class="pagination justify-content-center">
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+        {% endif %}
+      </ul>
     </nav>
     {% endif %}
+  </div>
 </div>
 
 <!-- Index.html content ends here -->
- {% endblock %}
+{% endblock %}

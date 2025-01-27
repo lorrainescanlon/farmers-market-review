@@ -2,6 +2,32 @@ body {
     background-color: #10254e;
 }
 
+.hero-section {
+    background-image: url('https://res.cloudinary.com/dr6yvvzcb/image/upload/v1737981063/stackedVeg2_c2awy2.jpg');
+    background-size: cover;
+    /*background-position: center;*/
+    color: rgb(51, 170, 51) /*#4A4A4F*/;
+    /*max-height: 300px;*/
+    padding: 100px 0;
+    /*display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;*/
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    background-color: rgba(74, 74, 79, 0.5)/* rgba(51, 170, 51, 0.2)*/;
+    font-weight: bold;
+    /*margin-left: 0;*/
+    align-self: start;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    background-color: rgba(74, 74, 79, 0.5)
+}
+
 .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
@@ -22,10 +48,17 @@ body {
 }
 
 .card {
-    border: none;
+    
     background-color: transparent;
+    padding: 10%;
+    
 }
 
+.mkt-box {
+    border-style:solid 1px #4A4A4F;
+    box-shadow:#4A4A4F;
+
+}
 .image-container {
     position: relative;
 }
@@ -150,4 +183,16 @@ body {
 
 .approval {
     color: rgb(222, 146, 168);
+}
+
+.mkt-image {
+    max-height: 308px;
+}
+
+.market-grid {
+    margin-top: 10px;
+}
+
+.news-sbar {
+    border-style: 1px solid #4A4A4F;
 }
