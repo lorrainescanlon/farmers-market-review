@@ -1,3 +1,5 @@
+{% load static %}
+
 {% url 'home' as home_url %}
 
 <!DOCTYPE html>
@@ -20,7 +22,8 @@
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <!-- Custom CSS -->
-     <link rel = "stylesheet" href = "{% static 'css/style.css'%}">
+     <link rel="stylesheet" type="text/css" href= "{% static 'css/style.css' %}">
+
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
@@ -28,7 +31,7 @@
     <!-- Navigation -->
      <nav class = "navbar navbar-expand-lg navbar-light bg-white">
         <div class = "container-fluid">
-            <a class = "navbar-brand" href = "{% url'home' %}"><span class = "brand">Farmers Market 
+            <a class = "navbar-brand" href = "{% url 'home' %}"><span class = "brand">Farmers Market 
                 <i class="fa-solid fa-leaf"></i> Review </span><i class="fa-solid fa-seedling"></i></a>
         </div>
         <button class = "navbar-toggler" type = "button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -40,25 +43,6 @@
                     <a class = "nav-link{% if request.path == home_url %}active" aria-current="page{% endif %}"
                     href = "{% url 'home' %}">Home</a>
                 </li>
-                <li class = "nav-item">
-                    <a class = "nav-link{% if request.path == contact_url %}active" aria-current="page{% endif %}"
-                    href = "{% url 'contact' %}">Contact</a>
-                </li>
-                {% if user.is authenticated %}
-                <li class = "nav-item">
-                    <a class = "nav-link{% if request.path == logout_url %}active" aria-current="page{% endif %}"
-                    href = "{% url 'account_logout' %}">Logout</a>
-                </li>
-                {% else %}
-                <li class = "nav-item">
-                    <a class = "nav-link{% if request.path == signup_url %}active" aria-current="page{% endif %}"
-                    href = "{% url 'signup' %}">Signup</a>
-                </li>
-                <li class = "nav-item">
-                    <a class = "nav-link{% if request.path == login_url %}active" aria-current="page{% endif %}"
-                    href = "{% url 'account_login' %}">Login</a>
-                </li>
-                {% endif %}
             </ul>
         </div>
      </nav>
@@ -79,14 +63,8 @@
         </div>
      </div>
 
-    <main class = "flex-shrink-0 main-bg">
-        {% if user.is_authenticated %}
-        <p class = "text-end m-3">You are logged in as {{user}}</p>
-        {% else %}
-        <p class = "text-end m-3">You are not logged in</p>
-        {% endif %}
-        {% block content %}
 
+        {% block content %}
         <!-- Content here -->
 
         {% endblock content %}
@@ -113,7 +91,7 @@
 
     {% block extras %}
     {% endblock %} 
-    
+
 </body>
 
 </html>
