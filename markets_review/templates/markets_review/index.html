@@ -4,10 +4,10 @@
 {% block content %}
 
 <!-- Index.html content starts here -->
-<section class="hero-section">
+<section class="hero-section border">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-lg-4 hero-text">
         <h1>Welcome to Farmers Market Review</h1>
         <p>Please find a list of reviewed markets below & please feel free to submit your own review!</p>
       </div>
@@ -18,7 +18,7 @@
 <div class="container-fluid market-grid">
   <div class="row">
     <!-- Newsletter -->
-    <div class="col-2 news-sbar">
+    <div class="col-2 border news-sbar d-none d-md-block">
       Newsletter column
     </div>
     <!-- markets column-->
@@ -26,7 +26,7 @@
       <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for market in market_list %}
         <div class="col-md-4">
-          <div class="card mb-4 mkt-box">
+          <div class="card h-100 mb-4 mkt-box">
             {% if "placeholder" in market.image.url %}
             <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
             {% else %}
