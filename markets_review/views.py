@@ -24,7 +24,7 @@ def market_detail(request, slug):
     queryset = Market.objects.filter(status=1)
     market = get_object_or_404(queryset, slug=slug)
     key = settings.GMAPS_API_KEY
-    context ={
+    context = {
         "key": key
     }
     
@@ -32,5 +32,5 @@ def market_detail(request, slug):
     return render(
         request,
         "markets_review/market_detail.html",
-        {"market": market}, context
+        {"market": market},
     )
