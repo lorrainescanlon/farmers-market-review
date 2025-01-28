@@ -11,9 +11,9 @@
       <div class="card-body">
         <h5 class="card-title">Market Details</h5>
         <p class="card-text">
-            <h6> Location :</h6> {{ market.location }}<br>
-            <h6> Day/Time :</h6> {{ market.day_time}}<br>
-            <h6> Review Rating :</h6> {{market.review_rating}}
+            <Strong> Location :</strong> {{ market.location }}<br>
+            <strong> Day/Time :</strong> {{ market.day_time}}<br>
+            <strong> Review Rating :</strong> {{market.review_rating}}
         </p>
         <p class="card-text">
             {{ market.content | safe }}
@@ -25,9 +25,17 @@
   <div class="col-sm-6">
     <div class="card mkt-map">
       <div class="card-body">
-        <iframe src="" title="{{ market.name }} width="100%" height="300" style="border:1px solid black;">
-        </iframe>
+        <iframe
+          title=" {{ market.name}}"
+          width="450"
+          height="250"
+          frameborder="0" style="border:0"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed/v1/place?key={{key}}&q={{ market.name }}&center= {{market.latitude}}, {{market.longitude}}">
+        </iframe>       
       </div>
     </div>
   </div>
 </div>
+
+{% endblock content %}

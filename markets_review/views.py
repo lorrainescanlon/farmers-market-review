@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Market
+from django.conf import settings
 
 # Create your views here.
 
@@ -22,9 +23,14 @@ def market_detail(request, slug):
 
     queryset = Market.objects.filter(status=1)
     market = get_object_or_404(queryset, slug=slug)
+    key = settings.GMAPS_API_KEY
+    context ={
+        "key": key
+    }
+    
 
     return render(
         request,
-        "market_review/market_detail.html",
-        {"market": market},
+        "markets_review/market_detail.html",
+        {"market": market}, context
     )
