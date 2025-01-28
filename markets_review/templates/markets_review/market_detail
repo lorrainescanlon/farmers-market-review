@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Market_detail.html content starts here -->
+
+<div class="row">
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card mkt-detail">
+      <div class="card-body">
+        <h5 class="card-title">Market Details</h5>
+        <p class="card-text">
+            <h6> Location :</h6> {{ market.location }}<br>
+            <h6> Day/Time :</h6> {{ market.day_time}}<br>
+            <h6> Review Rating :</h6> {{market.review_rating}}
+        </p>
+        <p class="card-text">
+            {{ market.content | safe }}
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card mkt-map">
+      <div class="card-body">
+        <iframe src="" title="{{ market.name }} width="100%" height="300" style="border:1px solid black;">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>

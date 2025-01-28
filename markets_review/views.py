@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Market
 
@@ -8,3 +8,23 @@ class MarketList(generic.ListView):
     queryset = Market.objects.all().order_by('name')
     template_name = "markets_review/index.html"
     paginate_by = 6
+
+def market_detail(request, slug):
+    """
+    Display information for an individual :model:`markets_review.Market`. 
+    **Context**
+    ``market``
+        An instance of :model:`markets_review.Market`
+    
+    **Template**
+    :template:`markets_review/market_detail.html`
+    """
+
+    queryset = Market.objects.filter(status=1)
+    market = get_object_or_404(queryset, slug=slug)
+
+    return render(
+        request,
+        "market_review/market_detail.html",
+        {"market": market},
+    )
