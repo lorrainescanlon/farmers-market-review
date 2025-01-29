@@ -58,6 +58,10 @@ body {
 
 }
 
+.mkt-detail {
+    text-align:left;
+}
+
 .mkt-map {
     padding: 0px;
 }
