@@ -22,16 +22,16 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-6">
-    <div class="card mkt-map">
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card mkt-map h-100">
       <div class="card-body">
         <iframe
           title=" {{ market.name}} {{key}}"
-          width="450"
-          height="250"
+          height = "100%"
+          width = "100%"
           frameborder="0" style="border:0"
           referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps/embed/v1/place?key={{key}}&q={{ market.name }}&center= {{market.latitude}}, {{market.longitude}}">
+          src="https://www.google.com/maps/embed/v1/place?key={{key}}&q={{ market.location }}&center={{ market.latitude }}, {{ market.longitude }}&zoom=15">
         </iframe>       
       </div>
     </div>

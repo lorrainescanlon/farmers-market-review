@@ -24,9 +24,11 @@ def market_detail(request, slug):
     queryset = Market.objects.filter(status=1)
     market = get_object_or_404(queryset, slug=slug)
     key = settings.GMAPS_API_KEY
+    long = Market.longitude
+    lat = Market.latitude
     context = {
         "market": market,
-        "key": key
+        "key": key,
     }
     
 
