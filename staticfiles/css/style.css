@@ -57,6 +57,15 @@ body {
     /*box-shadow:#4A4A4F;*/
 
 }
+
+.mkt-detail {
+    text-align:left;
+}
+
+.mkt-map {
+    padding: 0px;
+}
+
 .image-container {
     position: relative;
 }
@@ -114,9 +123,9 @@ body {
     z-index: 100;
 }
 
-.post-link {
+.market-link {
     text-decoration: none;
-    color: #445261;
+    color: #4A4A4F;
 }
 
 .post-link:hover,
