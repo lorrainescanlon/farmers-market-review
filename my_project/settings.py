@@ -30,9 +30,9 @@ GMAPS_API_KEY= os.environ.get("GMAPS_API_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['8000-lorrainesca-farmersmark-3hinj5lt646.ws.codeinstitute-ide.net', '.codeinstitute-ide.net', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','.herokuapp.com']
 
 
 # Application definition
@@ -86,7 +86,7 @@ DATABASES = {
 }
 
 CSRF_TRUSTED_ORIGINS = {
-    "https://*.codeinstitute-ide.net",
+    "https://localhost",
     "https://*.herokuapp.com"
 }
 
