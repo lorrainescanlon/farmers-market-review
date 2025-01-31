@@ -5,10 +5,12 @@ from django.conf import settings
 
 # Create your views here.
 
+
 class MarketList(generic.ListView):
     queryset = Market.objects.all().order_by('name')
     template_name = "markets_review/index.html"
     paginate_by = 6
+
 
 def market_detail(request, slug):
     """
@@ -27,13 +29,13 @@ def market_detail(request, slug):
     queryset = Market.objects.filter(status=1)
     market = get_object_or_404(queryset, slug=slug)
     key = settings.GMAPS_API_KEY
-    
+
     context = {
         "market": market,
         "key": key,
     }
     
-
+    
     return render(
         request,
         "markets_review/market_detail.html",
