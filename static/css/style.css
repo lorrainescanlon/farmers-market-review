@@ -1,25 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
 
 
+body {
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    background-color: #f9f9f9f8;
+
+}
+
+.brand {
+    font-family: Lato;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #4A4A4F;
+}
+
+.navbar i {
+    color:  #5cb85c;
+}
+.navbar {
+    /*background-color: #5cb85c;*/
+}
+
+.test_color {
+    color: #5cb85c;
+}
 .hero-section {
     background-image: url('https://res.cloudinary.com/dr6yvvzcb/image/upload/v1738441517/stackedVeg2_jrcd48.jpg');
     background-size: cover;
-    color: #F9FAFC; /*rgb(51, 170, 51) /*#4A4A4F*/
-    border: 1px solid #4A4A4F;
-}
-
-.hero-section h1 {
-    font-size: 3rem;
-    /*background-color: rgba(74, 74, 79, 0.5)/* rgba(51, 170, 51, 0.2)*/
-    font-weight: bold;
-    align-self: start;
-}
-
-.hero-section p {
-    font-size: 1.2rem;
-    color:#F9FAFC;
-    /*background-color: rgba(74, 74, 79, 0.5);*/
+    color: #F9FAFC; 
+    /*border: 1px solid #4A4A4F;*/
 }
 
 .hero-text {
     background-color: rgba(74, 74, 79, 0.5) ;
 }
+
+.hero-section h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    align-self: start;
+    color:#F9FAFC;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    color:#F9FAFC;
+}
+
+.card {
+    background-color: transparent;
+    padding: 5%;
+    text-align: center;
+}
+
+.card-title {
+    color: #4A4A4F;
+    text-decoration: none;
+}
+.card-title:hover {
+    color: #5cb85c;
+}
+
+.card a {
+    text-decoration: none;
+}
+
+
+.mkt-box {
+    border-style: 1px solid #4A4A4F;
+}
+
+.mkt-detail {
+    text-align:left;
+}
+
+.mkt-map {
+    padding: 0px;
+}
+.mkt-image {
+    max-height: 308px;
+}
+
+.market-grid {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+footer {
+    background-color: #5cb85c;
+    color: #f9f9f9;
+}
+
+
+footer i {
+    color:#f9f9f9;
+    size: 2em;
+    padding: 10px;
+}
+
+
+.created-by {
+    padding-top: 6px;
+}
+

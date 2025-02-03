@@ -22,17 +22,17 @@
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href= "{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
 
     <!-- Navigation -->
-    <nav class = "navbar navbar-expand-lg navbar-light bg-white">
+    <nav class = "navbar navbar-expand-lg navbar-light">
         <div class = "container-fluid">
             <a class = "navbar-brand" href = "{% url 'home' %}"><span class = "brand">Farmers Market 
-                <i class="text-success fa-solid fa-seedling"></i> Review</i></span></a>
+                <i class="fa-solid fa-seedling"></i> Review</i></span></a>
         </div>
         <button class = "navbar-toggler" type = "button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle Navigation"><span class = "navbar-toggler-icon"></span>
@@ -63,37 +63,34 @@
         </div>
     </div>
     
-
+    <!-- Logged in message display 
     <main class="flex-shrink-0 main-bg">
         {% if user.is_authenticated %}
         <p class="text-end m-3">You are logged in as {{ user }}</p>
         {% else %}
         <p class="text-end m-3">You are not logged in</p>
         {% endif %}
-        {% block content %}
+        {% block content %}-->
+
         <!-- Content here -->
 
         {% endblock content %}
     </main>
 
     <!-- Footer -->
-    <footer class="mt-auto container-fluid footer">
-        <div class="row">
-            <div class="col-sm-4 footer">
-                <p class="inline-block">
-                     Download our Newsletter here.
+    <footer class="mt-auto container-fluid">
+        <div class="row footer-row">
+            <div class="col-sm-4 news-pdf d-none d-md-block text-center">
+                Download our Newsletter here.
                     <a href="assets/newsletter/newsletter.pdf" target="_blank" class="news-pdf">
                         <i class="fa fa-download" aria-label="newsletter download"></i>
                     </a>
-                </p>
             </div>
-            <div class="col-sm-4">
-                <p class="inline-block">
+            <div class="col-sm-4 text-center created-by">
                     &copy 2025 Copyright : Lorraine Scanlon
-                </p>
             </div>
-            <div class="col-sm-4 footer">
-                <ul class="list-inline social-links">
+            <div class="col-sm-4 text-center">
+                <ul class="list-inline">
                     <li class="list-inline-item">
                         <a target="_blank" href="#">
                             <i class="fa-brands fa-facebook" aria-label="facebook"></i>
