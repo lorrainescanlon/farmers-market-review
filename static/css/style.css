@@ -93,6 +93,7 @@ body {
 footer {
     background-color: #5cb85c;
     color: #f9f9f9;
+    font-weight: 300;
 }
 
 
@@ -102,8 +103,16 @@ footer i {
     padding: 10px;
 }
 
-
 .created-by {
+    padding-top: 8px;
+}
+
+.socials {
     padding-top: 6px;
 }
 
+.socials i {
+    font-size: 18px; 
+    font-weight: 200;
+    color: #fafafa;
+}
