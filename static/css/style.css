@@ -6,7 +6,7 @@
 body {
     font-family: Roboto, sans-serif;
     font-weight: 300;
-    background-color: #f9f9f9f8;
+    background-color: #e9eceff3 /*#FAF9F6;*/
     color:#4A4A4F;
 
 }
@@ -93,13 +93,13 @@ body {
 
 footer {
     background-color: #5cb85c;
-    color: #f9f9f9;
+    color: #F9FAFC;
     font-weight: 300;
 }
 
 
 footer i {
-    color:#f9f9f9;
+    color:#F9FAFC;
     size: 2em;
     padding: 10px;
 }
@@ -115,5 +115,31 @@ footer i {
 .socials i {
     font-size: 18px; 
     font-weight: 200;
-    color: #fafafa;
+    color: #F9FAFC;
+}
+
+.link {
+    color:#5cb85c;
+    text-decoration: none;
+}
+
+.btn-login,
+.btn-signup,
+.btn-logout {
+    background-color: #5cb85c;
+    color:#4A4A4F;
+}
+
+.btn-login:hover,
+.btn-signup:hover,
+.btn-logout:hover {
+    background-color:#4A4A4F;
+    color:#F9FAFC; 
+}
+
+.btn-login:active,
+.btn-signup:active,
+.btn-logout:active {
+    background-color:#4A4A4F;
+    color:#F9FAFC; 
 }
