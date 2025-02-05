@@ -29,8 +29,8 @@ class Market(models.Model):
         return f"{self.name} | written by {self.author}"
 
 class Review(models.Model):
-    name = models.ForeignKey(Market, on_delete=models.CASCADE, related_name="market_reviews")
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="review_author")
+    name = models.ForeignKey(Market, on_delete=models.CASCADE, related_name="reviews")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reviewer")
     body = models.TextField(max_length=400)
     stars_rating = models.IntegerField(choices=RATING, default= 5)
     visit_again = models.IntegerField(choices=VISIT, default = 0)

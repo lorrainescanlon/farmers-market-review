@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
-from .models import Market
+from django.contrib import messages
+from django.http import HttpResponseRedirect
+from .models import Market, Review, Ratings
 from django.conf import settings
 
 # Create your views here.
@@ -28,16 +30,18 @@ def market_detail(request, slug):
 
     queryset = Market.objects.filter(status=1)
     market = get_object_or_404(queryset, slug=slug)
+    reviews = market.reviews.all().order_by("-created_on")
+    review_count = market.reviews.filter(approved=True).count()
     key = settings.GMAPS_API_KEY
-
-    context = {
-        "market": market,
-        "key": key,
-    }
-    
-    
+ 
+   
     return render(
         request,
         "markets_review/market_detail.html",
-        context,
-    )
+        {
+            "market": market,
+            "reviews": reviews,
+            "review_count": review_count,
+            "key": key,
+        },
+        )
