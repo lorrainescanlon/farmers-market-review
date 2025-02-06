@@ -3,7 +3,9 @@ from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Market, Review, Ratings
+from .forms import ReviewForm
 from django.conf import settings
+
 
 # Create your views here.
 
@@ -33,6 +35,17 @@ def market_detail(request, slug):
     reviews = market.reviews.all().order_by("-created_on")
     review_count = market.reviews.filter(approved=True).count()
     key = settings.GMAPS_API_KEY
+
+    if request.method == "Post":
+        review_form = ReviewForm(data=request.POST)
+        if review_form.is_valid():
+            review = review_form.save(commit=False)
+            review.author = request.user
+            review.name = name
+            review.save()
+
+
+    review_form = ReviewForm()
  
    
     return render(
@@ -43,5 +56,6 @@ def market_detail(request, slug):
             "reviews": reviews,
             "review_count": review_count,
             "key": key,
+            "review_form": review_form,
         },
         )
