@@ -147,3 +147,7 @@ footer i {
 .no-border {
     border: none;
 }
+
+.asteriskField {
+    display: none;
+}
