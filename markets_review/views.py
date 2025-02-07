@@ -43,11 +43,13 @@ def market_detail(request, slug):
             review.author = request.user
             review.name = market
             review.save()
-
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Review submitted and awaiting approval'
+    )
 
     review_form = ReviewForm()
- 
-   
+
     return render(
         request,
         "markets_review/market_detail.html",
