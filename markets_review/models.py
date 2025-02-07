@@ -42,11 +42,11 @@ class Review(models.Model):
         ordering = ["created_on"]
     
     def __str__(self):
-        return f"{self.name} {self.stars_rating} * review by {self.author} on {self.created_on}"
+        return f"{self.market} {self.stars_rating} * review by {self.author} on {self.created_on}"
 
 class Ratings(models.Model):
-    name = models.ForeignKey(Market, on_delete=models.CASCADE, related_name="market_ratings")
+    market = models.ForeignKey(Market, on_delete=models.CASCADE, related_name="market_ratings")
     stars = models.IntegerField()
 
     def __str__(self):
-        return f"{self.name} - {self.stars}"
+        return f"{self.market} - {self.stars}"
