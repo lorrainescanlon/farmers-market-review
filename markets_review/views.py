@@ -41,7 +41,7 @@ def market_detail(request, slug):
         if review_form.is_valid():
             review = review_form.save(commit=False)
             review.author = request.user
-            review.name = name
+            review.name = market
             review.save()
 
 
