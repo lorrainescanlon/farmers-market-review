@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from .models import Market, Review, Ratings
 from .forms import ReviewForm
 from django.conf import settings
+from django.db.models import Sum
 
 
 # Create your views here.
@@ -34,14 +35,23 @@ def market_detail(request, slug):
     market = get_object_or_404(queryset, slug=slug)
     reviews = market.reviews.all().order_by("-created_on")
     review_count = market.reviews.filter(approved=True).count()
+
+    market_stars = Review.objects.filter(market=market, approved=True).aggregate(total=Sum('stars_rating'))["total"]/review_count
+
+
+
+
+
+
+   
     key = settings.GMAPS_API_KEY
 
-    if request.method == "Post":
+    if request.method == "POST":
         review_form = ReviewForm(data=request.POST)
         if review_form.is_valid():
             review = review_form.save(commit=False)
             review.author = request.user
-            review.name = market
+            review.market = market
             review.save()
             messages.add_message(
                 request, messages.SUCCESS,
@@ -57,7 +67,8 @@ def market_detail(request, slug):
             "market": market,
             "reviews": reviews,
             "review_count": review_count,
+            "market_stars": market_stars,
             "key": key,
             "review_form": review_form,
         },
-        )
+    )
