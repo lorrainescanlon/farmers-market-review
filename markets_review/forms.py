@@ -11,3 +11,5 @@ class ReviewForm(forms.ModelForm):
             'stars_rating': 'Rate your exprience from 0 to 5',
             'visit_again': 'Would you visit again?'
         }
+        widgets = {'visit_again': forms.RadioSelect()}
+

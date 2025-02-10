@@ -38,7 +38,7 @@
   </div>
 </div>
 
-<!-- Displaying count of reviews -->
+<!-- Displaying count of reviews 
 <div class="row">
   <div class="col-12">
     <strong class="text-secondary">
@@ -48,15 +48,15 @@
   <div class="col-12">
     <hr>
   </div>
-</div>
+</div>-->
 
 <!-- Displaying Comments -->
 <div class="row">
-  <div class="col-md-8 card mb-4  mt-3 ">
-    <h3>Reviews:</h3>
-    <div class="card-body">
+  <div class="col-md-7 card mb-4 mt-3 mkt-review">
+    <h5>Reviews: {{ review_count }}</h5>    
+    <div class="card-body mkt-review">
       <!-- We want a for loop inside the empty control tags
-        to iterate through each comment in comments -->
+      to iterate through each comment in comments -->
       {% for review in reviews %}
       <div class="p-2 reviews
         {% if not review.approved and review.author == user %}
@@ -70,7 +70,7 @@
           {{ review.stars_rating }} 
           </span> 
           <span class="font-weight-normal">
-          {{ review.visit_again }} 
+          {{ review.visit_again.value }} 
           </span> 
                     
           wrote:
@@ -89,12 +89,12 @@
     </div>
   </div>
   <!-- Creating new Reviews -->
- <div class="col-md-4 card mb-4 mt-3">
+ <div class="col-md-5 card mb-4 mt-3">
   <div class="card-body">
     {% if user.is_authenticated %}
     <h3>Leave a Review:</h3>
     <p>Posting as: {{ user.username }}</p>
-    <form id="reviewForm" method="post"
+    <form id="reviewForm" class="mkt-review" method="post"
       style="margin-top: 1.3em;">
       {{ review_form | crispy }}
       {% csrf_token %}

@@ -36,14 +36,12 @@ def market_detail(request, slug):
     reviews = market.reviews.all().order_by("-created_on")
     review_count = market.reviews.filter(approved=True).count()
 
-    market_stars = Review.objects.filter(market=market, approved=True).aggregate(total=Sum('stars_rating'))["total"]/review_count
+    if review_count <= 0 :
+        market_stars = 0
+    else:
+        market_stars = Review.objects.filter(market=market, approved=True).aggregate(total=Sum('stars_rating'))["total"]/review_count
 
-
-
-
-
-
-   
+  
     key = settings.GMAPS_API_KEY
 
     if request.method == "POST":
