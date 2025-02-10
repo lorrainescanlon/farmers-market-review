@@ -35,14 +35,12 @@ def market_detail(request, slug):
     market = get_object_or_404(queryset, slug=slug)
     reviews = market.reviews.all().order_by("-created_on")
     review_count = market.reviews.filter(approved=True).count()
+    key = settings.GMAPS_API_KEY
 
-    if review_count <= 0 :
-        market_stars = 0
+    if review_count <= 0:
+        market_stars = "No reviews yet"
     else:
         market_stars = Review.objects.filter(market=market, approved=True).aggregate(total=Sum('stars_rating'))["total"]/review_count
-
-  
-    key = settings.GMAPS_API_KEY
 
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST)
@@ -58,15 +56,15 @@ def market_detail(request, slug):
 
     review_form = ReviewForm()
 
-    return render(
-        request,
-        "markets_review/market_detail.html",
-        {
+    context =  {
             "market": market,
             "reviews": reviews,
             "review_count": review_count,
             "market_stars": market_stars,
             "key": key,
             "review_form": review_form,
-        },
+        }
+
+    return render(
+        request, "markets_review/market_detail.html", context
     )
