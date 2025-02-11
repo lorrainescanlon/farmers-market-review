@@ -70,11 +70,19 @@
                 </span>
             </div>
         </div>
-        <hr>
     </nav>
-    
 
-    
+
+    <!-- Logged in message display -->
+    <div class="navbar green-bg text-right">
+       <span class="text-muted pad-3 text-right">
+                {% if user.is_authenticated %}
+                You are logged in as {{ user }}
+                {% else %}
+                You are not logged in
+                {% endif %}
+       </span>  
+    </div>
 
     <!-- Django message display -->
     <div class = "container">
@@ -90,14 +98,12 @@
             </div>
         </div>
     </div>
+
     
-    <!-- Logged in message display -->
+    
     <main class="flex-shrink-0 main-bg">
-        {% if user.is_authenticated %}
-        <p class="text-end m-3">You are logged in as {{ user }}</p>
-        {% else %}
-        <p class="text-end m-3">You are not logged in</p>
-        {% endif %}
+        
+        
 
         {% block content %}
 

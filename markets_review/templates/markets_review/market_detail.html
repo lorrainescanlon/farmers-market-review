@@ -77,22 +77,20 @@
         <!-- We want a for loop inside the empty control tags
         to iterate through each review in reviews -->
         {% for review in reviews %}
-        <div class="review-box p-2 reviews
+        <div class="shadow p-2 reviews
           {% if not review.approved and review.author == user %}
           faded{% elif not review.approved %} d-none{% endif %}">
           <p class="font-weight-bold">
-            {{ review.created_on }}
-            <span class="font-weight-normal">&nbsp 
-              {{ review.stars_rating }} star review by
+            {{ review.created_on }}&nbsp|&nbsp
+            <span class="font-weight-normal"> 
+              {{ review.stars_rating }}star review by:&nbsp 
             </span> 
-            <span class="font-weight-normal">&nbsp
+            <span class="font-weight-normal fst-italic">
               {{ review.author }}
             </span> 
             <span class="font-weight-normal">
             {{ review.visit_again.value }} 
             </span> 
-                      
-            wrote:
           </p>
           <div id="comment{{ comment.id }}">
             {{ review.body | linebreaks }}
@@ -103,6 +101,7 @@
           </p>
           {% endif %}
         </div>
+        <br>
         <!-- Our for loop ends here -->
         {% endfor %}
       </div>

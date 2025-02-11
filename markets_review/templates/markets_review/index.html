@@ -5,7 +5,7 @@
 {% block content %}
 
 <!-- Index.html content starts here -->
-<section class="hero-section border">
+<section class="hero-section">
   <div class="container">
     <div class="row">
       <div class="col-lg-4 hero-text">
@@ -30,7 +30,7 @@
       <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for market in market_list %}
         <div class="col-md-4">
-          <div class="card h-100 mb-4 mkt-box">
+          <div class="shadow card h-100 mb-4 mkt-box">
             {% if "placeholder" in market.image.url %}
             <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
             {% else %}
