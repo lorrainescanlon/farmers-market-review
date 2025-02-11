@@ -7,7 +7,7 @@ body {
     font-family: Roboto, sans-serif;
     font-weight: 300;
     background-color: #e9eceff3 /*#FAF9F6;*/
-    color:#4A4A4F;
+    color: #4A4A4F;
 
 }
 
@@ -162,10 +162,12 @@ footer i {
 
 .logged-text {
     text-align: right;
+    color: #F9FAFC;
 }
 
 .green-bg {
     background-color: #5cb85c;
+    
     padding: 0;
     justify-content: end;
     margin-bottom: 0;
@@ -182,4 +184,14 @@ footer i {
 
 .review-box {
     background-color: #d8ffb3; /* #d5ffb3;*/
+}
+
+.signup {
+    padding: 6px;
+}
+
+.news-bar {
+    background-color: #5cb85c;
+    padding: 0;
+    margin-top: 0;
 }
