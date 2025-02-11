@@ -68,3 +68,26 @@ def market_detail(request, slug):
     return render(
         request, "markets_review/market_detail.html", context
     )
+
+def review_edit(request, slug, review_id):
+    """
+    view to edit reviews
+    """
+
+    if request.method =="POST":
+
+        queryset = Market.objects.filter(status=1)
+        market = get_object_or_404(queryset, slug=slug)
+        review = get_object_or_404(Review, pk=review_id)
+        review_form = ReviewForm(data=request.POST, instance=review)
+
+        if review_form.is_valid() and review.author == request.user:
+            review = review_form.save(commit=False)
+            review.market = market
+            review.approved = False
+            review.save()
+            messages.add_message(request, messages.SUCCESS, 'Review Updated!')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error updating review!')
+    
+    return HttpResponseRedirect(reverse('market_detail', args=[slug]))

@@ -21,4 +21,5 @@ from django.urls import path, include
 urlpatterns = [
     path('', views.MarketList.as_view(), name='home'),
     path('<slug:slug>/', views.market_detail, name='market_detail'),
+    path('<slug:slug>/edit_review/<int:review_id>', views.review_edit, name='review_edit'),
 ]
