@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
-RATING = ((0, "0 *"), (1, "1 *"), (2, "2 *"), (3, "3 *"), (4, "4 *"), (5, "5 *"))
+RATING = ((5, "5 *"), (4, "4 *"), (3, "3 *"), (2, "2 *"), (1, "1 *"), (0, "0 *"))
 VISIT = ((True, "Yes"), (False, "No"))
 
 # Create your models here.
