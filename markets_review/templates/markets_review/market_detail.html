@@ -27,6 +27,8 @@
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               {% elif market_stars == 5 %}
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              {% else %}
+              No reviews yet
               {% endif %}
           </p>
           <p class="card-text">
@@ -80,11 +82,11 @@
           faded{% elif not review.approved %} d-none{% endif %}">
           <p class="font-weight-bold">
             {{ review.created_on }}
-            <span class="font-weight-normal">
-            {{ review.author }} 
+            <span class="font-weight-normal">&nbsp 
+              {{ review.stars_rating }} star review by
             </span> 
-            <span class="font-weight-normal">
-            {{ review.stars_rating }} 
+            <span class="font-weight-normal">&nbsp
+              {{ review.author }}
             </span> 
             <span class="font-weight-normal">
             {{ review.visit_again.value }} 

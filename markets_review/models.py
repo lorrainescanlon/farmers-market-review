@@ -5,7 +5,7 @@ from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
 RATING = ((0, "0 *"), (1, "1 *"), (2, "2 *"), (3, "3 *"), (4, "4 *"), (5, "5 *"))
-VISIT = ((0, "Yes"), (1, "No"))
+VISIT = ((True, "Yes"), (False, "No"))
 
 # Create your models here.
 class Market(models.Model):
@@ -33,7 +33,7 @@ class Review(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reviewer")
     body = models.TextField(max_length=400)
     stars_rating = models.IntegerField(choices=RATING, default= 5)
-    visit_again = models.IntegerField(choices=VISIT, default = 0)
+    visit_again = models.BooleanField(choices=VISIT, default = True)
     approved = models.BooleanField(default=False)
     created_on = models.DateField(auto_now_add=True)
 
