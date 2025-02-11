@@ -40,8 +40,8 @@ def market_detail(request, slug):
     if review_count <= 0:
         market_stars = "No reviews yet"
     else:
-        market_stars = Review.objects.filter(market=market, approved=True).aggregate(total=Sum('stars_rating'))["total"]/review_count
-
+        market_stars = int(Review.objects.filter(market=market, approved=True).aggregate(total=Sum('stars_rating'))["total"]/review_count)
+        
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST)
         if review_form.is_valid():

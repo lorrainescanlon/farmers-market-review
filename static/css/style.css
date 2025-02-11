@@ -23,6 +23,7 @@ body {
 }
 .navbar {
     /*background-color: #5cb85c;*/
+    border-bottom: thin solid lightgray;
 }
 
 .test_color {
@@ -128,6 +129,7 @@ footer i {
 .btn-logout {
     background-color: #5cb85c;
     color:#4A4A4F;
+    align-self: center;
 }
 
 .btn-login:hover,
@@ -152,6 +154,15 @@ footer i {
     display: none;
 }
 
-.mkt-review {
+.review-text {
     text-align: left;
+}
+
+.sm-star i {
+    color:  #5cb85c;
+    size: 1em;
+}
+
+.review-box {
+    background-color: azure;
 }

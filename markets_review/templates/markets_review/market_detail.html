@@ -5,38 +5,54 @@
 {% block content %}
 
 <!-- Market_detail.html content starts here -->
-
-<div class="row">
-  <div class="col-sm-7 mb-3 mb-sm-0">
-    <div class="card mkt-detail no-border">
-      <div class="card-body mkt-detail">
-        <h5 class="card-title">Market Details</h5>
-        <p class="card-text">
-            <Strong> Location :</strong> {{ market.location }}<br>
-            <strong> Day/Time :</strong> {{ market.day_time }}<br>
-            <strong> Review Rating :</strong> {{ market_stars }}
-        </p>
-        <p class="card-text">
-            {{ market.content | safe }}
-        </p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-7 mb-3 mb-sm-0">
+      <div class="card mkt-detail no-border">
+        <div class="card-body mkt-detail">
+          <h5 class="card-title">Market Details</h5>
+          <p class="card-text sm-star">
+              <Strong> Location :</strong> {{ market.location }}<br>
+              <strong> Day/Time :</strong> {{ market.day_time }}<br>
+              <strong> Review Rating :</strong> 
+              {% if market_stars == 0 %}
+              0
+              {% elif market_stars == 1 %}
+              <i class="fa-solid fa-star"></i>
+              {% elif market_stars == 2 %}
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              {% elif market_stars == 3 %}
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              {% elif market_stars == 4 %}
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              {% elif market_stars == 5 %}
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              {% endif %}
+          </p>
+          <p class="card-text">
+              {{ market.content | safe }}
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-sm-5 mb-3 mb-sm-0">
-    <div class="card mkt-map h-100">
-      <div class="card-body">
-        <iframe
-          title=" {{ market.name}} {{key}}"
-          height = "100%"
-          width = "100%"
-          frameborder="0" style="border:0"
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps/embed/v1/place?key={{ key }}&q={{ market.location }}&center={{ market.latitude }}, {{ market.longitude }}&zoom=15">
-        </iframe>       
+    <div class="col-sm-5 mb-3 mb-sm-0">
+      <div class="card mkt-map h-100">
+        <div class="card-body">
+          <iframe
+            title=" {{ market.name}} {{key}}"
+            height = "100%"
+            width = "100%"
+            frameborder="0" style="border:0"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed/v1/place?key={{ key }}&q={{ market.location }}&center={{ market.latitude }}, {{ market.longitude }}&zoom=15">
+          </iframe>       
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<hr>
 
 <!-- Displaying count of reviews 
 <div class="row">
@@ -51,61 +67,63 @@
 </div>-->
 
 <!-- Displaying Reviews -->
-<div class="row">
-  <div class="col-md-7 card mb-4 mt-3 mkt-review">
-    <h5>Reviews: {{ review_count }}</h5>    
-    <div class="card-body mkt-review">
-      <!-- We want a for loop inside the empty control tags
-      to iterate through each review in reviews -->
-      {% for review in reviews %}
-      <div class="p-2 reviews
-        {% if not review.approved and review.author == user %}
-        faded{% elif not review.approved %} d-none{% endif %}">
-        <p class="font-weight-bold">
-          {{ review.created_on }}
-          <span class="font-weight-normal">
-          {{ review.author }} 
-          </span> 
-          <span class="font-weight-normal">
-          {{ review.stars_rating }} 
-          </span> 
-          <span class="font-weight-normal">
-          {{ review.visit_again.value }} 
-          </span> 
-                    
-          wrote:
-        </p>
-        <div id="comment{{ comment.id }}">
-          {{ review.body | linebreaks }}
+<div class="container">
+  <div class="row">
+    <div class="col-md-7 card mb-4 mt-3 review-text no-border">
+      <h5>Reviews: {{ review_count }}</h5>    
+      <div class="card-body">
+        <!-- We want a for loop inside the empty control tags
+        to iterate through each review in reviews -->
+        {% for review in reviews %}
+        <div class="review-box p-2 reviews
+          {% if not review.approved and review.author == user %}
+          faded{% elif not review.approved %} d-none{% endif %}">
+          <p class="font-weight-bold">
+            {{ review.created_on }}
+            <span class="font-weight-normal">
+            {{ review.author }} 
+            </span> 
+            <span class="font-weight-normal">
+            {{ review.stars_rating }} 
+            </span> 
+            <span class="font-weight-normal">
+            {{ review.visit_again.value }} 
+            </span> 
+                      
+            wrote:
+          </p>
+          <div id="comment{{ comment.id }}">
+            {{ review.body | linebreaks }}
+          </div>
+          {% if not review.approved and review.author == user %}
+          <p class="approval">
+            This review is awaiting approval
+          </p>
+          {% endif %}
         </div>
-        {% if not review.approved and review.author == user %}
-        <p class="approval">
-          This review is awaiting approval
-        </p>
-        {% endif %}
+        <!-- Our for loop ends here -->
+        {% endfor %}
       </div>
-      <!-- Our for loop ends here -->
-      {% endfor %}
+    </div>
+    <!-- Creating new Reviews -->
+  <div class="col-md-5 card mb-4 mt-3 review-text no-border">
+    <div class="card-body">
+      {% if user.is_authenticated %}
+      <h3>Leave a Review:</h3>
+      <p>Posting as: {{ user.username }}</p>
+      <form id="reviewForm" class="text-left" method="post"
+        style="margin-top: 1.3em;">
+        {{ review_form | crispy }}
+        {% csrf_token %}
+        <button id="submitButton" type="submit"
+        class="btn btn-signup btn-lg">Submit</button> 
+      </form>
+      {% else %}
+      <p>Please log in to leave a review</p>
+      {% endif %}
     </div>
   </div>
-  <!-- Creating new Reviews -->
- <div class="col-md-5 card mb-4 mt-3">
-  <div class="card-body">
-    {% if user.is_authenticated %}
-    <h3>Leave a Review:</h3>
-    <p>Posting as: {{ user.username }}</p>
-    <form id="reviewForm" class="mkt-review" method="post"
-      style="margin-top: 1.3em;">
-      {{ review_form | crispy }}
-      {% csrf_token %}
-      <button id="submitButton" type="submit"
-      class="btn btn-signup btn-lg">Submit</button> 
-    </form>
-    {% else %}
-    <p>Please log in to leave a review</p>
-    {% endif %}
   </div>
- </div>
 </div>
 
 
