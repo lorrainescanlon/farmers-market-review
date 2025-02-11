@@ -50,13 +50,13 @@
   </div>
 </div>-->
 
-<!-- Displaying Comments -->
+<!-- Displaying Reviews -->
 <div class="row">
   <div class="col-md-7 card mb-4 mt-3 mkt-review">
     <h5>Reviews: {{ review_count }}</h5>    
     <div class="card-body mkt-review">
       <!-- We want a for loop inside the empty control tags
-      to iterate through each comment in comments -->
+      to iterate through each review in reviews -->
       {% for review in reviews %}
       <div class="p-2 reviews
         {% if not review.approved and review.author == user %}

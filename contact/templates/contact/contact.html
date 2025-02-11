@@ -4,19 +4,21 @@
 
 {% block content %}
 
-<div class="container mt-5">
+<div class="container">
     <div class="row">
-        <div>
+        <div class = "col-sm-7 mb-3 mb-sm-0 ">
             <!-- Title goes between these h2 tags -->
-            <h2>Contact Farmers Market Review</h2>
+            <h3>Contact Farmers Market Review</h3>
             <!-- Content goes here -->
             <p>
-                We are passionate about supporting rural communities and protecting the environment in which we all live.
-                Buying local enables our local towns and villages to thrive and promotes more sustainable food production. Food is grown 
-                locally in season with verly little miles traveled the local market and crafts are created using locally sourced materials.
+                We are passionate about supporting rural communities and protecting the environment 
+                in which we all live. Buying local enables our local towns and villages to thrive 
+                and promotes more sustainable food production. 
+                Food is grown locally in season with verly little miles travelled the local market 
+                and crafts are created using locally sourced materials.
             </p>
             <p>  
-                Please join us in supporting our local famers markets. Please get in touch using the form below if you
+                Please join us in supporting our local famers markets. Get in touch using the form below if you
                 <ul>
                     <li>Would like to add a new market to our list.</li>
                     <li>Have an upcoming local event that you would like to include in our monthly newsletter.</li>
@@ -25,19 +27,17 @@
                 </ul>
             </p>
         </div>
-  </div>
-
-  <div class="row">
-        <div class="col text-right">
-           <!-- form goes here -->
-           <form id="ContactForm" class="contact-form" method="post"
-           style="margin-top: 1.3em;">
-           {{ contact_form | crispy }}
-           {% csrf_token %}
-           <button id="submitButton" type="submit"
-           class="btn btn-signup btn-lg">Submit</button> 
-         </form>
+        <div class="col-5 text-left">
+            <!-- form goes here -->
+            <form id="ContactForm" class="contact-form" method="post"
+                style="margin-top: 1.3em;">
+                {{ contact_form | crispy }}
+                {% csrf_token %}
+                <button id="submitButton" type="submit"
+                class="btn btn-signup btn-lg">Submit</button> 
+            </form>
         </div>
-  </div>
+    </div>
 </div>
+
 {% endblock content %}
