@@ -69,12 +69,13 @@ def market_detail(request, slug):
         request, "markets_review/market_detail.html", context
     )
 
+
 def review_edit(request, slug, review_id):
     """
     view to edit review
     """
 
-    if request.method =="POST":
+    if request.method == "POST":
 
         queryset = Market.objects.filter(status=1)
         market = get_object_or_404(queryset, slug=slug)
@@ -104,7 +105,7 @@ def review_delete(request, slug, review_id):
 
     if review.author == request.user:
         review.delete()
-        message.add_message(request, messages.SUCCESS, 'Review deleted!')
+        messages.add_message(request, messages.SUCCESS, 'Review deleted!')
     else:
         messages.add_message(request, messages.ERROR, 'You can only delete reviews that you have created!')
 

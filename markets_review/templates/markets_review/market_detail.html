@@ -1,8 +1,8 @@
-{% extends "base.html" %}
+{% extends "base.html" %}{% block content %}
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block content %}
+
 
 <!-- Market_detail.html content starts here -->
 <div class="container">
@@ -77,39 +77,40 @@
         <!-- We want a for loop inside the empty control tags
         to iterate through each review in reviews -->
         {% for review in reviews %}
-        <div class="shadow review-text p-2 reviews
-          {% if not review.approved and review.author == user %}
-          faded{% elif not review.approved %} d-none{% endif %}">
-          <p class="font-weight-bold">
-            {{ review.created_on }}&nbsp|&nbsp
-            <span class="font-weight-normal"> 
-              {{ review.stars_rating }} star review by:&nbsp 
-            </span> 
-            <span class="font-weight-normal fst-italic">
-              {{ review.author }}
-            </span> 
-            <span class="font-weight-normal">
-            {{ review.visit_again.value }} 
-            </span> 
-          </p>
-          <div id="review{{ review.id }}">
-            {{ review.body | linebreaks }}
+          <div class="shadow review-text p-2 reviews
+            {% if not review.approved and review.author == user %}
+            faded{% elif not review.approved %} d-none{% endif %}">
+            <p class="font-weight-bold">
+              {{ review.created_on }}&nbsp|&nbsp
+              <span class="font-weight-normal"> 
+                {{ review.stars_rating }} star review by:&nbsp 
+              </span> 
+              <span class="font-weight-normal fst-italic">
+                {{ review.author }}
+              </span> 
+              <span class="font-weight-normal">
+              {{ review.visit_again.value }} 
+              </span> 
+            </p>
+            <div id="review{{ review.id }}">
+              {{ review.body | linebreaks }}
+            </div>
+            {% if not review.approved and review.author == user %}
+            <p class="approval">
+              This review is awaiting approval
+            </p>
+            {% endif %}
+            {% if user.is_authenticated and review.author == user %}
+              <button class="btn btn-edit" review_id="{{ review.id }}">Edit</button>
+              <button class="btn btn-delete" review_id="{{ review.id }}">Delete</button>
+            {% endif %}
           </div>
-          {% if not review.approved and review.author == user %}
-          <p class="approval">
-            This review is awaiting approval
-          </p>
-          {% endif %}
-          {% if user.is_authenticated and review.author == user %}
-          <button class="btn btn-edit" review_id="{{ review.id }}">Edit</button>
-          <button class="btn btn-delete" review_id="{{ review.id }}">Delete</button>
-          {% endif %}
-        </div>
-        <br>
-        <!-- Our for loop ends here -->
+          <br>
+          <!-- Our for loop ends here -->
         {% endfor %}
       </div>
     </div>
+
     <!-- Creating new Reviews -->
   <div class="col-md-5 card mb-4 mt-3 review-text no-border">
     <div class="card-body">
@@ -130,6 +131,28 @@
   </div>
   </div>
 </div>
+
+<!-- Delete confirmation modal -->
+<div class="modal fade" id="deletModal" tabindex="-1"
+  aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Delete Review?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure that you want to delete your Review?
+        This action cannot be reversed.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a id="deleteConfirm" href="#" classs="btn btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 {% endblock content %}
 
