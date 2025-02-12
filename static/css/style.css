@@ -6,9 +6,8 @@
 body {
     font-family: Roboto, sans-serif;
     font-weight: 300;
-    background-color: #e9eceff3 /*#FAF9F6;*/
+    background-color: white; /* #fdfdfd;*/
     color: #4A4A4F;
-
 }
 
 .brand {
@@ -83,7 +82,9 @@ body {
 
 .mkt-map {
     padding: 0px;
+    margin-top: 12px;
 }
+
 .mkt-image {
     max-height: 308px;
 }
@@ -158,6 +159,7 @@ footer i {
 
 .review-text {
     text-align: left;
+    background-color:  #fdfdfd; /* white;*/
 }
 
 .logged-text {

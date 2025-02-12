@@ -46,15 +46,15 @@
             width = "100%"
             frameborder="0" style="border:0"
             referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed/v1/place?key={{ key }}&q={{ market.location }}&center={{ market.latitude }}, {{ market.longitude }}&zoom=15">
-          </iframe>       
+            src="https://www.google.com/maps/embed/v1/place?key={{ key }}&q={{ market.location }}&center={{ market.latitude }}, {{ market.longitude }}&zoom=14">
+          </iframe>      
         </div>
       </div>
     </div>
   </div>
+  <br>
+  <hr>
 </div>
-
-<hr>
 
 <!-- Displaying count of reviews 
 <div class="row">
@@ -71,13 +71,13 @@
 <!-- Displaying Reviews -->
 <div class="container">
   <div class="row">
-    <div class="col-md-7 card mb-4 mt-3 review-text no-border">
+    <div class="col-md-7 card mb-4 mt-3 no-border">
       <h5>Reviews: {{ review_count }}</h5>    
       <div class="card-body">
         <!-- We want a for loop inside the empty control tags
         to iterate through each review in reviews -->
         {% for review in reviews %}
-        <div class="shadow p-2 reviews
+        <div class="shadow review-text p-2 reviews
           {% if not review.approved and review.author == user %}
           faded{% elif not review.approved %} d-none{% endif %}">
           <p class="font-weight-bold">
@@ -102,6 +102,7 @@
           {% endif %}
           {% if user.is_authenticated and review.author == user %}
           <button class="btn btn-edit" review_id="{{ review.id }}">Edit</button>
+          <button class="btn btn-delete" review_id="{{ review.id }}">Delete</button>
           {% endif %}
         </div>
         <br>

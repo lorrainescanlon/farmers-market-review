@@ -71,7 +71,7 @@ def market_detail(request, slug):
 
 def review_edit(request, slug, review_id):
     """
-    view to edit reviews
+    view to edit review
     """
 
     if request.method =="POST":
@@ -90,4 +90,22 @@ def review_edit(request, slug, review_id):
         else:
             messages.add_message(request, messages.ERROR, 'Error updating review!')
     
+    return HttpResponseRedirect(reverse('market_detail', args=[slug]))
+
+
+def review_delete(request, slug, review_id):
+    """
+    view to delete review
+    """
+
+    queryset = Market.objects.filter(status=1)
+    market = get_object_or_404(queryset, slug=slug)
+    review = get_object_or_404(Review, pk=review_id)
+
+    if review.author == request.user:
+        review.delete()
+        message.add_message(request, messages.SUCCESS, 'Review deleted!')
+    else:
+        messages.add_message(request, messages.ERROR, 'You can only delete reviews that you have created!')
+
     return HttpResponseRedirect(reverse('market_detail', args=[slug]))
