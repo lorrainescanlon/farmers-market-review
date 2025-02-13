@@ -89,9 +89,10 @@ def review_edit(request, slug, review_id):
             review.save()
             messages.add_message(request, messages.SUCCESS, 'Review Updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating review!')
-    
+            messages.add_message(request, messages.ERROR, 'Error updating review!') 
+
     return HttpResponseRedirect(reverse('market_detail', args=[slug]))
+
 
 
 def review_delete(request, slug, review_id):

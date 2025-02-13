@@ -90,8 +90,8 @@
             </p>
             {% endif %}
             {% if user.is_authenticated and review.author == user %}
-              <button class="btn-edit btn" review_id="{{ review.id }}">Edit</button>
-              <button class="btn btn-delete" review_id="{{ review.id }}">Delete</button>
+              <button class="btn-edit btn" data-review_id="{{ review.id }}">Edit</button>
+              <button class="btn btn-delete" data-review_id="{{ review.id }}">Delete</button>
             {% endif %}
           </div>
           <br>
@@ -147,4 +147,4 @@
 
 {% block extras %}
 <script src="{% static 'js/reviews.js' %}"></script>
-{% endblock extras %}
+{% endblock %}
