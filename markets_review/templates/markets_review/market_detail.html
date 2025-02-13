@@ -57,25 +57,13 @@
   <hr>
 </div>
 
-<!-- Displaying count of reviews 
-<div class="row">
-  <div class="col-12">
-    <strong class="text-secondary">
-      <i class="far fa-comments"></i> {{ review_count }}
-    </strong>
-  </div>
-  <div class="col-12">
-    <hr>
-  </div>
-</div>-->
-
 <!-- Displaying Reviews -->
 <div class="container">
   <div class="row">
     <div class="col-md-7 card mb-4 mt-3 no-border">
       <h5>Reviews: {{ review_count }}</h5>    
       <div class="card-body">
-        <!-- We want a for loop inside the empty control tags
+        <!-- We want a for loop 
         to iterate through each review in reviews -->
         {% for review in reviews %}
           <div class="shadow review-text p-2 reviews
