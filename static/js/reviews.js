@@ -16,7 +16,7 @@ const deleteConfirm = document.getElementById("deleteConfirm");
  * - Populate the `reviewText` textarea with the review content for editing.
  * - Update the submit buttons text to "Update".
  * - Set the forms action attriute to the `edit_review/{reviewId}` endpoint.
- */
+*/
 
 for (let button of editButtons) {
     button.addEventListener("click", (e) => {
@@ -37,12 +37,12 @@ for (let button of editButtons) {
  * deletion endpoint for the specific review.
  * - Display a confirmation modal (`deleteModal`) to prompt
  * the user for confirmation before deletion. 
- */
+*/
 
 for (let button of deleteButtons) {
     button.addEventListener("click", (e) => {
         let reviewId = e.target.getAttribute("review_id");
         deleteConfirm.href = `delete_review/${reviewId}`;
         deleteModal.show();
-    })
+    });
 }
