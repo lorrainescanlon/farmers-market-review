@@ -3,7 +3,7 @@ const reviewText = document.getElementById("id_body");
 const reviewForm = document.getElementById("reviewForm");
 const submitButton = document.getElementById("submitButton");
 
-const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+/**const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
 const deleteButtons = document.getElementsByClassName("btn-delete");
 const deleteConfirm = document.getElementById("deleteConfirm");
 
@@ -37,7 +37,7 @@ for (let button of editButtons) {
 * deletion endpoint for the review.
 * - Display a confirmation modal (`deleteModal`) to prompt 
 * the user for confirmation before deletion.
-*/
+
 for (let button of deleteButtons) {
     button.addEventListener("click", (e) => {
       let reviewId = e.target.getAttribute("review_id");
@@ -45,3 +45,4 @@ for (let button of deleteButtons) {
       deleteModal.show();
     });
   }
+    */
