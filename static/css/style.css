@@ -80,6 +80,10 @@ body {
     text-align:left;
 }
 
+.mkt-detail p {
+    margin-bottom: 0%;
+}
+
 .mkt-map {
     padding: 0px;
     margin-top: 12px;
@@ -199,11 +203,13 @@ footer i {
 }
 
 .visit {
-    padding: 0px;
-    align-items: center;
+    --bs-gutter-x: 0%;
+    align-items: start;
+    padding-top: 0px;
+    margin-top: 0px;
 
 }
 
-.progress-bar {
+/*.progress-bar {
     padding: 0px;
-}
+}*/

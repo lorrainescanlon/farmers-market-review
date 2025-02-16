@@ -30,15 +30,16 @@
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               {% else %}
               No reviews yet
-              {% endif %}
+              {% endif %}<br>
               <div class="row visit">
-                <div class="col-sm-4 mb-3 mb-sm-0 visit"><Strong> Visit Again:</strong></div>
-                <div class="col-sm-8 mb-3 mb-sm-0 visit">
+                <div class="col-sm-3 visit"><strong>Visit Again:</strong></div>
+                <div class="col-sm-9 progress">
                   <div class="progress-bar bg-success" role="progressbar" style="width: {{ visityes_percent }}%" aria-valuenow="{{ visityes_percent}}" aria-valuemin="0" aria-valuemax="100">Yes {{ visityes_percent}}%</div>
-                  <div class="progress-bar bg-danger" role="progressbar" style="width: {{ visitno_percent }}%" aria-valuenow="{{ visitno_percent}}" aria-valuemin="0" aria-valuemax="100">No</div>
-                </div>
-              </div>     
-          </p>
+                  <div class="progress-bar bg-danger" role="progressbar" style="width: {{ visitno_percent }}%" aria-valuenow="{{ visitno_percent}}" aria-valuemin="0" aria-valuemax="100">No {{ visitno_percent }}%</div>
+                </div>   
+              </div> 
+            </p>
+            <br>
           <p class="card-text">
               {{ market.content | safe }}
           </p>
