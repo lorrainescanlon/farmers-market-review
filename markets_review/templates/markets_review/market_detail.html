@@ -68,7 +68,7 @@
 <!-- Displaying Reviews -->
 <div class="container">
   <div class="row">
-    <div class="col-md-7 card mb-4 mt-3 no-border">
+    <div class="col-md-7 card mb-4 no-border">
       <h5>Reviews: {{ review_count }}</h5>    
       <div class="card-body">
         <!-- We want a for loop 
@@ -109,22 +109,22 @@
     </div>
 
     <!-- Creating new Reviews -->
-  <div class="col-md-5 card mb-4 mt-3 review-text no-border">
-    <div class="card-body">
-      {% if user.is_authenticated %}
-       <h3>Leave a Review:</h3>
-       <p>Posting as: {{ user.username }}</p>
-       <form id="reviewForm" class="text-left" method="post"
-         style="margin-top: 1.3em;">
-         {{ review_form | crispy }}
-         {% csrf_token %}
-         <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button> 
-       </form>
-      {% else %}
-       <p>Please log in to leave a review</p>
-      {% endif %}
+   <div class="col-md-5 card mb-4 review-text no-border">
+      <div class="card-body">
+        {% if user.is_authenticated %}
+        <h5>Leave a Review:</h5>
+        <p>Posting as: {{ user.username }}</p>
+        <form id="reviewForm" class="text-left" method="post"
+          style="margin-top: 1.3em;">
+          {{ review_form | crispy }}
+          {% csrf_token %}
+          <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button> 
+        </form>
+        {% else %}
+        <p>Please log in to leave a review</p>
+        {% endif %}
+      </div>
     </div>
-  </div>
   </div>
 </div>
 
