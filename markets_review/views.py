@@ -35,6 +35,15 @@ def market_detail(request, slug):
     market = get_object_or_404(queryset, slug=slug)
     reviews = market.reviews.all().order_by("-created_on")
     review_count = market.reviews.filter(approved=True).count()
+    visitagain_yes = market.reviews.filter(visit_again=True).count()
+    visitagain_no = market.reviews.filter(visit_again=False).count()
+    
+    visityes_percent = int((visitagain_yes/review_count)*100)
+    visitno_percent = int((visitagain_no/review_count)*100)
+    
+    """visitagain_yes = Review.objects.filter(market=market, visit_again=True).count()
+    visitagain_no = Review.objects.filter(market=market, visit_again=False).count()"""
+
     key = settings.GMAPS_API_KEY
 
     if review_count <= 0:
@@ -60,6 +69,10 @@ def market_detail(request, slug):
             "market": market,
             "reviews": reviews,
             "review_count": review_count,
+            "visitagain_yes": visitagain_yes,
+            "visityes_percent": visityes_percent,
+            "visitagain_no": visitagain_no,
+            "visitno_percent": visitno_percent,
             "market_stars": market_stars,
             "key": key,
             "review_form": review_form,

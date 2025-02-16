@@ -31,6 +31,13 @@
               {% else %}
               No reviews yet
               {% endif %}
+              <div class="row visit">
+                <div class="col-sm-4 mb-3 mb-sm-0 visit"><Strong> Visit Again:</strong></div>
+                <div class="col-sm-8 mb-3 mb-sm-0 visit">
+                  <div class="progress-bar bg-success" role="progressbar" style="width: {{ visityes_percent }}%" aria-valuenow="{{ visityes_percent}}" aria-valuemin="0" aria-valuemax="100">Yes {{ visityes_percent}}%</div>
+                  <div class="progress-bar bg-danger" role="progressbar" style="width: {{ visitno_percent }}%" aria-valuenow="{{ visitno_percent}}" aria-valuemin="0" aria-valuemax="100">No</div>
+                </div>
+              </div>     
           </p>
           <p class="card-text">
               {{ market.content | safe }}
