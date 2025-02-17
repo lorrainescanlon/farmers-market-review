@@ -84,10 +84,7 @@ body {
     margin-bottom: 0%;
 }
 
-.mkt-map {
-    padding: 0px;
-    margin-top: 12px;
-}
+
 
 .mkt-image {
     max-height: 308px;
@@ -204,12 +201,37 @@ footer i {
 
 .visit {
     --bs-gutter-x: 0%;
-    align-items: start;
+    align-items: center;
     padding-top: 0px;
     margin-top: 0px;
 
 }
 
-/*.progress-bar {
+.progress {
     padding: 0px;
-}*/
+    background-color: white;
+    border-radius: 0%;
+    height: 1.2rem;
+}
+
+.progress-bar {
+    padding-right: 0px;
+    margin-right:0px;
+    /*height: 1.5rem;*/
+
+
+}
+
+.map-style {
+    flex-grow: 1;
+}
+
+.mkt-map {
+    padding: 2px;
+    margin-top: 12px;
+    height: 250px;
+}
+
+.car-pic {
+    max-height: 250px;;
+}

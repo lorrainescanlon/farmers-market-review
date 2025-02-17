@@ -47,9 +47,21 @@
       </div>
     </div>
     <div class="col-sm-5 mb-3 mb-sm-0">
-      <div class="card mkt-map h-100">
-        <div class="card-body">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs", id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="map-tab" data-bs-toggle="tab" data-bs-target="#map" type="button" role="tab" aria-controls="map" aria-selected="true">Map</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pics-tab" data-bs-toggle="tab" data-bs-target="#pics" type="button" role="tab" aria-controls="pics" aria-selected="true">Pictures</button>
+          </li>
+        </ul>
+      </div>  
+          
+      <div class="tab-content">
+        <div class="tab-pane active card h-100 map-style mkt-map" id="map" role="tabpanel" aria-labelledby="map-tab">
           <iframe
+            class="map-style mkt-map"
             title=" {{ market.name}} {{key}}"
             height = "100%"
             width = "100%"
@@ -57,6 +69,29 @@
             referrerpolicy="no-referrer-when-downgrade"
             src="https://www.google.com/maps/embed/v1/place?key={{ key }}&q={{ market.location }}&center={{ market.latitude }}, {{ market.longitude }}&zoom=14">
           </iframe>      
+        </div>
+        <div class="tab-pane h-100" id="pics" role="tabpanel" aria-labelledby="pic-tab">
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{% static 'images/default.jpg' %}" class="w-100 car-pic" alt="vegetable box">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'images/vegportrait2.jpg' %}" class="car-pic" alt="vegetable portrait">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'images/vegstallbox2.jpg' %}" class="d-block car-pic" alt="vegetable stall">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
