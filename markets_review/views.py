@@ -119,7 +119,3 @@ def review_delete(request, slug, review_id):
         messages.add_message(request, messages.ERROR, 'You can only delete reviews that you have created!')
 
     return HttpResponseRedirect(reverse('market_detail', args=[slug]))
-
-
-def error_404_view(request, exception):
-    return render(request, '404.html')
