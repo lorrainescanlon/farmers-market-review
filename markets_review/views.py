@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Market, Review, Ratings
+from .models import Market, Review, Ratings, Picture
 from .forms import ReviewForm
 from django.conf import settings
 from django.db.models import Sum
@@ -119,3 +119,24 @@ def review_delete(request, slug, review_id):
         messages.add_message(request, messages.ERROR, 'You can only delete reviews that you have created!')
 
     return HttpResponseRedirect(reverse('market_detail', args=[slug]))
+
+def picture_carousel(request, slug):
+    """
+    view to retrive pisctures for market carousel
+    """
+
+    queryset = Picture.objects.filter(market=slug)
+    pictures = get_object_or_404(queryset)
+    album = pictures.images.all()
+
+    context = {
+            "album": album,
+    }
+
+    return render(
+        request, "markets_review/market_detail.html", context,
+    )
+
+
+  
+    

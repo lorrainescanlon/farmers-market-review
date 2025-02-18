@@ -50,3 +50,11 @@ class Ratings(models.Model):
 
     def __str__(self):
         return f"{self.market} - {self.stars}"
+
+
+class Picture(models.Model):
+    market= models.ForeignKey(Market, on_delete=models.CASCADE, related_name="picture")
+    image = CloudinaryField('image')
+
+    def __str__(self):
+        return f"{self.market} | written by {self.image}"
