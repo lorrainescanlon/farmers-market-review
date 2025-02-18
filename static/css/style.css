@@ -106,11 +106,15 @@ footer {
 footer i {
     color:#F9FAFC;
     size: 2em;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 0px; 
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .created-by {
-    padding-top: 8px;
+    padding-top: 0px;
+    margin-bottom: 10px;
 }
 
 .socials {
@@ -255,4 +259,9 @@ footer i {
     background-color: whitesmoke;
     padding: 10px;
     color:#5cb85c;
+}
+
+
+.list-inline {
+    margin-bottom: 2px;
 }
