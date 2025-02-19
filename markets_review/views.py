@@ -120,23 +120,21 @@ def review_delete(request, slug, review_id):
 
     return HttpResponseRedirect(reverse('market_detail', args=[slug]))
 
+
 def picture_carousel(request, slug):
     """
-    view to retrive pisctures for market carousel
+    view to retrive pictures for market_detail carousel
     """
 
-    queryset = Picture.objects.filter(market=slug)
-    pictures = get_object_or_404(queryset)
-    album = pictures.images.all()
+    pictures= Picture.objects.filter(market=slug)
+    images = get_object_or_404(pictures.image)
+
 
     context = {
-            "album": album,
+            "pictures": pictures,
+            "images": images,
     }
 
     return render(
         request, "markets_review/market_detail.html", context,
     )
-
-
-  
-    

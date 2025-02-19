@@ -57,4 +57,4 @@ class Picture(models.Model):
     image = CloudinaryField('image')
 
     def __str__(self):
-        return f"{self.market} | written by {self.image}"
+        return f"{self.market} {self.image}"
