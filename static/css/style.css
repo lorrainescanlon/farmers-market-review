@@ -264,3 +264,13 @@ footer i {
 .list-inline {
     margin-bottom: 2px;
 }
+
+.tab-content {
+    border-left: 1px solid #dee2eb;
+    border-bottom: 1px solid #dee2eb;
+    border-right: 1px solid #dee2eb;
+}
+
+.card-header {
+    padding-left: .5rem;
+}
