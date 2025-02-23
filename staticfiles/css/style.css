@@ -80,10 +80,11 @@ body {
     text-align:left;
 }
 
-.mkt-map {
-    padding: 0px;
-    margin-top: 12px;
+.mkt-detail p {
+    margin-bottom: 0%;
 }
+
+
 
 .mkt-image {
     max-height: 308px;
@@ -105,11 +106,15 @@ footer {
 footer i {
     color:#F9FAFC;
     size: 2em;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 0px; 
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .created-by {
-    padding-top: 8px;
+    padding-top: 0px;
+    margin-bottom: 10px;
 }
 
 .socials {
@@ -159,7 +164,7 @@ footer i {
 
 .review-text {
     text-align: left;
-    background-color:  #fdfdfd; /* white;*/
+    background-color:  #fdfdfd;
 }
 
 .logged-text {
@@ -194,6 +199,135 @@ footer i {
 
 .news-bar {
     background-color: #5cb85c;
-    padding: 0;
-    margin-top: 0;
+    color: #F9FAFC;
+    padding: 15px;
+}
+
+.visit {
+    --bs-gutter-x: 0%;
+    align-items: center;
+    padding-top: 0px;
+    margin-top: 0px;
+
+}
+
+.progress {
+    padding: 0px;
+    background-color: white;
+    border-radius: 0%;
+    height: 1.2rem;
+}
+
+.progress-bar {
+    padding-right: 0px;
+    margin-right:0px;
+    /*height: 1.5rem;*/
+
+
+}
+
+.map-style {
+    flex-grow: 1 1;
+    padding: 0px;
+    margin-top: 0px;
+    min-height: 250px;
+    border: none; 
+}
+
+.car-pic {
+    flex-grow: 1 1;
+    padding: 2px;
+    margin-top: 0px;
+    max-height: 250px;
+}
+
+.card-header {
+    background-color: white;
+}
+
+.carousel-item {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+#mkt-content {
+    --bs-gutter-x: 0;
+}
+
+.error-page p {
+    text-align: center;
+    background-color: whitesmoke;
+    padding: 10px;
+    color:#5cb85c;
+}
+
+
+.list-inline {
+    margin-bottom: 2px;
+}
+
+.tab-content {
+    border-left: 1px solid #dee2eb;
+    border-bottom: 1px solid #dee2eb;
+    border-right: 1px solid #dee2eb;
+}
+
+.card-header {
+    padding-left: .5rem;
+}
+
+.container hr{
+    color: #4A4A4F;
+    background: #4A4A4F;
+    height: 2.5px;
+    font-size: 0;
+    border: 0;
+}
+
+.contact-form {
+    border: solid 1px #5cb85c;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+.review-form {
+    border: solid 1px #5cb85c;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+.logout-form {
+    border: solid 1px #5cb85c;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.login-form {
+    border: solid 1px #5cb85c;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.signup-form {
+    border: solid 1px #5cb85c;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    text-align: center;
 }
