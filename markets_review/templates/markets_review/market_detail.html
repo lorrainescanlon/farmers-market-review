@@ -150,7 +150,7 @@
         {% if user.is_authenticated %}
         <h5>Leave a Review:</h5>
         <p>Posting as: {{ user.username }}</p>
-        <form id="reviewForm" class="text-left" method="post"
+        <form id="reviewForm" class="text-left review-form" method="post"
           style="margin-top: 1.3em;">
           {{ review_form | crispy }}
           {% csrf_token %}

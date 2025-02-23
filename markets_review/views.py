@@ -138,7 +138,6 @@ def picture_carousel(request, slug):
     pictures = Picture.objects.filter(market=slug)
     images = get_object_or_404(pictures.image)
 
-
     context = {
             "pictures": pictures,
             "images": images,

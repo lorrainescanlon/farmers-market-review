@@ -13,17 +13,14 @@
             <!-- Content goes here -->
             <p>
                 We are passionate about supporting rural communities and protecting the environment 
-                in which we all live. Buying local enables our local towns and villages to thrive 
-                and promotes more sustainable food production. 
-                Food is grown locally in season with verly little miles travelled the local market 
-                and crafts are created using locally sourced materials.
+                in which we all live. 
             </p>
             <p>  
-                Please join us in supporting our local famers markets. Get in touch using the form below if you
+                Please join us in supporting our local famers markets, get in touch using the form below if you
                 <ul>
                     <li>Would like to add a new market to our list.</li>
-                    <li>Have an upcoming local event that you would like to include in our monthly newsletter.</li>
-                    <li>Have an idea for an article you would like to see published in our newsletter.</li>
+                    <li>Have an upcoming local event that you would like to include in our monthly newsletter -<i> coming soon</i>.</li>
+                    <li>Have an idea for an article you would like to see published in our newsletter -<i> coming soon</i>.</li>
                     <li>Have any feedback or queries.</li>
                 </ul>
             </p>
@@ -31,7 +28,8 @@
         <div class="col-sm-5 text-left">
             <!-- form goes here -->
             <form id="ContactForm" class="contact-form" method="post"
-                style="margin-top: 1.3em;">
+            style="margin-top: 1em;"
+                >
                 {{ contact_form | crispy }}
                 {% csrf_token %}
                 <button id="submitButton" type="submit"

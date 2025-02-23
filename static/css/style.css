@@ -164,7 +164,7 @@ footer i {
 
 .review-text {
     text-align: left;
-    background-color:  #fdfdfd; /* white;*/
+    background-color:  #fdfdfd;
 }
 
 .logged-text {
@@ -274,4 +274,60 @@ footer i {
 
 .card-header {
     padding-left: .5rem;
+}
+
+.container hr{
+    color: #4A4A4F;
+    background: #4A4A4F;
+    height: 2.5px;
+    font-size: 0;
+    border: 0;
+}
+
+.contact-form {
+    border: solid 1px #5cb85c;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+.review-form {
+    border: solid 1px #5cb85c;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+.logout-form {
+    border: solid 1px #5cb85c;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.login-form {
+    border: solid 1px #5cb85c;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.signup-form {
+    border: solid 1px #5cb85c;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    text-align: center;
 }
