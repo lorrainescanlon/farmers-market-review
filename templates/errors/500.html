@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- 500.html content starts here -->
+
+<div class="error-page">
+    <h1> 500 Server Error </h1>
+    <p>
+        Sorry! Something weny wrong.
+        Try to refresh this page.
+        If the problem persists please contact us.
+    </p>
+    <a href="{% url 'home' %}">
+        Go Back to Home
+    </a>
+</div>
+
+<!-- 500.html content ends here -->
+{% endblock content %}

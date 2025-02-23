@@ -53,7 +53,7 @@ class Ratings(models.Model):
 
 
 class Picture(models.Model):
-    market= models.ForeignKey(Market, on_delete=models.CASCADE, related_name="picture")
+    market= models.ForeignKey(Market, on_delete=models.CASCADE, related_name="market_pictures")
     image = CloudinaryField('image')
 
     def __str__(self):

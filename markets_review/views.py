@@ -23,7 +23,16 @@ def market_detail(request, slug):
     **Context**
     ``market``
         An instance of :model:`markets_review.Market`
-    
+    ``reviews``
+        The reviews associated with the market
+    ``visityes_count``
+        A count of the reviews for a particular market where the authors would return
+    ``visitno_count``
+        A count of the reviews for a particular market where the authors would not return
+    ``visityes_percent``
+        The percentage of return yes votes for all reviews of a particular market
+    ``visitno_percent``
+        The percentage of return yes votes for all reviews of a particular market
     ``key``
         A variable pointing to google maps api key
     
