@@ -47,8 +47,12 @@ def market_detail(request, slug):
     visityes_count = market.reviews.filter(visit_again=True).count()
     visitno_count = market.reviews.filter(visit_again=False).count()
     
-    visityes_percent = int((visityes_count/review_count)*100)
-    visitno_percent = int((visitno_count/review_count)*100)
+    if review_count <= 0:
+        visityes_percent = 0
+        visitno_percent = 0
+    else:
+        visityes_percent = int((visityes_count/review_count)*100)
+        visitno_percent = int((visitno_count/review_count)*100)
 
     key = settings.GMAPS_API_KEY
 
