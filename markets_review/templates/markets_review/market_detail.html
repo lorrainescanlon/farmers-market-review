@@ -120,14 +120,21 @@
               </span> 
               <span class="font-weight-normal fst-italic">
                 {{ review.author }}
-              </span> 
-              <span class="font-weight-normal">
-              {{ review.visit_again.value }} 
-              </span> 
+              </span>  
             </p>
             <div id="review{{ review.id }}">
               {{ review.body | linebreaks }}
             </div>
+            <p>
+              <span class="font-weight-normal">
+                Would visit again?  
+                {% if review.visit_again == True %} 
+                  Yes 
+                {% else %} 
+                  No 
+                {% endif %}
+                </span>
+            </p>
             {% if not review.approved and review.author == user %}
              <p class="approval">
                This review is awaiting approval

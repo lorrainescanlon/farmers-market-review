@@ -135,21 +135,3 @@ def review_delete(request, slug, review_id):
         messages.add_message(request, messages.ERROR, 'You can only delete reviews that you have created!')
 
     return HttpResponseRedirect(reverse('market_detail', args=[slug]))
-
-
-def picture_carousel(request, slug):
-    """
-    view to retrive pictures for market_detail carousel
-    """
-
-    pictures = Picture.objects.filter(market=slug)
-    images = get_object_or_404(pictures.image)
-
-    context = {
-            "pictures": pictures,
-            "images": images,
-    }
-
-    return render(
-        request, "markets_review/market_detail.html", context,
-    )
