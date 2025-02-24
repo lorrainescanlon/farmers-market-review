@@ -54,13 +54,15 @@ def market_detail(request, slug):
         visityes_percent = int((visityes_count/review_count)*100)
         visitno_percent = int((visitno_count/review_count)*100)
 
-    key = settings.GMAPS_API_KEY
-
     if review_count <= 0:
         market_stars = "No reviews yet"
     else:
         market_stars = int(Review.objects.filter(market=market, approved=True).aggregate(total=Sum('stars_rating'))["total"]/review_count)
-        
+
+    key = settings.GMAPS_API_KEY    
+    pictures = Picture.objects.filter(market=market)
+
+
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST)
         if review_form.is_valid():
@@ -84,6 +86,7 @@ def market_detail(request, slug):
             "market_stars": market_stars,
             "key": key,
             "review_form": review_form,
+            "pictures": pictures,
         }
 
     return render(
