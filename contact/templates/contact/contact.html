@@ -27,9 +27,7 @@
         </div>
         <div class="col-sm-5 text-left">
             <!-- form goes here -->
-            <form id="ContactForm" class="contact-form" method="post"
-            style="margin-top: 1em;"
-                >
+            <form id="ContactForm" class="contact-form shadow" method="post">
                 {{ contact_form | crispy }}
                 {% csrf_token %}
                 <button id="submitButton" type="submit"

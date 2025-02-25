@@ -157,8 +157,7 @@
         {% if user.is_authenticated %}
         <h5>Leave a Review:</h5>
         <p>Posting as: {{ user.username }}</p>
-        <form id="reviewForm" class="text-left review-form" method="post"
-          style="margin-top: 1.3em;">
+        <form id="reviewForm" class="text-left review-form" method="post">
           {{ review_form | crispy }}
           {% csrf_token %}
           <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button> 
