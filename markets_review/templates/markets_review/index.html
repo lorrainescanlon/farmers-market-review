@@ -42,7 +42,7 @@
             {% if "placeholder" in market.image.url %}
             <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
             {% else %}
-            <img class="card-img-top" src="{{ market.image.url}}" alt="{{ market.name }}">
+            <img class="card-img-top" src="{{ market.image.url}}" style="height: 100%; object-fit: contain;" alt="{{ market.name }}">
             {% endif %}
             <div class="card-body">
               <a href="{% url 'market_detail' market.slug %}" class="link">
