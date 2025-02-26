@@ -1,8 +1,9 @@
+/* Google font styles */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
 
-
+/* General styles */
 body {
     font-family: Roboto, sans-serif;
     font-weight: 300;
@@ -17,7 +18,12 @@ body {
     color: #4A4A4F;
 }
 
+.pad-3 {
+    padding: 3px 12px;
+}
 
+
+/* Navigation styles */
 .navbar i {
     color:  #5cb85c;
 }
@@ -29,12 +35,20 @@ body {
 .test_color {
     color: #5cb85c;
 }
+
+.page-link {
+    color:#5cb85c;
+}
+
+
+
+/* Hero styles */
 .hero-section {
     background-image: url('https://res.cloudinary.com/dr6yvvzcb/image/upload/v1738441517/stackedVeg2_jrcd48.jpg');
     background-size: cover;
     color: #F9FAFC; 
-    /*border: 1px solid #4A4A4F;*/
     margin-top: 0;
+    min-height: 225px;
 }
 
 .hero-text {
@@ -53,6 +67,19 @@ body {
     color:#F9FAFC;
 }
 
+.logged-box {
+    background-color: #5cb85c;
+    padding: 0;
+    justify-content: end;
+    margin-bottom: 0;
+}
+
+.logged-text {
+    text-align: right;
+    color: #F9FAFC;
+}
+
+/* Card styles */
 .card {
     background-color: transparent;
     padding: 5%;
@@ -167,22 +194,9 @@ footer i {
     background-color:  #fdfdfd;
 }
 
-.logged-text {
-    text-align: right;
-    color: #F9FAFC;
-}
 
-.green-bg {
-    background-color: #5cb85c;
-    
-    padding: 0;
-    justify-content: end;
-    margin-bottom: 0;
-}
 
-.pad-3 {
-    padding: 3px 12px;
-}
+
 
 .sm-star i {
     color:  #5cb85c;
@@ -284,6 +298,7 @@ footer i {
     border: 0;
 }
 
+/* Form sytles */
 .contact-form {
     border: solid 1px #5cb85c;
     margin-top: 16px;
@@ -333,6 +348,3 @@ footer i {
     text-align: center;
 }
 
-.page-link {
-    color:#5cb85c;
-}
