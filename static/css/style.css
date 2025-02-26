@@ -332,3 +332,7 @@ footer i {
     padding-bottom: 10px;
     text-align: center;
 }
+
+.page-link {
+    color:#5cb85c;
+}
