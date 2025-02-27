@@ -2,15 +2,9 @@
 
 ## Code Institute - Portfolio Project 4 - Django 
 
-I believe Farmers Markets are an important part of rural communities and would like to encourage people to visit them 
-as unfortunatley many are under utilised.
-
-Farmers Market Review is a website which features full CRUD frunctionality to provie users with up to date information 
+Farmers Market Review is a review website which features full CRUD frunctionality to provie users with up to date information 
 about markets in and around County Kerry.
 
-As these are rural markets often the distance and time it takes to travel to them can put people off. 
-The reviews and scores are there to encourage would be visitors and help them to decide if it's worth their while to travel to a particular market. 
-At the same time perhaps the score system would encourage market organisers to up their game and become more competitive.
 
 ### A live demo of the site can be found [here](https://farmers-market-review-55ade4f51551.herokuapp.com/)
 
@@ -19,6 +13,8 @@ At the same time perhaps the score system would encourage market organisers to u
 
 
 ## Tabe of Contents
+- [Demo](#demo)
+  -[A live demo of the site can be found here](#a-live-demo-of-the-site-can-be-found-here)
 - [Site Goals](#site-goals)
 - [UI/UX](#ui-ux)
 - [Strategy](#strategy)
@@ -63,3 +59,12 @@ At the same time perhaps the score system would encourage market organisers to u
   - [Media](#media)
   - [Code](#code)
   - [Acknowledgements](#acknowledgements)
+
+
+
+I believe Farmers Markets are an important part of rural communities and would like to encourage people to visit them 
+as unfortunatley many are under utilised.
+
+As these are rural markets often the distance and time it takes to travel to them can put people off. 
+The reviews and scores are there to encourage would be visitors and help them to decide if it's worth their while to travel to a particular market. 
+At the same time perhaps the score system would encourage market organisers to up their game and become more competitive.

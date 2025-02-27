@@ -38,6 +38,7 @@ body {
 
 .page-link {
     color:#5cb85c;
+    margin-top: 10px;
 }
 
 
@@ -348,3 +349,11 @@ footer i {
     text-align: center;
 }
 
+@media screen and (min-width: 768px) {
+    .page-link {
+        border-top: 0px;
+    }
+}
+
+/*Media Query: laptops and desktops (992px and up) */
+/* @media screen and (min-width: 992px) { }*/
