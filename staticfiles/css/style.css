@@ -7,7 +7,7 @@
 body {
     font-family: Roboto, sans-serif;
     font-weight: 300;
-    background-color: white; /* #fdfdfd;*/
+    background-color: white;
     color: #4A4A4F;
 }
 
@@ -22,6 +22,14 @@ body {
     padding: 3px 12px;
 }
 
+.no-border {
+    border: none;
+}
+
+.asteriskField {
+    display: none;
+}
+
 
 /* Navigation styles */
 .navbar i {
@@ -32,13 +40,44 @@ body {
     border-bottom: thin solid rgb(196, 195, 195);
 }
 
-.test_color {
-    color: #5cb85c;
-}
-
 .page-link {
     color:#5cb85c;
     margin-top: 10px;
+}
+
+footer {
+    background-color: #5cb85c;
+    color: #F9FAFC;
+    font-weight: 300;
+}
+
+footer i {
+    color:#F9FAFC;
+    size: 2em;
+    padding-top: 10px;
+    padding-bottom: 0px; 
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.created-by {
+    padding-top: 0px;
+    margin-bottom: 10px;
+}
+
+.socials {
+    padding-top: 6px;
+}
+
+.socials i {
+    font-size: 18px; 
+    font-weight: 200;
+    color: #F9FAFC;
+}
+
+.link {
+    color:#5cb85c;
+    text-decoration: none;
 }
 
 
@@ -99,7 +138,6 @@ body {
     text-decoration: none;
 }
 
-
 .mkt-box {
     border-style: 1px solid #4A4A4F;
 }
@@ -112,54 +150,26 @@ body {
     margin-bottom: 0%;
 }
 
-
-
-.mkt-image {
-    max-height: 308px;
-}
-
 .market-grid {
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 5px;
 }
 
-footer {
-    background-color: #5cb85c;
-    color: #F9FAFC;
-    font-weight: 300;
+
+/* Image styles */
+
+.mkt-image {
+    max-height: 308px;
+}
+
+.sm-star i {
+    color:  #5cb85c;
+    size: 1em;
 }
 
 
-footer i {
-    color:#F9FAFC;
-    size: 2em;
-    padding-top: 10px;
-    padding-bottom: 0px; 
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.created-by {
-    padding-top: 0px;
-    margin-bottom: 10px;
-}
-
-.socials {
-    padding-top: 6px;
-}
-
-.socials i {
-    font-size: 18px; 
-    font-weight: 200;
-    color: #F9FAFC;
-}
-
-.link {
-    color:#5cb85c;
-    text-decoration: none;
-}
-
+/*Button styles */
 .btn-login,
 .btn-signup,
 .btn-logout {
@@ -182,26 +192,11 @@ footer i {
     color:#F9FAFC; 
 }
 
-.no-border {
-    border: none;
-}
 
-.asteriskField {
-    display: none;
-}
 
 .review-text {
     text-align: left;
     background-color:  #fdfdfd;
-}
-
-
-
-
-
-.sm-star i {
-    color:  #5cb85c;
-    size: 1em;
 }
 
 .review-box {
@@ -229,7 +224,6 @@ footer i {
 .progress {
     padding: 0px;
     background-color: white;
-    border-radius: 0%;
     height: 1.2rem;
 }
 
@@ -237,10 +231,9 @@ footer i {
     padding-right: 0px;
     margin-right:0px;
     /*height: 1.5rem;*/
-
-
 }
 
+/* Map styles */
 .map-style {
     flex-grow: 1 1;
     padding: 0px;
@@ -249,21 +242,32 @@ footer i {
     border: none; 
 }
 
-.car-pic {
+/* Carousel styles */
+.card-header {
+    background-color: white;
+}
+
+.carousel-pic {
     flex-grow: 1 1;
+    width: 100%;
+    align-items: center;
     padding: 2px;
     margin-top: 0px;
     max-height: 250px;
 }
 
-.card-header {
-    background-color: white;
-}
-
 .carousel-item {
+    align-items: center;
+    
     margin-top: 0px;
     padding-top: 0px;
 }
+
+.carousel-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 
 #mkt-content {
     --bs-gutter-x: 0;
@@ -349,3 +353,13 @@ footer i {
     text-align: center;
 }
 
+
+
+@media screen and (min-width: 768px) {
+    .page-link {
+        border-top: 0px;
+    }
+}
+
+/*Media Query: laptops and desktops (992px and up) */
+/* @media screen and (min-width: 992px) { }*/
