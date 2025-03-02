@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from .models import Market, Review, Ratings, Picture
 from .forms import ReviewForm
 from django.conf import settings
-from django.db.models import Sum
+from django.db.models import Sum, Q
 
 
 # Create your views here.
@@ -16,6 +16,19 @@ class MarketList(generic.ListView):
     template_name = "markets_review/index.html"
     paginate_by = 6
 
+
+class SearchView(generic.ListView):
+    model = Market
+    template_name = "markets_review/search_results.html"
+
+    def get_queryset(self):
+        query = self.request.GET.get('search')
+        search_result = Market.objects.filter(
+            Q(name__icontains=query) | Q(location__icontains=query)
+        )
+
+        return search_result
+    
 
 def market_detail(request, slug):
     """

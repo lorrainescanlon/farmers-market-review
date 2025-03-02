@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Index.html content starts here -->
+<section class="hero-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 hero-text">
+        <h1>Welcome to Farmers Market Review</h1>
+        <p>Please find a list of reviewed markets below & feel free to submit your own review!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container-fluid market-grid">
+  <div class="row">
+    <!-- Newsletter -->
+    <div class="news-bar col-2 border news-sbar d-none d-md-block">
+      <div><h5>Farmers Markets</h5></div>
+      <div><p><strong><i>Support</i></strong> rural economies and local jobs. Money spent at farmers markets 
+        stays within the local economy helping to create jobs and opportunites for people living in rural communities.</p></div>
+      <div><p><strong><i>Promote</i></strong> sustainable agriculture. Famers markets provide farmers with 
+        opportunities to sell their produce directly to consumers reducing transportation and packaging, 
+        thus minimising the carbon footprint associated with food production.</p></div>
+      <div><p><strong><i>Build</i></strong> community, self-sufficiency and food security. Farmers markets are a great way to support and
+        promote self-sufficiency and food security within our communities. Why import tonnes of seasonal produce 
+        when we have the perfect climate for growing them here. 
+       </p></div>
+      <div><p><strong><i>Connect</i></strong> with the people that grow and produce your food. Farmers markets allow customer 
+        to connect directly with farners and develop relationships with them.</p></div>
+    </div>
+    <!-- markets column-->
+    <div class="col-10">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for market in search_result %}
+        <div class="col-md-4">
+          <div class="shadow card h-100 mb-4 mkt-box">
+            {% if "placeholder" in market.image.url %}
+            <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+            {% else %}
+            <img class="card-img-top" src="{{ market.image.url}}" style="height: 100%; object-fit: contain;" alt="{{ market.name }}">
+            {% endif %}
+            <div class="card-body">
+              <a href="{% url 'market_detail' market.slug %}" class="link">
+                <h5 class="card-title">{{ market.name }}</h5>
+              </a>
+            </div>
+          </div>
+        </div>
+        {% empty %}
+            <h2>No Markets found</h2>
+        {% endfor %}
+      </div>
+    </div>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link link"> &laquo; PREV</a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link link"> NEXT &raquo;</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% endif %}
+  </div>
+</div>
+
+<!-- Index.html content ends here -->
+{% endblock %}

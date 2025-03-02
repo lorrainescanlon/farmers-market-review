@@ -26,9 +26,9 @@ body {
     border: none;
 }
 
-.asteriskField {
+/*.asteriskField {
     display: none;
-}
+}*/
 
 
 /* Navigation styles */
@@ -306,12 +306,13 @@ footer i {
 /* Form sytles */
 .contact-form {
     border: solid 1px #5cb85c;
-    margin-top: 16px;
+    margin-top: 12px;
+    margin-bottom: 10px;
     border-radius: 5px;
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 .review-form {
@@ -320,10 +321,10 @@ footer i {
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
-.logout-form {
+/*.logout-form {
     border: solid 1px #5cb85c;
     border-radius: 5px;
     padding-top: 20px;
@@ -331,7 +332,7 @@ footer i {
     padding-right: 20px;
     padding-bottom: 10px;
     text-align: center;
-}
+}*/
 
 .login-form {
     border: solid 1px #5cb85c;
@@ -339,8 +340,7 @@ footer i {
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 10px;
-    text-align: center;
+    padding-bottom: 20px;
 }
 
 .signup-form {
@@ -349,15 +349,30 @@ footer i {
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 10px;
-    text-align: center;
+    padding-bottom: 20px;
 }
 
+.form-control {
+    border-radius: 20px 0 0 20px;
+}
 
+.btn-outline-success {
+    border: 1px solid #ced4da;
+    border-radius: 0 20px 20px 0;
+}
 
 @media screen and (min-width: 768px) {
+    .login-form {
+        text-align: center;
+    } 
     .page-link {
         border-top: 0px;
+    }
+    .signup-form {
+        text-align: center;
+    }
+    .signup-form ul {
+        list-style-position: inside;
     }
 }
 

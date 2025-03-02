@@ -66,9 +66,10 @@
                     </li>
                     {% endif %}
                 </ul>
-                <span class="navbar-text text-muted">
-                    support local sustainable farmers & crafters
-                </span>
+                <form class="d-flex" action="{% url 'search_results' %}" method="GET" >
+                    <input class="form-control me-2" type="text" name="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             </div>
         </div>
     </nav>
@@ -120,22 +121,22 @@
             <div class="text-center socials">
                 <ul class="list-inline">
                     <li class="list-inline-item">
-                        <a target="_blank" href="#">
+                        <a target="_blank" href="https://www.facebook.com">
                             <i class="fa-brands fa-facebook" aria-label="facebook"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a target="_blank" href="#">
+                        <a target="_blank" href="https://www.x.com">
                             <i class="fa-brands fa-x-twitter" aria-label="x"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a target="_blank" href="#">
+                        <a target="_blank" href="https://www.instagram.com">
                             <i class="fa-brands fa-instagram" aria-label="instagram"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a target="_blank" href="#">
+                        <a target="_blank" href="https://www.youtube.com">
                             <i class="fa-brands fa-youtube" aria-label="you tube"></i>
                         </a>
                     </li>
