@@ -138,6 +138,8 @@ footer i {
     text-decoration: none;
 }
 
+.card-body {
+}
 .mkt-box {
     border-style: 1px solid #4A4A4F;
 }
@@ -196,7 +198,7 @@ footer i {
 
 .review-text {
     text-align: left;
-    background-color:  #fdfdfd;
+    background-color: /*#fdfdfd #F9FAFC;*/white;
 }
 
 .review-box {
@@ -216,7 +218,7 @@ footer i {
 .visit {
     --bs-gutter-x: 0%;
     align-items: center;
-    padding-top: 0px;
+    padding: 0px;
     margin-top: 0px;
 
 }
@@ -228,7 +230,7 @@ footer i {
 }
 
 .progress-bar {
-    padding-right: 0px;
+    padding: 0px;
     margin-right:0px;
     /*height: 1.5rem;*/
 }
@@ -352,11 +354,11 @@ footer i {
     padding-bottom: 20px;
 }
 
-.form-control {
+.search-box {
     border-radius: 20px 0 0 20px;
 }
 
-.btn-outline-success {
+.search-btn {
     border: 1px solid #ced4da;
     border-radius: 0 20px 20px 0;
 }

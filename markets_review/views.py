@@ -12,12 +12,17 @@ from django.db.models import Sum, Q
 
 
 class MarketList(generic.ListView):
+    """Display all markets in paginated form"""
+
     queryset = Market.objects.all().order_by('name')
     template_name = "markets_review/index.html"
     paginate_by = 6
 
 
+
 class SearchView(generic.ListView):
+    """Display search results in paginated form"""
+
     model = Market
     template_name = "markets_review/search_results.html"
 
@@ -27,42 +32,29 @@ class SearchView(generic.ListView):
             Q(name__icontains=query) | Q(location__icontains=query)
         )
 
-        print(query)
-        print(object_list)
-
         return object_list
-    
+
+
 
 def market_detail(request, slug):
-    """
-    Display information for an individual :model:`markets_review.Market`. 
-    **Context**
-    ``market``
-        An instance of :model:`markets_review.Market`
-    ``reviews``
-        The reviews associated with the market
-    ``visityes_count``
-        A count of the reviews for a particular market where the authors would return
-    ``visitno_count``
-        A count of the reviews for a particular market where the authors would not return
-    ``visityes_percent``
-        The percentage of return yes votes for all reviews of a particular market
-    ``visitno_percent``
-        The percentage of return yes votes for all reviews of a particular market
-    ``key``
-        A variable pointing to google maps api key
-    
-    **Template**
-    :template:`markets_review/market_detail.html`
-    """
+    """Display information for an individual market"""
 
     queryset = Market.objects.filter(status=1)
     market = get_object_or_404(queryset, slug=slug)
+
+    #reviews associated with the market
     reviews = market.reviews.all().order_by("-created_on")
+
+    #count approved market reviews
     review_count = market.reviews.filter(approved=True).count()
+
+    #count reviews who chose yes to visit again
     visityes_count = market.reviews.filter(visit_again=True).count()
+
+    ##count reviews who chose no to visit again
     visitno_count = market.reviews.filter(visit_again=False).count()
     
+    #get the percentage of yes and no choices
     if review_count <= 0:
         visityes_percent = 0
         visitno_percent = 0
@@ -70,15 +62,19 @@ def market_detail(request, slug):
         visityes_percent = int((visityes_count/review_count)*100)
         visitno_percent = int((visitno_count/review_count)*100)
 
+    #get a total of review stars ratings for the market
     if review_count <= 0:
         market_stars = "No reviews yet"
     else:
         market_stars = int(Review.objects.filter(market=market, approved=True).aggregate(total=Sum('stars_rating'))["total"]/review_count)
 
+    #google maps key
     key = settings.GMAPS_API_KEY    
+
+    #market pictures to display in image carousel
     pictures = Picture.objects.filter(market=market)
 
-
+    #validate new review
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST)
         if review_form.is_valid():
@@ -111,9 +107,7 @@ def market_detail(request, slug):
 
 
 def review_edit(request, slug, review_id):
-    """
-    view to edit review
-    """
+    """view to edit review"""
 
     if request.method == "POST":
 

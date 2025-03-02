@@ -33,9 +33,10 @@
               {% endif %}<br>
               <div class="row visit">
                 <div class="col-sm-3 visit"><strong>Visit Again:</strong></div>
-                <div class="col-sm-9 progress rounded">
-                  <div class="progress-bar bg-success" role="progressbar" style="width: {{ visityes_percent }}%" aria-valuenow="{{ visityes_percent}}" aria-valuemin="0" aria-valuemax="100">Yes {{ visityes_percent}}%</div>
-                  <div class="progress-bar bg-danger" role="progressbar" style="width: {{ visitno_percent }}%" aria-valuenow="{{ visitno_percent}}" aria-valuemin="0" aria-valuemax="100">No {{ visitno_percent }}%</div>
+                <div class="col-sm-9 progress">
+                  <div class="progress-bar bg-success rounded-start {% if visityes_percent == 100 %} rounded-end {% endif %}" 
+                    role="progressbar" style="width: {{ visityes_percent }}%" aria-valuenow="{{ visityes_percent }}" aria-valuemin="0" aria-valuemax="100">Yes {{ visityes_percent }}%</div>
+                  <div class="progress-bar bg-danger rounded-end" role="progressbar" style="width: {{ visitno_percent }}%" aria-valuenow="{{ visitno_percent }}" aria-valuemin="0" aria-valuemax="100">No {{ visitno_percent }}%</div>
                 </div>   
               </div> 
             </p>
