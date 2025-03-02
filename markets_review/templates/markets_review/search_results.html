@@ -35,7 +35,7 @@
     <!-- markets column-->
     <div class="col-10">
       <div class="row row-cols-1 row-cols-md-3 g-4">
-        {% for market in search_result %}
+        {% for market in object_list %}
         <div class="col-md-4">
           <div class="shadow card h-100 mb-4 mkt-box">
             {% if "placeholder" in market.image.url %}
@@ -51,7 +51,7 @@
           </div>
         </div>
         {% empty %}
-            <h2>No Markets found</h2>
+            <h2>No Markets found {{ search_result }}</h2>
         {% endfor %}
       </div>
     </div>

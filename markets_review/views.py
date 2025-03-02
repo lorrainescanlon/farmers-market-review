@@ -23,11 +23,14 @@ class SearchView(generic.ListView):
 
     def get_queryset(self):
         query = self.request.GET.get('search')
-        search_result = Market.objects.filter(
+        object_list = Market.objects.filter(
             Q(name__icontains=query) | Q(location__icontains=query)
         )
 
-        return search_result
+        print(query)
+        print(object_list)
+
+        return object_list
     
 
 def market_detail(request, slug):
