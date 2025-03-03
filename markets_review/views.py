@@ -74,6 +74,8 @@ def market_detail(request, slug):
     #market pictures to display in image carousel
     pictures = Picture.objects.filter(market=market)
 
+    review_form = ReviewForm()
+
     #validate new review
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST)
@@ -87,7 +89,7 @@ def market_detail(request, slug):
                 'Review submitted and awaiting approval'
     )
 
-    review_form = ReviewForm()
+   
 
     context =  {
             "market": market,

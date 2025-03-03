@@ -165,8 +165,8 @@
         </form>
         {% else %}
         <p><strong>Please log in to leave a review</strong></p>
-        <form id="reviewForm" class="text-left review-form form-border-pad" method="post" disabled>
-          {{ review_form | crispy }}
+        <form id="reviewForm" class="text-left review-form form-border-pad testform" method="post" disabled>
+          {{ review_form | crispy }}.disabled 
           {% csrf_token %}
           <button id="submitButton" type="submit" class="btn btn-signup btn-lg disabled">Submit</button> 
         </form>
