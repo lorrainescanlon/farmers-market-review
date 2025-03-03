@@ -30,8 +30,8 @@ class SearchView(generic.ListView):
         query = self.request.GET.get('search')
         object_list = Market.objects.filter(
             Q(name__icontains=query) | Q(location__icontains=query)
-        )
-
+        ).order_by('name')
+        
         return object_list
 
 

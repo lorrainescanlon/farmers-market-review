@@ -26,23 +26,33 @@ body {
     border: none;
 }
 
-/*.asteriskField {
-    display: none;
-}*/
+.error-page p {
+    text-align: center;
+    background-color: whitesmoke;
+    padding: 10px;
+    color:#5cb85c;
+}
+
+.list-inline {
+    margin-bottom: 2px;
+}
+
+.container hr{
+    color: #4A4A4F;
+    background: #4A4A4F;
+    height: 2.5px;
+    font-size: 0;
+    border: 0;
+}
 
 
 /* Navigation styles */
 .navbar i {
     color:  #5cb85c;
 }
-.navbar {
-    /*background-color: #5cb85c;*/
-    border-bottom: thin solid rgb(196, 195, 195);
-}
 
-.page-link {
-    color:#5cb85c;
-    margin-top: 10px;
+.navbar {
+    border-bottom: thin solid rgb(196, 195, 195);
 }
 
 footer {
@@ -80,7 +90,10 @@ footer i {
     text-decoration: none;
 }
 
-
+.page-link {
+    color:#5cb85c;
+    margin-top: 10px;
+}
 
 /* Hero styles */
 .hero-section {
@@ -119,6 +132,13 @@ footer i {
     color: #F9FAFC;
 }
 
+/* News Bar styles */
+.news-bar {
+    background-color: #5cb85c;
+    color: #F9FAFC;
+    padding: 15px;
+}
+
 /* Card styles */
 .card {
     background-color: transparent;
@@ -138,8 +158,6 @@ footer i {
     text-decoration: none;
 }
 
-.card-body {
-}
 .mkt-box {
     border-style: 1px solid #4A4A4F;
 }
@@ -158,9 +176,12 @@ footer i {
     margin-left: 5px;
 }
 
+#mkt-content {
+    --bs-gutter-x: 0;
+}
+
 
 /* Image styles */
-
 .mkt-image {
     max-height: 308px;
 }
@@ -195,32 +216,12 @@ footer i {
 }
 
 
-
-.review-text {
-    text-align: left;
-    background-color: /*#fdfdfd #F9FAFC;*/white;
-}
-
-.review-box {
-    background-color: #d8ffb3; /* #d5ffb3;*/
-}
-
-.signup {
-    padding: 6px;
-}
-
-.news-bar {
-    background-color: #5cb85c;
-    color: #F9FAFC;
-    padding: 15px;
-}
-
+/* Market detail styles */
 .visit {
     --bs-gutter-x: 0%;
     align-items: center;
     padding: 0px;
     margin-top: 0px;
-
 }
 
 .progress {
@@ -232,8 +233,17 @@ footer i {
 .progress-bar {
     padding: 0px;
     margin-right:0px;
-    /*height: 1.5rem;*/
 }
+
+.review-text {
+    text-align: left;
+    background-color: white;
+}
+
+.review-box {
+    background-color: #d8ffb3;
+}
+
 
 /* Map styles */
 .map-style {
@@ -244,9 +254,17 @@ footer i {
     border: none; 
 }
 
+
 /* Carousel styles */
+.tab-content {
+    border-left: 1px solid #dee2eb;
+    border-bottom: 1px solid #dee2eb;
+    border-right: 1px solid #dee2eb;
+}
+
 .card-header {
     background-color: white;
+    padding-left: .5rem;
 }
 
 .carousel-pic {
@@ -271,81 +289,17 @@ footer i {
 }
 
 
-#mkt-content {
-    --bs-gutter-x: 0;
-}
-
-.error-page p {
-    text-align: center;
-    background-color: whitesmoke;
-    padding: 10px;
-    color:#5cb85c;
-}
-
-
-.list-inline {
-    margin-bottom: 2px;
-}
-
-.tab-content {
-    border-left: 1px solid #dee2eb;
-    border-bottom: 1px solid #dee2eb;
-    border-right: 1px solid #dee2eb;
-}
-
-.card-header {
-    padding-left: .5rem;
-}
-
-.container hr{
-    color: #4A4A4F;
-    background: #4A4A4F;
-    height: 2.5px;
-    font-size: 0;
-    border: 0;
-}
-
 /* Form sytles */
+.signup {
+    padding: 6px;
+}
+
 .contact-form {
-    border: solid 1px #5cb85c;
     margin-top: 12px;
     margin-bottom: 10px;
-    border-radius: 5px;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
 }
 
-.review-form {
-    border: solid 1px #5cb85c;
-    border-radius: 5px;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-}
-
-/*.logout-form {
-    border: solid 1px #5cb85c;
-    border-radius: 5px;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 10px;
-    text-align: center;
-}*/
-
-.login-form {
-    border: solid 1px #5cb85c;
-    border-radius: 5px;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-}
-
-.signup-form {
+.form-border-pad {
     border: solid 1px #5cb85c;
     border-radius: 5px;
     padding-top: 20px;
@@ -363,17 +317,19 @@ footer i {
     border-radius: 0 20px 20px 0;
 }
 
+
+/* Media Queries*/
 @media screen and (min-width: 768px) {
-    .login-form {
+    .login {
         text-align: center;
     } 
     .page-link {
         border-top: 0px;
     }
-    .signup-form {
+    .signup {
         text-align: center;
     }
-    .signup-form ul {
+    .signup ul {
         list-style-position: inside;
     }
 }

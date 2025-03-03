@@ -158,13 +158,18 @@
         {% if user.is_authenticated %}
         <h5>Leave a Review:</h5>
         <p>Posting as: {{ user.username }}</p>
-        <form id="reviewForm" class="text-left review-form" method="post">
+        <form id="reviewForm" class="text-left review-form form-border-pad" method="post">
           {{ review_form | crispy }}
           {% csrf_token %}
           <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button> 
         </form>
         {% else %}
-        <p>Please log in to leave a review</p>
+        <p><strong>Please log in to leave a review</strong></p>
+        <form id="reviewForm" class="text-left review-form form-border-pad" method="post" disabled>
+          {{ review_form | crispy }}
+          {% csrf_token %}
+          <button id="submitButton" type="submit" class="btn btn-signup btn-lg disabled">Submit</button> 
+        </form>
         {% endif %}
       </div>
     </div>

@@ -6,6 +6,7 @@
  - [Navigation](#navigation)
  - [User Stories Testing](#user-stories-testing)
  - [CRUD Functionality](#crud-functionality)
+ - [Account/Authentication](#account-authentication)
  - [Social Links](#social-links)
 - [Lighthouse Testing](#lighthouse-testing)
  - [Mobile](#mobile)
