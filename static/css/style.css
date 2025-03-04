@@ -197,6 +197,9 @@ footer i {
     --bs-gutter-x: 0;
 }
 
+.mkt-center {
+    justify-content: center;
+}
 
 /* Image styles */
 .mkt-image {
