@@ -16,12 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from news import views as news_views
+
 
 
 urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
     path('contact/', include("contact.urls"), name="contact-urls"),
+    path('news/', news_views.news, name="news"),
     path('summernote/', include('django_summernote.urls')),
     path('', include("markets_review.urls"), name='markets_review-urls'),
 ]

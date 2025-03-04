@@ -8,9 +8,9 @@
 <div class="container">
     <div class="row">
         <div class = "col-sm-7 mt-3">
-            <!-- Title goes between these h2 tags -->
+            <!-- Title -->
             <h3>Contact Farmers Market Review</h3>
-            <!-- Content goes here -->
+            <!-- Content -->
             <p>
                 We are passionate about supporting rural communities and protecting the environment 
                 in which we all live. 
@@ -26,7 +26,7 @@
             </p>
         </div>
         <div class="col-sm-5 text-left">
-            <!-- form goes here -->
+            <!-- form -->
             <form id="ContactForm" class="contact-form shadow form-border-pad" method="post">
                 {{ contact_form | crispy }}
                 {% csrf_token %}
