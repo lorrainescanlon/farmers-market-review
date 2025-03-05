@@ -10,11 +10,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
-            <h3>{% trans "Sign In" %}</h3>
+            <h3>{% trans "Log In" %}</h3>
 
             <p>{% blocktrans %}Welcome back to Farmers Market Review. To leave or edit a review, please log in. If
                 you
-                don't have an account, then <a class="link" href="{{ signup_url }}">sign up</a>
+                don't have an account, then you will need to register <a class="link" href="{{ signup_url }}">here</a>
                 first.{% endblocktrans %}</p>
         </div>
     </div>
@@ -26,7 +26,7 @@
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-login" type="submit">{% trans "Sign In" %}</button>
+                <button class="btn btn-login" type="submit">{% trans "Log In" %}</button>
             </form>
         </div>
     </div>

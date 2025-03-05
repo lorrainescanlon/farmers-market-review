@@ -213,6 +213,13 @@ footer i {
 
 
 /*Button styles */
+
+.btn-delete, .btn-edit {
+    /*font-size: 1.2rem;
+    font-weight: 600;*/
+    color: #4A4A4F;
+}
+
 .btn-login,
 .btn-signup,
 .btn-logout {
