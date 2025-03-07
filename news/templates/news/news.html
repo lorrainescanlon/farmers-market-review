@@ -9,12 +9,12 @@
       <!-- Title -->
       <h3>Latest News</h3>
       <!-- Content -->
-      {% for news in object_list %}
-          <div>
-            <h5>{{ news.title }}</h5>
+      {% for article in articles %}
+          <div class="news-bar">
+            <h5>{{ article.title }}</h5>
           </div>
-          <div>
-            {{ news.content | safe }}
+          <div class="news-bar">
+            {{ article.content | safe }}
           </div>
         </div>
       {% endfor %}

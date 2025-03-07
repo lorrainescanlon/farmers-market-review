@@ -20,23 +20,17 @@
   <div class="row mkt-center">
     <!-- Newsletter -->
     <div class="news-bar col-2 border d-none d-md-block">
-      <div><h5>Farmers Markets</h5></div>
-      <div><p><strong><i>Support</i></strong> rural economies and local jobs. Money spent at farmers markets 
-        stays within the local economy helping to create jobs and opportunites for people living in rural communities.</p></div>
-      <div><p><strong><i>Promote</i></strong> sustainable agriculture. Famers markets provide farmers with 
-        opportunities to sell their produce directly to consumers reducing transportation and packaging, 
-        thus minimising the carbon footprint associated with food production.</p></div>
-      <div><p><strong><i>Build</i></strong> community, self-sufficiency and food security. Farmers markets are a great way to support and
-        promote self-sufficiency and food security within our communities. Why import tonnes of seasonal produce 
-        when we have the perfect climate for growing them here. 
-       </p></div>
-      <div><p><strong><i>Connect</i></strong> with the people that grow and produce your food. Farmers markets allow customer 
-        to connect directly with farners and develop relationships with them.</p></div>
+      {% for news in headlines %}
+        <div class="news-bar">
+          <h5>{{ news.title }}</h5>
+          {{ news.content | safe }}
+        </div>
+      {% endfor %}
     </div>
     <!-- markets column-->
     <div class="col-10">
       <div class="row row-cols-1 row-cols-md-3 g-4">
-        {% for market in market_list %}
+        {% for market in page_obj %} 
         <div class="col-md-4">
           <div class="shadow card h-100 mb-4 mkt-box">
             {% if "placeholder" in market.image.url %}
@@ -52,6 +46,18 @@
           </div>
         </div>
         {% endfor %}
+      </div>
+      <div class="pagination" style="text-align: center;">
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link link"> &laquo; PREV</a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link link"> NEXT &raquo;</a></li>
+            {% endif %}
+          </ul>
+        </nav>
       </div>
     </div>
     {% if is_paginated %}

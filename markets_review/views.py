@@ -2,23 +2,56 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Market, Review, Ratings, Picture
+from .models import Market, Review, Ratings, Picture 
+from news.models import News
 from .forms import ReviewForm
 from django.conf import settings
 from django.db.models import Sum, Q
+from django.core.paginator import Paginator
 
 
 # Create your views here.
 
+def market_list(request):
+    markets = Market.objects.all()
+    markets.order_by('name')
+    news = News.objects.filter(status=1)
+    headlines = news.filter(newsletter=True)
+    paginator = Paginator(markets, 6)
 
-class MarketList(generic.ListView):
-    """Display all markets in paginated form"""
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
 
-    queryset = Market.objects.all().order_by('name')
-    template_name = "markets_review/index.html"
-    paginate_by = 6
+    context = {
+        "markets": markets,
+        "headlines": headlines,
+        "page_obj": page_obj
+    }
+
+    return render(request, "markets_review/index.html", context)
+
+    
+#class MarketList(generic.ListView):
+#    """Display all markets in paginated form"""
+
+#    queryset = Market.objects.all().order_by('name')
+#    template_name = "markets_review/index.html"
+#    paginate_by = 6
 
 
+    
+
+#lass NewsLetter(generic.ListView):
+
+#    model = News
+#    template_name = "market_review/index.html"
+
+#    def get_queryset(self):
+#        object_list = News.objects.all()
+#        news_list = object_list.filter(newsletter=True)
+#    
+#        return news_list
+    
 
 class SearchView(generic.ListView):
     """Display search results in paginated form"""
@@ -33,7 +66,6 @@ class SearchView(generic.ListView):
         ).order_by('name')
         
         return object_list
-
 
 
 def market_detail(request, slug):
@@ -86,21 +118,18 @@ def market_detail(request, slug):
             review.save()
             messages.add_message(
                 request, messages.SUCCESS,
-                'Review submitted and awaiting approval'
-    )
+                'Review submitted and awaiting approval')
 
-   
-
-    context =  {
-            "market": market,
-            "reviews": reviews,
-            "review_count": review_count,
-            "visityes_percent": visityes_percent,
-            "visitno_percent": visitno_percent,
-            "market_stars": market_stars,
-            "key": key,
-            "review_form": review_form,
-            "pictures": pictures,
+    context = {
+        "market": market,
+        "reviews": reviews,
+        "review_count": review_count,
+        "visityes_percent": visityes_percent,
+        "visitno_percent": visitno_percent,
+        "market_stars": market_stars,
+        "key": key,
+        "review_form": review_form,
+        "pictures": pictures,
         }
 
     return render(

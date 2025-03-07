@@ -10,4 +10,3 @@ class News(SummernoteModelAdmin):
     search_fields = ['title', 'author',]
     list_filter = ('status',)
     prepopulated_fields = {'slug': ('title',)}  
-    summernote_fields = ('content',)

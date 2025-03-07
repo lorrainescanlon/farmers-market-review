@@ -156,6 +156,12 @@ footer i {
     padding: 15px;
 }
 
+#headlines {
+    background-color: #5cb85c;
+    color: #F9FAFC;
+    padding: 15px;
+}
+
 /* Card styles */
 .card {
     background-color: white;
