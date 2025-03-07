@@ -5,25 +5,20 @@
 {% block content %}
 
 <div class="container">
-    <div class="row">
-       <!-- Title -->
-       <h3>Latest News</h3>
-       <!-- Content -->
-      <div class="news-bar border">
-        <div><h5>Farmers Markets</h5></div>
-        <div><p><strong><i>Support</i></strong> rural economies and local jobs. Money spent at farmers markets 
-          stays within the local economy helping to create jobs and opportunites for people living in rural communities.</p></div>
-        <div><p><strong><i>Promote</i></strong> sustainable agriculture. Famers markets provide farmers with 
-          opportunities to sell their produce directly to consumers reducing transportation and packaging, 
-          thus minimising the carbon footprint associated with food production.</p></div>
-        <div><p><strong><i>Build</i></strong> community, self-sufficiency and food security. Farmers markets are a great way to support and
-          promote self-sufficiency and food security within our communities. Why import tonnes of seasonal produce 
-          when we have the perfect climate for growing them here. 
-         </p></div>
-        <div><p><strong><i>Connect</i></strong> with the people that grow and produce your food. Farmers markets allow customer 
-          to connect directly with farners and develop relationships with them.</p></div>
-      </div>
-    </div>
+  <div class="row">
+      <!-- Title -->
+      <h3>Latest News</h3>
+      <!-- Content -->
+      {% for news in object_list %}
+          <div>
+            <h5>{{ news.title }}</h5>
+          </div>
+          <div>
+            {{ news.content | safe }}
+          </div>
+        </div>
+      {% endfor %}
+  </div>
 </div>
 
 {% endblock content %}

@@ -20,6 +20,7 @@ class News(models.Model):
     created_on = models.DateField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     updated_on = models.DateField(auto_now=True)
+    newsletter = models.BooleanField(default=False)
 
     class Meta:
         ordering = ["-created_on"]

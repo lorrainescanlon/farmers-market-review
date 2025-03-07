@@ -31,8 +31,8 @@ class Review(models.Model):
     market = models.ForeignKey(Market, on_delete=models.CASCADE, related_name="reviews")
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reviewer")
     body = models.TextField(max_length=400)
-    stars_rating = models.IntegerField(choices=RATING, default= 5)
-    visit_again = models.BooleanField(choices=VISIT, default = True)
+    stars_rating = models.IntegerField(choices=RATING, default=5)
+    visit_again = models.BooleanField(choices=VISIT, default=True)
     approved = models.BooleanField(default=False)
     created_on = models.DateField(auto_now_add=True)
 
