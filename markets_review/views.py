@@ -14,12 +14,12 @@ def market_list(request):
     """Return all approved markets and approved newsletter headlines"""
     queryset = Market.objects.all().order_by('name')
     markets = queryset.filter(status=1)
-    news = News.objects.filter(status=1)
-    headlines = news.filter(newsletter=True)
     paginator = Paginator(markets, 6)
-
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
+
+    news = News.objects.filter(status=1)
+    headlines = news.filter(newsletter=True)
 
     context = {
         "markets": markets,
@@ -31,39 +31,26 @@ def market_list(request):
 
 
 def search_view(request):
-    query = request.GET.get('search')
-    if query:
-        object_list = Market.objects.filter(Q(name__icontains=query) 
-        | Q(location__icontains=query)).order_by('name')
+    """Return search results"""
+    query = request.GET.get('q')
     
-    news = News.objects.filter(status=1)
-    headlines = news.filter(newsletter=True)
+    object_list = Market.objects.filter(Q(name__icontains=query) | Q(location__icontains=query)).order_by('name')
+    
     paginator = Paginator(object_list, 6)
-
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
+    news = News.objects.filter(status=1)
+    headlines = news.filter(newsletter=True)
+
     context = {
+        "query": query,
         "object_list": object_list,
         "headlines": headlines,
         "page_obj": page_obj
     }
     return render(request, "markets_review/search_results.html", context)
 
-
-#class SearchView(generic.ListView):
- #   """Display search results in paginated form"""
-
-  #  model = Market
-   # template_name = "markets_review/search_results.html"
-
-    #def get_queryset(self):
-     #   query = self.request.GET.get('search')
-      #  object_list = Market.objects.filter(
-       #     Q(name__icontains=query) | Q(location__icontains=query)
-        #).order_by('name')
-        
-       # return object_list
 
 
 def market_detail(request, slug):
