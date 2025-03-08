@@ -32,8 +32,10 @@ def market_list(request):
 
 def search_view(request):
     query = request.GET.get('search')
-    object_list = Market.objects.filter(Q(name__icontains=query) 
+    if query:
+        object_list = Market.objects.filter(Q(name__icontains=query) 
         | Q(location__icontains=query)).order_by('name')
+    
     news = News.objects.filter(status=1)
     headlines = news.filter(newsletter=True)
     paginator = Paginator(object_list, 6)
