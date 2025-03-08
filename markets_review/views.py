@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Market, Review, Ratings, Picture 
+from .models import Market, Review, Picture
 from news.models import News
 from .forms import ReviewForm
 from django.conf import settings
@@ -10,11 +10,10 @@ from django.db.models import Sum, Q
 from django.core.paginator import Paginator
 
 
-# Create your views here.
-
 def market_list(request):
-    markets = Market.objects.all()
-    markets.order_by('name')
+    """Return all approved markets and approved newsletter headlines"""
+    queryset = Market.objects.all().order_by('name')
+    markets = queryset.filter(status=1)
     news = News.objects.filter(status=1)
     headlines = news.filter(newsletter=True)
     paginator = Paginator(markets, 6)
@@ -30,63 +29,56 @@ def market_list(request):
 
     return render(request, "markets_review/index.html", context)
 
-    
-#class MarketList(generic.ListView):
-#    """Display all markets in paginated form"""
 
-#    queryset = Market.objects.all().order_by('name')
-#    template_name = "markets_review/index.html"
-#    paginate_by = 6
+def search_view(request):
+    query = request.GET.get('search')
+    object_list = Market.objects.filter(Q(name__icontains=query) 
+        | Q(location__icontains=query)).order_by('name')
+    news = News.objects.filter(status=1)
+    headlines = news.filter(newsletter=True)
+    paginator = Paginator(object_list, 6)
+
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        "object_list": object_list,
+        "headlines": headlines,
+        "page_obj": page_obj
+    }
+    return render(request, "markets_review/search_results.html", context)
 
 
-    
+#class SearchView(generic.ListView):
+ #   """Display search results in paginated form"""
 
-#lass NewsLetter(generic.ListView):
+  #  model = Market
+   # template_name = "markets_review/search_results.html"
 
-#    model = News
-#    template_name = "market_review/index.html"
-
-#    def get_queryset(self):
-#        object_list = News.objects.all()
-#        news_list = object_list.filter(newsletter=True)
-#    
-#        return news_list
-    
-
-class SearchView(generic.ListView):
-    """Display search results in paginated form"""
-
-    model = Market
-    template_name = "markets_review/search_results.html"
-
-    def get_queryset(self):
-        query = self.request.GET.get('search')
-        object_list = Market.objects.filter(
-            Q(name__icontains=query) | Q(location__icontains=query)
-        ).order_by('name')
+    #def get_queryset(self):
+     #   query = self.request.GET.get('search')
+      #  object_list = Market.objects.filter(
+       #     Q(name__icontains=query) | Q(location__icontains=query)
+        #).order_by('name')
         
-        return object_list
+       # return object_list
 
 
 def market_detail(request, slug):
-    """Display information for an individual market"""
+    """Display information for an individual market details"""
 
     queryset = Market.objects.filter(status=1)
     market = get_object_or_404(queryset, slug=slug)
 
-    #reviews associated with the market
+    """display reviews associated with the market, count returned reviews"""
     reviews = market.reviews.all().order_by("-created_on")
-
-    #count approved market reviews
     review_count = market.reviews.filter(approved=True).count()
 
-    #count reviews who chose yes to visit again
+    """count reviews with visit again value of yes and no"""
     visityes_count = market.reviews.filter(visit_again=True).count()
-
-    ##count reviews who chose no to visit again
     visitno_count = market.reviews.filter(visit_again=False).count()
     
-    #get the percentage of yes and no choices
+    """calculate percentage of visit again yes and no choices"""
     if review_count <= 0:
         visityes_percent = 0
         visitno_percent = 0
@@ -94,21 +86,21 @@ def market_detail(request, slug):
         visityes_percent = int((visityes_count/review_count)*100)
         visitno_percent = int((visitno_count/review_count)*100)
 
-    #get a total of review stars ratings for the market
+    """calculate review stars ratings for the market"""
     if review_count <= 0:
         market_stars = "No reviews yet"
     else:
         market_stars = int(Review.objects.filter(market=market, approved=True).aggregate(total=Sum('stars_rating'))["total"]/review_count)
 
-    #google maps key
+    """google maps key"""
     key = settings.GMAPS_API_KEY    
 
-    #market pictures to display in image carousel
+    """market picture carousel"""
     pictures = Picture.objects.filter(market=market)
 
     review_form = ReviewForm()
 
-    #validate new review
+    """validate new review"""
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST)
         if review_form.is_valid():
@@ -161,9 +153,7 @@ def review_edit(request, slug, review_id):
 
 
 def review_delete(request, slug, review_id):
-    """
-    view to delete review
-    """
+    """view to delete review"""
 
     queryset = Market.objects.filter(status=1)
     market = get_object_or_404(queryset, slug=slug)

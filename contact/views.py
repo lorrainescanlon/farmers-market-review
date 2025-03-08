@@ -1,14 +1,12 @@
-from django.shortcuts import render, get_object_or_404, reverse
-from django.views import generic
+from django.shortcuts import render
 from django.contrib import messages
-from django.http import HttpResponseRedirect
 from .models import Contact
 from .forms import ContactForm
 
 # Create your views here.
 def contact(request):
     """
-    Renders the Contact page
+    Renders the Contact page and form
     """
     if request.method =="POST":
         contact_form = ContactForm(data=request.POST)

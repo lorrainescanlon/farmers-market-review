@@ -355,15 +355,20 @@ footer i {
     border-radius: 0 20px 20px 0;
 }
 
+.pagination {
+    justify-self: center;
+    margin-top: 10px;
+    justify-content: center;
+}
 
 /* Media Queries*/
 @media screen and (min-width: 768px) {
     .login {
         text-align: center;
     } 
-    .page-link {
+    /*.page-link {
         border-top: 0px;
-    }
+    }*/
     .signup {
         text-align: center;
     }
