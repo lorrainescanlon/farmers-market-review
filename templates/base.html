@@ -36,11 +36,11 @@
 
 </head>
 
-<body class="d-flex flex-column h-100 main-bg">
+<body class="d-flex flex-column h-100">
 
     <!-- Navigation -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">Farmers Market <i class="fa-solid fa-seedling">                
                 </i> Review</span></a>
@@ -73,7 +73,7 @@
                             <a class="nav-link {% if request.path == contact_url %}active" aria-current="page{% endif %}"
                                 href="{% url 'contact' %}">Contact</a>
                         </li>
-                        <li class="nav-item d-sm-none ">
+                        <li class="nav-item d-lg-none ">
                             <a class="nav-link {% if request.path == news_url %}active" aria-current="page{% endif %}" 
                                 href="{% url 'news' %}">News</a>
                         </li>
@@ -117,7 +117,7 @@
 
     
     
-    <main class="flex-shrink-0 main-bg">
+    <main>
         
         
 
@@ -157,7 +157,7 @@
                 </ul>
             </div>
             <div class=" text-center created-by">
-                &copy 2025 Copyright : Lorraine Scanlon
+                &copy 2025 Created by Lorraine Scanlon
             </div>
         </div>
     </footer>

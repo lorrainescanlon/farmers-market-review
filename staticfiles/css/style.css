@@ -47,6 +47,7 @@ body {
 
 /* Header */
 header {
+    background-color: white;
     position: sticky;
     top: 0;
     z-index: 1;
@@ -111,6 +112,7 @@ footer i {
     color:#5cb85c;
     margin-top: 10px;
 }
+
 
 /* Hero styles */
 .hero-section {
@@ -219,10 +221,7 @@ footer i {
 
 
 /*Button styles */
-
 .btn-delete, .btn-edit {
-    /*font-size: 1.2rem;
-    font-weight: 600;*/
     color: #4A4A4F;
 }
 
@@ -311,7 +310,6 @@ footer i {
 
 .carousel-item {
     align-items: center;
-    
     margin-top: 0px;
     padding-top: 0px;
 }
@@ -366,9 +364,6 @@ footer i {
     .login {
         text-align: center;
     } 
-    /*.page-link {
-        border-top: 0px;
-    }*/
     .signup {
         text-align: center;
     }
