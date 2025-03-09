@@ -70,26 +70,31 @@
 | **Feature** | **Action** | **Expected Result** | **Result** |
 | ----------- | ---------- | ------------------- | ---------- |
 | User account creation | Complete and submit the registration form | User can login using username and password. Username is displayed on logged in status bar | Pass |
-| Submit a review | User logs in, navigate to the market detail page. Fill in the review form and submit | Form is submitted successfully message is displayed | Pass | 
+| Submit a review | User logs in, navigate to the market detail page. Fill in the review form and submit | Form is submitted successfully message is displayed and the review awaits admin approval | Pass | 
 
 
  **Read** 
 
 | **Feature** | **Action** | **Expected Result** | **Result** |
 | ----------- | ---------- | ------------------- | ---------- |
+| Market grid display | When a user lands on the homepage markets are displayed in a grid style | Markets with a staus of 'Published' are displayed on the grid | Pass |
+| News Bar | When a user lands on the homepage news items are displayed in the news bar | News articles with a staus of newsletter = True are disaplyed | Pass |      
+| Market details | When a user naviagtes to the markets details page further details associated with that market are displayed | Market description, location, times, ratings, map and pictures are returned | Pass |
+
 
 
 **Update**
 
 | **Feature** | **Action** | **Expected Result** | **Result** |
 | ----------- | ---------- | ------------------- | ---------- |
+| Edit user review | A logged in user can edit a review on the markets detail page | Reviews belonging to a logged on user are displayed with an edit button. The review is loaded in the form, the user edits accordigly and submits. A submit successful message is displayed and the change awaits admin approval | Pass |
 
 
  **Delete** 
 
 | **Feature** | **Action** | **Expected Result** | **Result** |
 | ----------- | ---------- | ------------------- | ---------- |
-
+| Delete user review | A logged in user can delete a review from the markets detail page | Reviews belonging to a logged on user are displayed with a delete button. The review is loaded in the form, the user deletes. A confirmation modal is displayed, the user confirms and the delete is committed | Pass |
 ## Authentication 
 Account reigistration and validation - username and password
 Account login and valiation
