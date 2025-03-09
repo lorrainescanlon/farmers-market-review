@@ -96,7 +96,7 @@ Font used is Roboto.
 ### Agile
 This project was designed and built using the agile approach. I created a [GitHub project](https://github.com/users/lorrainescanlon/projects/3) and utilised the provided Kanban board method to split project elements into user stories and tasks. These tasks were updated as the project moved along until all tasks were completed.
 
-![Kanban](static\docs\images\kanban.PNG)
+![Kanban](/static/docs/images/kanban.PNG)
 
 | **User Stories** |
 | --- |
@@ -112,11 +112,11 @@ This project was designed and built using the agile approach. I created a [GitHu
 | As a Site Administrator I can upload market pictures so that I can support the written content |
 
 ### Wireframes
-Wireframes were created using software. Frames were drafted for mobile and desktop design. Initial/ designs included met basic/early requirements and designs have evolved since. View the wireframe designs here ![Wireframes](static\docs\wireframesmarketreview.pdf)
+Wireframes were created using software. Frames were drafted for mobile and desktop design. Initial/ designs included met basic/early requirements and designs have evolved since. View the wireframe designs here ![Wireframes](/static/docs/wireframesmarketreview.pdf)
 
-![Wireframe1](static\docs\images\wire1.PNG)
+![Wireframe1](/static/docs/images/wire1.PNG)
 
-![Wireframe2](static\docs\images\wire2.PNG)
+![Wireframe2](/static/docs/images/wire2.PNG)
 
 
 ### Design
@@ -134,39 +134,39 @@ Images, Map, Icons, Favicon, border style, border radius, shadow
  - Active link is highlighted in bold black text.
  - Collapsible burger menu with drop-down list on small to medium sized screens.
 
-![Nav Bar](static\docs\images\navbar.PNG)
+![Nav Bar](/static/docs/images/navbar.PNG)
 
-![Nav Burger](static\docs\images\navburger.PNG)
+![Nav Burger](/static/docs/images/navburger.PNG)
 
 #### Search Box
  - The search box is located to the right of the navigation bar.
  - It searches market names and location fields to see if they contain the search query. 
 
-![Search Box](static\docs\images\searchbox.PNG)
+![Search Box](/static/docs/images/searchbox.PNG)
 
 
 #### Logged in display
  - Located under the navigation bar is tells the user wether they are logged in or not.
  - If they are logged in their username is displayed here.
 
-![Logged In](static\docs\images\loggedinas.PNG)
+![Logged In](/static/docs/images/loggedinas.PNG)
 
 #### Footer
 - The footer contains links to social media sites: Facebook, X, Instagram and YouTube.
 
-![Footer](static\docs\images\footer2.PNG)
+![Footer](/static/docs/images/footer2.PNG)
 
 #### Hero Image
  - A hero image is displayed on the home and seacrh results pages.
  - It depicts a market scene with a tradres stall full of colourful vegetables.
  - An overlay section with text describes the website.
 
-![Hero](static\docs\images\heroimage.PNG)
+![Hero](/static/docs/images/heroimage.PNG)
 
 #### Market List
  - Markets are displayed as card items in a grid structure and paginated to display 6 per page. 
 
-![Market Grid](static\docs\images\marketgrid3.PNG)
+![Market Grid](/static/docs/images/marketgrid3.PNG)
 
 #### News bar
  - The news bar is only visible on larger screens.
@@ -174,13 +174,13 @@ Images, Map, Icons, Favicon, border style, border radius, shadow
  - On smaller screens this content is displayed on the news page accesible via a link on the drop down burger menu.
  - A list of headlines from a newsletter will appear here as a future feature.
 
-![News Bar](static\docs\images\newsbar2.PNG)
+![News Bar](/static/docs/images/newsbar2.PNG)
 
 #### Market Description
  - This section gives some detail of the market traders, location and operating times.
  - It also provides an average star rating and visit again score based on approved user reviews.
 
-![Market Details](static\docs\images\marketdetails2.PNG)
+![Market Details](/static/docs/images/marketdetails2.PNG)
 
 #### Map
  - The map tab displays the location of the market.
@@ -214,7 +214,7 @@ Images, Map, Icons, Favicon, border style, border radius, shadow
  - Currently it displays a news article rendered from the News model 
  - A list of headlines from a newsletter will appear here as a future feature.
 
- ![News](static\docs\images\newssmall2.PNG)
+ ![News](/static/docs/images/newssmall2.PNG)
 
 
 
