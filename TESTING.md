@@ -5,6 +5,7 @@
 - [Manual Testing](#manual-testing)
  - [Navigation](#navigation)
  - [User Stories Testing](#user-stories-testing)
+ - [Search Function](#search)
  - [CRUD Functionality](#crud-functionality)
  - [Account/Authentication](#account-authentication)
  - [Social Links](#social-links)
@@ -50,8 +51,26 @@
 | As a Site Admin I can create or update the contact page content so that is it available to site users | Once logged in to the admin console, the site admin can update the contact details and text. | Pass |
 | As a Site Administrator I can upload market pictures so that I can support the written content | Once logged in to the admin console, the site admin can upload market pictures. | Pass |
 
+## Search Function
 
+| **Test** | **Expected Outcome** | **Result** |
+| -------- | -------------------- | ---------- |
+| Search for market by name | Single result to be returned | Pass | 
+| Search for market by part name | One or more results containing serach query in Market name or location are returned in paginated form | Pass |
+| Search for market by location | One or more results containing serach query in Market name or location are returned in paginated form | Pass |
+| Search for market by part location | One or more results containing serach query in Market name or location are returned in paginated form | Pass |
+| Search for market by location area | One or more results containing serach query in Market name or location are returned in paginated form | Pass |
+| Search for market not in the database | One or more results containing serach query in Market name or location are returned in paginated form | Pass |
+| Search empty query | No Markets found returned | Pass | 
 
+## CRUD Functionality
+
+| **Create** |
+| ---------- |
+| **Feature** | **Action** | **Expected Result** | **Result** |
+| ----------- | ---------- | ------------------- | ---------- |
+| User account creation | Complete and submit the registration form | User can login using username and password. Username is displayed on logged in status bar | Pass |
+| Submit a review | Log in, navigate to the market detail page. Fill in the review form and submit | Form is submitted successfully message is displayed | Pass | 
 
 ## Authentication 
 Account reigistration and validation - username and password
