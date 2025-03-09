@@ -65,7 +65,7 @@
 
 ## CRUD Functionality
 
-| **Create** |
+| **Create**                                                  |
 | **Feature** | **Action** | **Expected Result** | **Result** |
 | ----------------------------------------------------------- |
 | User account creation | Complete and submit the registration form | User can login using username and password. Username is displayed on logged in status bar | Pass |
