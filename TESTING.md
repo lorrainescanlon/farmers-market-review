@@ -65,8 +65,8 @@
 
 ## CRUD Functionality
 
-| **Create**                                                  |
-|-------------------------------------------------------------|
+ **Create**                                                  
+
 | **Feature** | **Action** | **Expected Result** | **Result** |
 | ----------------------------------------------------------- |
 | User account creation | Complete and submit the registration form | User can login using username and password. Username is displayed on logged in status bar | Pass |
@@ -78,14 +78,15 @@
 | **Feature** | **Action** | **Expected Result** | **Result** |
 | ----------- | ---------- | ------------------- | ---------- |
 
-| **Update** |
-| ---------- |
+
+**Update**
+
 | **Feature** | **Action** | **Expected Result** | **Result** |
 | ----------- | ---------- | ------------------- | ---------- |
 
 
-| **Delete** |
-| ---------- |
+ **Delete** 
+
 | **Feature** | **Action** | **Expected Result** | **Result** |
 | ----------- | ---------- | ------------------- | ---------- |
 
