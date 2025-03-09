@@ -11,7 +11,7 @@
     <div class="col-sm-7 mb-3 mb-sm-0">
       <div class="card mkt-detail no-border">
         <div class="card-body mkt-detail">
-          <h5 class="card-title">Market Details</h5>
+          <h5 class="card-title">{{ market.name }} Details</h5>
           <p class="card-text sm-star">
               <Strong> Location :</strong> {{ market.location }}<br>
               <strong> Day/Time :</strong> {{ market.day_time }}<br>
@@ -165,11 +165,6 @@
         </form>
         {% else %}
         <p class="alert alert-primary text-center pad-3" role="alert">Please log in to leave a review!</p>
-        <form id="reviewForm" class="text-left form-border-pad" method="post" disabled>
-          {{ review_form | crispy }}
-          {% csrf_token %}
-          <button id="submitButton" type="submit" class="btn btn-signup btn-lg disabled">Submit</button> 
-        </form>
         {% endif %}
       </div>
     </div>

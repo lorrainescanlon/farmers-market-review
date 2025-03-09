@@ -34,9 +34,9 @@
         <div class="col-md-4">
           <div class="shadow card h-100 mb-4 mkt-box">
             {% if "placeholder" in market.image.url %}
-            <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+            <a href="{% url 'market_detail' market.slug %}"><img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image"></a>
             {% else %}
-            <img class="card-img-top" src="{{ market.image.url}}" style="height: 100%; object-fit: contain;" alt="{{ market.name }}">
+            <a href="{% url 'market_detail' market.slug %}"><img class="card-img-top" src="{{ market.image.url}}" style="height: 100%; object-fit: contain;" alt="{{ market.name }}"></a>
             {% endif %}
             <div class="card-body">
               <a href="{% url 'market_detail' market.slug %}" class="link">
