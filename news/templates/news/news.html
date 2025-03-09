@@ -10,10 +10,10 @@
       <h3>Latest News</h3>
       <!-- Content -->
       {% for article in articles %}
-          <div class="news-bar">
+          <div class="news">
             <h5>{{ article.title }}</h5>
           </div>
-          <div class="news-bar">
+          <div class="news">
             {{ article.content | safe }}
           </div>
         </div>

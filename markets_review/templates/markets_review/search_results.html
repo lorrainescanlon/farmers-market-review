@@ -31,7 +31,7 @@
       <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for market in page_obj %}
         <div class="col-md-4">
-          <div class="shadow card h-100 mb-4 mkt-box">
+          <div class="shadow card h-100 mb-4">
             {% if "placeholder" in market.image.url %}
             <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
             {% else %}

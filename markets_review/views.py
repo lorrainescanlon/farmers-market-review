@@ -119,28 +119,6 @@ def market_detail(request, slug):
     )
 
 
-"""def review_add(request, slug):
-    ""validate new review""
-    
-    if request.method == "POST":
-        queryset = Market.objects.filter(status=1)
-        market = get_object_or_404(queryset, slug=slug)
-        review_form = ReviewForm(data=request.POST)
-        print('first condition passed')
-
-        if review_form.is_valid():
-            review = review_form.save(commit=False)
-            review.author = request.user
-            review.market = market
-            review.save()
-            messages.add_message(request, messages.SUCCESS,
-                'Review submitted and awaiting approval')
-        else:
-            messages.add_message(request, messages.ERROR, 'Error adding review!') 
-
-    return HttpResponseRedirect(reverse('market_detail', args=[slug]))  """
-
-
 def review_edit(request, slug, review_id):
     """view to edit review"""
     if request.method == "POST":
