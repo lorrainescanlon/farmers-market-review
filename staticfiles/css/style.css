@@ -8,14 +8,14 @@ body {
     font-family: Roboto, sans-serif;
     font-weight: 300;
     background-color: white;
-    color: #3B3B3B/*#4A4A4F*/;
+    color: #3B3B3B;
 }
 
 .brand {
     font-family: Lato;
     font-size: 1.2rem;
     font-weight: 600;
-    color: #3B3B3B/*#4A4A4F*/;
+    color: #3B3B3B;
 }
 
 .pad-3 {
@@ -69,17 +69,16 @@ header {
 }
 
 .nav-link:hover {
-    color: #3B3B3B/*#4A4A4F*/;
+    color: #3B3B3B/;
     font-weight: bolder;
 }
 
 .nav-link:active {
-    color: #3B3B3B/*#4A4A4F*/;
+    color: #3B3B3B;
     font-weight: bolder;
 }
 
 footer {
-    background-color: #5cb85c;
     color: #3B3B3B;
     font-weight: 300;
 }
@@ -108,6 +107,7 @@ footer i {
 }
 
 .quote {
+    background-color: #5cb85c;
     font-style: italic;
     padding: 10px;
     text-align: center;
@@ -119,7 +119,6 @@ footer i {
 }
 
 .page-link {
-    /*background-color:#5cb85c;*/
     color: #4A4A4F;
     margin-top: 10px;
     border: none;
@@ -137,7 +136,7 @@ footer i {
 }
 
 .hero-text {
-    background-color: rgba(74, 74, 79, 0.5) ;
+    background-color: rgba(74, 74, 79, 0.7);
 }
 
 .hero-section h1 {
@@ -212,6 +211,8 @@ footer i {
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 5px;
+    padding: 30px;
+    padding-bottom: 0px;
 }
 
 #mkt-content {
