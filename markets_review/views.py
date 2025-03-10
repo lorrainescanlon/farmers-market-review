@@ -33,22 +33,26 @@ def market_list(request):
 def search_view(request):
     """Return search results"""
     query = request.GET.get('q')
-    
-    object_list = Market.objects.filter(Q(name__icontains=query) | Q(location__icontains=query)).order_by('name')
-    
-    paginator = Paginator(object_list, 6)
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
 
-    news = News.objects.filter(status=1)
-    headlines = news.filter(newsletter=True)
+    if query:
+        object_list = Market.objects.filter(Q(name__icontains=query) | Q(location__icontains=query)).order_by('name')
+        paginator = Paginator(object_list, 6)
+        page_number = request.GET.get("page")
+        page_obj = paginator.get_page(page_number)
 
-    context = {
-        "query": query,
-        "object_list": object_list,
-        "headlines": headlines,
-        "page_obj": page_obj
-    }
+        context = {
+            "query": query,
+            "object_list": object_list,
+            "page_obj": page_obj
+        }
+    else:
+        object_list = None
+        context = {
+            "query": query,
+            "object_list": object_list,
+        }
+
+    
     return render(request, "markets_review/search_results.html", context)
 
 

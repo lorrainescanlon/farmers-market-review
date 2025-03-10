@@ -17,15 +17,6 @@
 
 <div class="container-fluid market-grid">
   <div class="row">
-    <!-- Newsletter -->
-    <div class="news-bar col-2 border d-none d-md-block">
-      {% for news in headlines %}
-        <div class="news-bar">
-          <h5>{{ news.title }}</h5>
-          {{ news.content | safe }}
-        </div>
-      {% endfor %}
-    </div>
     <!-- markets column-->
     <div class="col-10">
       <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -47,6 +38,13 @@
         {% empty %}
             <h2>No Markets found</h2>
         {% endfor %}
+        {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+          <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
       </div>
     </div>
     <div class="pagination">

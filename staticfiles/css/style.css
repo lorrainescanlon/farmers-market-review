@@ -107,6 +107,12 @@ footer i {
     color: #3B3B3B;
 }
 
+.quote {
+    font-style: italic;
+    padding: 10px;
+    text-align: center;
+}
+
 .link {
     color:#5cb85c;
     text-decoration: none;
