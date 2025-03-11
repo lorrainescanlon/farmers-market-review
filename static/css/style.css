@@ -108,11 +108,20 @@ footer i {
     color: #3B3B3B;
 }
 
-.quote {
+.quote-row {
     background-color: #5cb85c;
+}
+
+.quote {
+    /*display: flex;*/
+    background-color: #5cb85c;
+    font-size: 14px;
     font-style: italic;
-    padding: 10px;
+    padding: 2px;
+    padding-top: 10px;
     text-align: center;
+    align-content: center;
+    border: none;
 }
 
 .link {
@@ -225,9 +234,6 @@ footer i {
 }
 
 /* Image styles */
-.mkt-image {
-    max-height: 308px;
-}
 
 .sm-star i {
     color:  #5cb85c;
@@ -387,6 +393,13 @@ footer i {
     .signup ul {
         list-style-position: inside;
     }
+    /*.quote-right {
+        text-align: right;
+    }
+    .quote-left {
+        text-align: left;
+        padding-left: 5px;
+    }*/
 }
 
 /*Media Query: laptops and desktops (992px and up) */
