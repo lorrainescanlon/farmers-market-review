@@ -9,6 +9,7 @@
  - [CRUD Functionality](#crud-functionality)
  - [Account/Authentication](#account-authentication)
  - [Social Links](#social-links)
+ - [404 errors 405 500](#404-errors)
 - [Lighthouse Testing](#lighthouse-testing)
  - [Mobile](#mobile)
  - [Laptop PC](#Laptop-PC)

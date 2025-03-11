@@ -32,6 +32,7 @@ currently it focuses on farners markets in and around County Kerry.
   - [Picture Model](#picture-model)
   - [Contact Model](#contact-model)
 - [Technologies Used](#technologies-used)
+  - [Development Environment and Hosting](#development-environment-and-hosting)
   - [Libraries](#libraries)
     - [BOOTSTRAP](#bootstrap)
     - [All Auth](#all-auth)
@@ -168,14 +169,6 @@ Images, Map, Icons, Favicon, border style, border radius, shadow
 
 ![Market Grid](/static/docs/images/marketgrid3.PNG)
 
-#### News bar
- - The news bar is only visible on larger screens.
- - Currently it displays a news article rendered from the News model.
- - On smaller screens this content is displayed on the news page accesible via a link on the drop down burger menu.
- - A list of headlines from a newsletter will appear here as a future feature.
-
-![News Bar](/static/docs/images/newsbar2.PNG)
-
 #### Market Description
  - This section gives some detail of the market traders, location and operating times.
  - It also provides an average star rating and visit again score based on approved user reviews.
@@ -210,29 +203,102 @@ Images, Map, Icons, Favicon, border style, border radius, shadow
  - Contact form to enable users to provide feedback and/or contact the site administrator.
 
 #### News
- - The news page is only accessible on smaller screens, via a link on the drop down burger menu.
- - Currently it displays a news article rendered from the News model 
- - A list of headlines from a newsletter will appear here as a future feature.
+ - The news page is intended for future development.
+ - Currently it displays a news article rendered from the News model. 
+ - A newletter will appear here as a future add on as described below..
 
- ![News](/static/docs/images/newssmall2.PNG)
+ ![News]()
 
 
 
 ### Future Features
+Newsletter section with calendar of events taking place that month.
+workshops coming up, popup markets, seasonal markets, fairs, festivals, food festivals, summer show, ploughing championships, bloom
+Interview with producer/crafter of the month.
+Seasonal grower gardener tips, recipies and craft ideas
+New articles updated monthly. 
+Users can subscribe to the newsletter once they have an account. 
+
+Ability for user to upload images of their own along with their reviews.
 
 
 #### Newsletter
 
 
 ## Database Model
+The database model diagram was created using [Lucidchart](https://lucidchart.com)
+
+![DBModel](/static/docs/images/dbmodels.png)
+
+### Market Model
+ - The market model stores data for featured farmers markets. 
+
+### Review Model
+ - The review model records reviews that are submitted for the markets stored in the market model.
+
+### Pictures Model
+ - The pictures model contains image urls for market pictures. These pictures are displayed on the image carousel on the markets detail page.
+
+### Contact Model
+ - Records contact messages sent via the form on the contact.html page.
+
+### News Model
+ - The news model contains news articles that can be pulled together to create a newslette on the news.html page.
 
 ### CRUD
-### Market Model
-### Review Model
-### Pictures Model
-### Contact Model
-### News Model
+
+The CRUD principle was at the center of the design process for this project. 
+
+**Create:**
+ - A user can create an account which is written to the database User model.
+ - An authenticated user can create and submit a review that is written to the Review model.
+
+**Read:**
+ - A user can read detailed market information and review data returned from the Market and Review database models.
+ - A user can search for markets by name and location details returned from the Market model.
+
+**Update:**
+ - An authenticated user can update or edit their own reviews recorded on the Review model.
+
+**Delete:**
+ - An authenticated user can delete their own review records from the Review model in the database.
 
 
-[static\docs\wireframesmarketreview.pdf]: static\docs\wireframesmarketreview.pdf
-[def]: static\docs\images\navbar2.PNG
+
+## Technologies Used
+
+### Development Enviornment and Hosting
+ - [Figma](https://figma.com) - Wireframes.
+ - [Lucid](https://lucid.app/) - Database ERD.
+ - [GitHub](https://github.com/) - Version control.
+ - [GitPod](https://gitpod.io) - IDE - used at the begining of the project then migrated to VS Code.
+ - [Visual Studio Code](https://code.visualstudio.com) - IDE.
+ - [Heroku](https://heroku.com) - Website hosting platform.
+ - [Cloudinary](https://cloudinary.com/) - Image hosting platform.
+
+### Libraries
+#### Python
+ - [Gunicorn](https://gunicorn.org/) - Python Http server for WSGI applications.
+ - [pyscopg2](https://pypi.org/project/psycopg2/) - Python PostgresSQL Database adapter.
+
+#### Django
+ - [Django-allauth](https://docs.allauth.org/en/latest/) - An integrated set of Django applications used for user authentication and account management.
+ - [Django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Used for styled and responsive forms with validation.
+
+#### Bootstrap
+ - [Bootstrap5](https://getbootstrap.com/) - Front-end framework used to simplify html, css and responsive design features.
+
+#### Whitenoise
+ - [Whitenoise](https://whitenoise.readthedocs.io/en/stable/index.html) - Middleware used by Django to handle serving of the static files.
+
+#### Summernote
+ - [Summernote](https://summernote.org/) - WYSIWYG editor used by the site admin in the admin panel.
+
+### PostgresSql
+ - [PostgresSQL](https://www.postgresql.org/) - An object-relational database management system (ORDMBS) is used as the backend for this project.
+
+### Google Maps API
+ - [Google Maps](https://developers.google.com/maps) - Platform used to render maps on the website.
+
+### Cloudinary
+
