@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Market, Review, Ratings, Picture
+from .models import Market, Review, Picture
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -22,7 +22,3 @@ class ReviewAdmin(SummernoteModelAdmin):
 class PictureAdmin(SummernoteModelAdmin):
     list_display = ('market', 'image',)
     list_filter = ('market',)
-
-
-# Register your models here.
-admin.site.register(Ratings)

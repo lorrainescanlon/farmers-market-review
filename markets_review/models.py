@@ -50,13 +50,13 @@ class Review(models.Model):
                 on {self.created_on}"
 
 
-class Ratings(models.Model):
+"""class Ratings(models.Model):
     market = models.ForeignKey(Market, on_delete=models.CASCADE,
                                related_name="market_ratings")
     stars = models.IntegerField()
 
     def __str__(self):
-        return f"{self.market} - {self.stars}"
+        return f"{self.market} - {self.stars}"""
 
 
 class Picture(models.Model):

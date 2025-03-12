@@ -123,7 +123,7 @@ Document checking completed. No errors or warnings to show.
 
 **Market detail page**
 Error reported in realtion to parameter value passed to google maps url. There are spaces in the location name.
-![Market details validation error](/static/docs/images/marketdetailvalidation.PNG)
+![Market details validation error](/static/docs/images/markedetailvalidation.PNG)
 ![Error highlight in code](/static/docs/images/mapserror.PNG)
 
 **Search results page.html**
@@ -147,6 +147,12 @@ Document checking completed. No errors or warnings to show.
 Document checking completed. No errors or warnings to show.
 
 
-## CSS Validation
+## CSS Validation [Jigsaw](https://jigsaw.w3.org/css-validator/)
+No errors reported 
+![css validation](/static/docs/images/cssvalidation.PNG)
+
+3 warnings returned.
+![css warnings](/static/docs/images/csswarnings.PNG)
+
 ## Javascript Validation
 ## Python Validation
