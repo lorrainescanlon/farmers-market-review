@@ -6,18 +6,17 @@
 
 <div class="container">
   <div class="row">
-      <!-- Title -->
-      <h3>Latest News</h3>
-      <!-- Content -->
-      {% for article in articles %}
-          <div class="news">
-            <h5>{{ article.title }}</h5>
-          </div>
-          <div class="news">
-            {{ article.content | safe }}
-          </div>
+    <!-- Title -->
+    <h3>Latest News</h3>
+    <!-- Content -->
+    {% for article in articles %}
+        <div class="news">
+          <h5>{{ article.title }}</h5>
         </div>
-      {% endfor %}
+        <div class="news">
+          {{ article.content | safe }}
+        </div>
+    {% endfor %}
   </div>
 </div>
 

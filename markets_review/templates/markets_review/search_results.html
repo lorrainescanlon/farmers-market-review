@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<!-- Index.html content starts here -->
+<!-- Hero section -->
 <section class="hero-section">
   <div class="container">
     <div class="row">
@@ -15,11 +15,11 @@
   </div>
 </section>
 
+<!-- Search results displayed here -->
 <div class="container-fluid market-grid">
-  <div class="row">
-    <!-- markets column-->
-    <div class="col-10">
-      <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="row mkt-center">
+    <div class="col-11 mt-3">
+      <div class="row g-4">
         {% for market in page_obj %}
         <div class="col-md-4">
           <div class="shadow card h-100 mb-4">
