@@ -158,5 +158,7 @@ One error returned regarding an undefined variable.
 No action required as this is a custom bootstrap variable and did not need to be defined inside the script.
 
 ## Python Validation
-I installed and used the pycodestyle tool to validate the projects python code. I corrected errors returned and wrote the results of the last pycodestyle test to the following text file [pycodestyle](/static/docs/pycodestyle.txt)
+I installed and used the pycodestyle tool to validate the projects python code. 
+I ran the pycodestyle tool command for each app, contact, markets_review, my_project and news.
+I corrected errors returned and wrote the results of the last pycodestyle tests to the following text file [pycodestyle](/static/docs/pycodestyle.txt)
 The remaining errors are found within the migration files which cannot be corrected.

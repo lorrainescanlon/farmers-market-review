@@ -4,10 +4,10 @@
 
 Farmers Market Review is a review website which features full CRUD frunctionality to provide users with up to date information 
 about markets. This platform allows users to share their experiences and rate markets they have visited so as to inform others,
-currently it focuses on farners markets in and around County Kerry.
+currently it focuses on farmers markets in and around County Kerry.
 
 ## Demo
-![How the website looks on different devices](/static/docs/images/amIresponsive3.PNG)
+![How the website looks on different devices](/static/docs/images/mockup.PNG)
 
 ### A live demo of the site can be found [here](https://farmers-market-review-55ade4f51551.herokuapp.com/)
 
@@ -55,14 +55,14 @@ currently it focuses on farners markets in and around County Kerry.
 
 ## Site Goals
 - To provide a platfrom where market goers can get useful information about their local markets.
-- To engage with users and enable them to review and rate their market expereince.
+- To engage with users and enable them to review and rate their market experience.
 - To encourage would be visitors to visit the market by sharing reviews and ratings.
 - Negative reviews might prompt market organisers and vendors to improve their service.
 - To provide a means for feedback for site users to encourage the sharing of information.
 
 
 ## UI/UX
-This website is aimed at people who have an interest in famers markets. It aims to encourage users to visit their local markets and help them to grow.
+This website is aimed at people who have an interest in farmers markets. Its objective is to encourage users to visit their local markets and help them to grow.
 
 - **Strategy**: 
 The goal is to create a space where markets goers can get information about local markets and share reviews with others.
@@ -71,7 +71,7 @@ The goal is to create a space where markets goers can get information about loca
 To include features that enhance the user experience and provide value to the user. Features like maps and market ratings help to achieve this.
 
 - **Structure**: 
-The user is presented with a landing page which lists the markets in paginated form. From here the user can browse to more detailed market information or follow the navigation links for different funtions of the page.  
+The user is presented with a landing page which lists the markets in paginated form. From here the user can browse to more detailed market information or follow the navigation links for different functions of the page.  
 
   **_Website Sections:_**
   - **_Home / Landing Page:_** A list of markets in paginated form.
@@ -90,14 +90,10 @@ The website is desinged with a simple hierarchical structure which the user can 
 
 - **Surface**:
 A uniform design has been used throught with consistent colour schemes and font to provide a seamless user experience.
-Colourful images of markets and produce are add interest used to enhance the user experience.
-Pseudo classes such as hover, active and focus are used to add styling to elements when they change states.
-Font used is Roboto. 
+More on this is the design section below.
 
 ### Agile
-This project was designed and built using the agile approach. I created a [GitHub project](https://github.com/users/lorrainescanlon/projects/3) and utilised the provided Kanban board method to split project elements into user stories and tasks. These tasks were updated as the project moved along until all tasks were completed.
-
-![Kanban](/static/docs/images/kanban.PNG)
+This project was designed and built using the agile approach. The first step in this was to create the user stories, the expectations and needs of the site users.
 
 | **User Stories** |
 | --- |
@@ -112,6 +108,12 @@ This project was designed and built using the agile approach. I created a [GitHu
 | As a Site Admin I can create or update the contact page content so that is it available to site users |
 | As a Site Administrator I can upload market pictures so that I can support the written content |
 
+I created a [GitHub project](https://github.com/users/lorrainescanlon/projects/3) and utilised the provided Kanban board method to split project elements into user stories and tasks. These tasks were updated as the project moved along until all tasks were completed.
+
+![Kanban](/static/docs/images/kanban.PNG)
+
+
+
 ### Wireframes
 Wireframes were created using software. Frames were drafted for mobile and desktop design. Initial/ designs included met basic/early requirements and designs have evolved since. View the wireframe designs here ![Wireframes](/static/docs/wireframesmarketreview.pdf)
 
@@ -121,9 +123,13 @@ Wireframes were created using software. Frames were drafted for mobile and deskt
 
 
 ### Design
-Colour Scheme
-Font
-Images, Map, Icons, Favicon, border style, border radius, shadow
+There is a consistent colour scheme used throughout the site as shown on the colour palette below. These colours are complimented by the rich images of markets, they add interest and enhance the user experience.
+The font used was Roboto from Google fonts. Icons were used to highlight certain elements of the website, the seedling icon is used within the heading to give a logo effect.
+Border styles and shadow are added to elements to add texture and interest. Pseudo classes such as hover, active and focus are used to add further styling and effects to elements when they change states.
+ 
+![colour palate](/static/docs/images/colourpalette.PNG)
+
+
 
 ## Features
 
@@ -226,7 +232,9 @@ Ability for user to upload images of their own along with their reviews.
 
 
 ## Database Model
-The database model diagram was created using [Lucidchart](https://lucidchart.com)
+The database model evolved from the needs of the user stories. Originally I had included a ratings model to store ratings data to calculate the stars ratings and visit again score. 
+I eventually decided against including it as the data could be generated easily from the reviews model data. 
+The diagram was created using [Lucidchart](https://lucidchart.com)
 
 ![DBModel](/static/docs/images/dbmodels.png)
 
