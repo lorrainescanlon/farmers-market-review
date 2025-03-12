@@ -113,15 +113,40 @@ Account reigistration and validation - username and password
 
 
 Account login and valiation
+
 # Code Validaton
-## HTML Validation
-**Index page**
+## HTML Validation [W3C validator](https://validator.w3.org/)
+As this project contains Django tags and Jinja templating language the source code of each page was pasted into the validator directly as opposed to using the websites url.
+
+**Home page**
+Document checking completed. No errors or warnings to show.
+
 **Market detail page**
+Error reported in realtion to parameter value passed to google maps url. There are spaces in the location name.
+![Market details validation error](/static/docs/images/marketdetailvalidation.PNG)
+![Error highlight in code](/static/docs/images/mapserror.PNG)
+
 **Search results page.html**
+Document checking completed. No errors or warnings to show.
+
 **Register page**
 Errors reported in the all auth signup template. It looks like they have ul and li tags inside a span which is invalid.  
-**Login page**
-**Logout page**
-**Contact page**
-**News page**
+![Register validation error](/static/docs/images/registervalidation.PNG)
+![Error highlight in code](/static/docs/images/registrationerror.PNG)
 
+**Login page**
+Document checking completed. No errors or warnings to show.
+
+**Logout page**
+Document checking completed. No errors or warnings to show.
+
+**Contact page**
+Document checking completed. No errors or warnings to show.
+
+**News page**
+Document checking completed. No errors or warnings to show.
+
+
+## CSS Validation
+## Javascript Validation
+## Python Validation
