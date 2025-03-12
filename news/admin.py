@@ -9,4 +9,4 @@ class News(SummernoteModelAdmin):
     list_display = ('title', 'status', 'created_on', 'author', )
     search_fields = ['title', 'author',]
     list_filter = ('status',)
-    prepopulated_fields = {'slug': ('title',)}  
+    prepopulated_fields = {'slug': ('title',)}

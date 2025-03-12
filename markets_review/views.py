@@ -1,5 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.views import generic
+from django.shortcuts import render, get_object_or_404, reverse
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Market, Review, Picture
@@ -35,7 +34,9 @@ def search_view(request):
     query = request.GET.get('q')
 
     if query:
-        object_list = Market.objects.filter(Q(name__icontains=query) | Q(location__icontains=query)).order_by('name')
+        object_list = Market.objects.filter(
+            Q(name__icontains=query) | Q(location__icontains=query)
+            ).order_by('name')
         paginator = Paginator(object_list, 6)
         page_number = request.GET.get("page")
         page_obj = paginator.get_page(page_number)
@@ -52,9 +53,7 @@ def search_view(request):
             "object_list": object_list,
         }
 
-    
     return render(request, "markets_review/search_results.html", context)
-
 
 
 def market_detail(request, slug):
@@ -70,7 +69,7 @@ def market_detail(request, slug):
     """count reviews with visit again value of yes and no"""
     visityes_count = market.reviews.filter(visit_again=True).count()
     visitno_count = market.reviews.filter(visit_again=False).count()
-    
+
     """calculate percentage of visit again yes and no choices"""
     if review_count <= 0:
         visityes_percent = 0
@@ -83,10 +82,12 @@ def market_detail(request, slug):
     if review_count <= 0:
         market_stars = "No reviews yet"
     else:
-        market_stars = int(Review.objects.filter(market=market, approved=True).aggregate(total=Sum('stars_rating'))["total"]/review_count)
+        market_stars = int(Review.objects.filter
+                           (market=market, approved=True).aggregate
+                           (total=Sum('stars_rating'))["total"]/review_count)
 
     """google maps key"""
-    key = settings.GMAPS_API_KEY    
+    key = settings.GMAPS_API_KEY
 
     """market picture carousel"""
     pictures = Picture.objects.filter(market=market)
@@ -139,23 +140,25 @@ def review_edit(request, slug, review_id):
             review.save()
             messages.add_message(request, messages.SUCCESS, 'Review Updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating review!') 
+            messages.add_message
+            (request, messages.ERROR, 'Error updating review!')
 
     return HttpResponseRedirect(reverse('market_detail', args=[slug]))
-
 
 
 def review_delete(request, slug, review_id):
     """view to delete review"""
 
     queryset = Market.objects.filter(status=1)
-    market = get_object_or_404(queryset, slug=slug)
+    market = get_object_or_404(queryset, slug=slug)  # noqa
     review = get_object_or_404(Review, pk=review_id)
 
     if review.author == request.user:
         review.delete()
         messages.add_message(request, messages.SUCCESS, 'Review deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete reviews that you have created!')
+        messages.add_message
+        (request, messages.ERROR,
+         'You can only delete reviews that you have created!')
 
     return HttpResponseRedirect(reverse('market_detail', args=[slug]))

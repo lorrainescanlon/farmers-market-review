@@ -113,3 +113,15 @@ Account reigistration and validation - username and password
 
 
 Account login and valiation
+# Code Validaton
+## HTML Validation
+**Index page**
+**Market detail page**
+**Search results page.html**
+**Register page**
+Errors reported in the all auth signup template. It looks like they have ul and li tags inside a span which is invalid.  
+**Login page**
+**Logout page**
+**Contact page**
+**News page**
+

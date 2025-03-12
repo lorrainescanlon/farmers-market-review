@@ -17,8 +17,9 @@ class ReviewAdmin(SummernoteModelAdmin):
     list_display = ('market', 'author', 'created_on', 'approved', )
     list_filter = ('approved', 'market',)
 
+
 @admin.register(Picture)
-class ReviewAdmin(SummernoteModelAdmin):
+class PictureAdmin(SummernoteModelAdmin):
     list_display = ('market', 'image',)
     list_filter = ('market',)
 

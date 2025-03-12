@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import News
 
+
 def news_letter(request):
 
     news = News.objects.filter(status=1)
