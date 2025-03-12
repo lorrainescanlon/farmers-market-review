@@ -31,25 +31,26 @@
               {% else %}
               No reviews yet
               {% endif %}<br>
-              <div class="row visit">
-                <div class="col-sm-3 visit"><strong>Visit Again:</strong></div>
-                <div class="col-sm-9 progress">
-                  <div class="progress-bar bg-success rounded-start {% if visityes_percent == 100 %} rounded-end {% endif %}" 
-                    role="progressbar" style="width: {{ visityes_percent }}%" aria-valuenow="{{ visityes_percent }}" aria-valuemin="0" aria-valuemax="100">Yes {{ visityes_percent }}%</div>
-                  <div class="progress-bar bg-danger rounded-end" role="progressbar" style="width: {{ visitno_percent }}%" aria-valuenow="{{ visitno_percent }}" aria-valuemin="0" aria-valuemax="100">No {{ visitno_percent }}%</div>
-                </div>   
-              </div> 
-            </p>
-            <br>
-          <p class="card-text">
-              {{ market.content | safe }}
           </p>
+          <div class="row visit">
+            <div class="col-sm-3 visit"><strong>Visit Again:</strong></div>
+              <div class="col-sm-9 progress">
+                <div class="progress-bar bg-success rounded-start {% if visityes_percent == 100 %} rounded-end {% endif %}" 
+                    role="progressbar" style="width: {{ visityes_percent }}%" aria-valuenow="{{ visityes_percent }}" aria-valuemin="0" aria-valuemax="100">Yes {{ visityes_percent }}%</div>
+                <div class="progress-bar bg-danger rounded-end" role="progressbar" style="width: {{ visitno_percent }}%" aria-valuenow="{{ visitno_percent }}" aria-valuemin="0" aria-valuemax="100">No {{ visitno_percent }}%</div>
+              </div>   
+            </div> 
+          
+            <br>
+            <div class="card-text">
+              {{ market.content | safe }}
+            </div>
+          </div>
         </div>
-      </div>
     </div>
     <div class="col-sm-5 mb-sm-0">
       <div class="card-header">
-        <ul class="nav nav-tabs card-header-tabs", id="myTab" role="tablist">
+        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="map-tab" data-bs-toggle="tab" data-bs-target="#map" type="button" role="tab" aria-controls="map" aria-selected="true">Map</button>
           </li>
@@ -61,16 +62,14 @@
       <div class="tab-content card-body">
         <div class="tab-pane active h-100 map-style" id="map" role="tabpanel" aria-labelledby="map-tab">
           <iframe
-            class="map-style mkt-map"
+            class="map-style"
             title=" {{ market.name}} {{key}}"
-            height = "100%"
-            width = "100%"
-            frameborder="0" style="border:0"
+            style="height: 100%; width: 100%"
             referrerpolicy="no-referrer-when-downgrade"
             src="https://www.google.com/maps/embed/v1/place?key={{ key }}&q={{ market.location }}&center={{ market.latitude }}, {{ market.longitude }}&zoom=14">
           </iframe>      
         </div>
-        <div class="tab-pane h-100" id="pics" role="tabpanel" aria-labelledby="pic-tab">
+        <div class="tab-pane h-100" id="pics" role="tabpanel">
           <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
               {% for image in pictures %}
@@ -115,9 +114,9 @@
             {% if not review.approved and review.author == user %}
             faded{% elif not review.approved %} d-none{% endif %}">
             <p class="font-weight-bold">
-              {{ review.created_on }}&nbsp|&nbsp
+              {{ review.created_on }} &nbsp;|&nbsp;
               <span class="font-weight-normal"> 
-                {{ review.stars_rating }} star review by:&nbsp 
+                {{ review.stars_rating }} star review by:&nbsp; 
               </span> 
               <span class="font-weight-normal fst-italic">
                 {{ review.author }}
@@ -142,8 +141,8 @@
              </p>
             {% endif %}
              {% if user.is_authenticated and review.author == user %}
-             <button class="btn btn-delete" review_id="{{ review.id }}">Delete <i class="fa-regular fa-trash-can"></i></button>
-             <button class="btn btn-edit" review_id="{{ review.id }}">Edit <i class="fa-regular fa-pen-to-square"></i></button>
+             <button class="btn btn-delete" value="{{ review.id }}">Delete <i class="fa-regular fa-trash-can"></i></button>
+             <button class="btn btn-edit" value="{{ review.id }}">Edit <i class="fa-regular fa-pen-to-square"></i></button>
              {% endif %}
           </div>
           <br>
@@ -186,7 +185,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a id="deleteConfirm" href="#" classs="btn btn-danger">Delete</a>
+        <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
       </div>
     </div>
   </div>

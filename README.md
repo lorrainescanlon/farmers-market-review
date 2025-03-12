@@ -218,7 +218,7 @@ Interview with producer/crafter of the month.
 Seasonal grower gardener tips, recipies and craft ideas
 New articles updated monthly. 
 Users can subscribe to the newsletter once they have an account. 
-
+Was this review helpful like function
 Ability for user to upload images of their own along with their reviews.
 
 

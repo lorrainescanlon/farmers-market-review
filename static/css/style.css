@@ -39,7 +39,6 @@ body {
 
 .container hr{
     color: #4A4A4F;
-    background: #4A4A4F;
     height: 2px;
     font-size: 0;
     border: 0;
@@ -70,7 +69,7 @@ header {
 }
 
 .nav-link:hover {
-    color: #3B3B3B/;
+    color: #3B3B3B;
     font-weight: bolder;
 }
 
@@ -85,15 +84,6 @@ footer {
     border-top: thin solid rgb(196, 195, 195);
 }
 
-footer i {
-    color: #3B3B3B;  
-    size: 2em;
-    padding-top: 10px;
-    padding-bottom: 0px; 
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
 .created-by {
     padding-top: 0px;
     margin-bottom: 10px;
@@ -106,6 +96,11 @@ footer i {
 .socials i {
     font-size: 18px; 
     color: #3B3B3B;
+    padding-top: 10px;
+    padding-bottom: 0px; 
+    padding-left: 10px;
+    padding-right: 10px;
+
 }
 
 .quote-row {
@@ -113,7 +108,6 @@ footer i {
 }
 
 .quote {
-    /*display: flex;*/
     background-color: #5cb85c;
     font-size: 14px;
     font-style: italic;
@@ -175,6 +169,7 @@ footer i {
     color: white;
 }
 
+
 /* News page styles */
 .news {
     color: #3B3B3B;
@@ -191,6 +186,7 @@ footer i {
     color: white;
     padding: 15px;
 }
+
 
 /* Card styles */
 .card {
@@ -233,11 +229,10 @@ footer i {
     justify-content: center;
 }
 
-/* Image styles */
 
+/* Image styles */
 .sm-star i {
     color:  #5cb85c;
-    size: 1em;
 }
 
 
@@ -269,6 +264,7 @@ footer i {
 }
 
 
+
 /* Market detail styles */
 .visit {
     --bs-gutter-x: 0%;
@@ -293,14 +289,10 @@ footer i {
     background-color: white;
 }
 
-.review-box {
-    background-color: #d8ffb3;
-}
-
 
 /* Map styles */
 .map-style {
-    flex-grow: 1 1;
+    flex-grow: 1;
     padding: 0px;
     margin-top: 0px;
     min-height: 250px;
@@ -321,7 +313,7 @@ footer i {
 }
 
 .carousel-pic {
-    flex-grow: 1 1;
+    flex-grow: 1;
     width: 100%;
     align-items: center;
     padding: 2px;
@@ -382,6 +374,7 @@ footer i {
     justify-content: center;
 }
 
+
 /* Media Queries*/
 @media screen and (min-width: 768px) {
     .login {
@@ -394,6 +387,3 @@ footer i {
         list-style-position: inside;
     }
 }
-
-/*Media Query: laptops and desktops (992px and up) */
-/* @media screen and (min-width: 992px) { }*/
