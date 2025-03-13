@@ -30,6 +30,8 @@ A live demo of the site can be found [here](https://farmers-market-review-55ade4
 - [Technologies Used](#technologies-used)
   - [Development Environment and Hosting](#development-environment-and-hosting)
   - [Libraries](#libraries)
+    - [Python](#python)
+    - [Django](#django)
     - [BOOTSTRAP](#bootstrap)
     - [All Auth](#all-auth)
     - [Crispy Forms](#crispy-forms)
@@ -89,7 +91,8 @@ More on this is the design section below.
 
 
 ### Agile
-This project was designed and built using the agile approach. The first step in this process was to create the user stories, the expectations and needs of the site users.
+This project was designed and built using the agile approach. The first step in this process was to create the user stories which address the expectations and needs of the site users.
+Each user story had acceptance criteria defined and was managed through stages on a Kanban board
 
 | **User Stories** |
 | --- |
@@ -105,7 +108,7 @@ This project was designed and built using the agile approach. The first step in 
 | As a Site Administrator I can upload market pictures so that I can support the written content |
 
 
-I created a [GitHub project](https://github.com/users/lorrainescanlon/projects/3) and utilised the provided Kanban board method to split project elements into user stories and tasks. These tasks were updated as the project moved along until all tasks were completed.
+I created a [GitHub project](https://github.com/users/lorrainescanlon/projects/3) and utilised the provided Kanban board method to manage user stories and tasks. These tasks were updated as the project moved along and acceptance criteria was met, until all tasks were completed.
 
 ![Kanban](/static/docs/images/kanban.PNG)
 
@@ -131,9 +134,9 @@ Border styles and shadow are added to elements to add texture and interest. Pseu
 ### Existing Features
 
 #### Navigation Bar
- - Navbar with seedling icon and page navigation links.
- - If user is authenticated/logged in the are presented with different navigation links.
- - Active link is highlighted in bold black text.
+ - Navbar with website name, seedling icon and page navigation links.
+ - If user is authenticated/logged in they are presented with different navigation links.
+ - An active link is highlighted in bold black text.
  - The search box is located to the right of the navigation bar.
  - A logged in display tells the user whether they are logged in or not.
  - The navbar becomes a collapsible burger menu with drop-down list on small to medium sized screens.
@@ -310,12 +313,12 @@ The CRUD principle was at the center of the design process for this project.
  - [Google Maps](https://developers.google.com/maps) - Platform used to render maps on the website.
 
 ### Cloudinary
-
+ - [Cloudinary](https://cloudinary.com) - Platform for hosting images and video.
 
 ## Testing
 
 ### Testing File
-For detailed testing and results please refer to the [Testing Document](TESTING.md)
+For detailed testing, validation and results please refer to the [Testing Document](TESTING.md)
 
 ### Bugs
 
@@ -332,7 +335,9 @@ For detailed testing and results please refer to the [Testing Document](TESTING.
             visitno_percent = int((visitno_count/review_count)*100)
 
  - Pagination issue. When returning a search query that had more than one page of results the second page wouldnt load, it returned the following error. 
+ 
  "ValueError at /search/ Cannot use None as a query value object_list = Market.objects.filter(Q(name__icontains=query) | Q(location__icontains=query)).order_by('name')."
+
  I found a resolution on stackoverflow by doing a google search of the error https://stackoverflow.com/questions/57883376/error-cannot-use-none-as-a-query-value-when-trying-to-paginate-with-listview I updated my code from 
 
         {% if page_obj.has_previous %}
@@ -386,7 +391,7 @@ For detailed testing and results please refer to the [Testing Document](TESTING.
 ### Pre-requisites
 Ensure the following are installed and added to requirements.txt prior to deployment to Heroku.
 - Gunicorn, required by Heroku to run Django.
-- Pyscopg2, required to connect to PostgreSQL
+- Pyscopg2, required to connect to PostgreSQL.
 - Whitenoise, to enable the serving of static files in prodution environment.
 - Cloudinary, to host images and video files.
 
@@ -397,10 +402,10 @@ Ensure the following are installed and added to requirements.txt prior to deploy
   - Enter the name of the app 'farmers-market-review', select region as 'Europe' and click the 'Create app' button
   - On the app screen select the 'Settings' tab.
   - Find the 'Config Vars' section and populate the following Key : Value pairs
-   - CLOUDINARY_URL *your key value*
-   - DATABASE_URL *your key value* 
-   - GMAPS_API_KEY *your key value*
-   - SECRET_KEY *your key value*
+    - CLOUDINARY_URL *your key value*
+    - DATABASE_URL *your key value* 
+    - GMAPS_API_KEY *your key value*
+    - SECRET_KEY *your key value*
   - Scroll back to the top of this page and find the Deploy tab. 
   - On this page find 'Deployment method' and select 'GitHub'.
   - In the 'Connect to Github' section enter the name of your repository and click 'Connect'.
@@ -440,12 +445,24 @@ To Clone
  - Miltown market card picture by Dahlia E. Akhaine [Unsplash](https://unsplash.com/photos/a-bunch-of-cheeses-that-are-on-a-table-DH13R1yMtdE?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash)
  - Portmagee market card picture by tookapic [Pixabay](https://pixabay.com/photos/fish-fresh-market-food-seafood-933187/)
  - Tralee market card picture by Bree Anne [Unsplash](https://unsplash.com/photos/a-woman-talking-on-a-cell-phone-next-to-a-table-full-of-vegetables-dafqajrdhYI?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash)
-
+ - Fonts were taken from [Fontawesome](https://fontawesome.com/)
+ - Content was written by myself.
 
 ### Code
- - I used the walkthrough blog project as a basis for famrmers market review. I followed the same structure and file layout.
+ - I used the walkthrough blog project as a basis for farmers market review. I followed the same basic structure and file layout.
+ - Django documentation on aggregation that I used as a reference for calculation in market details view https://docs.djangoproject.com/en/5.1/topics/db/aggregation/
+ - Google Maps Platform documentation for implementing iframe https://developers.google.com/maps/documentation/embed/embedding-map
+ - Stackoverflow resolution for pagination problem https://stackoverflow.com/questions/57883376/error-cannot-use-none-as-a-query-value-when-trying-to-paginate-with-listview
+ - Django documentation on queries that I used https://docs.djangoproject.com/en/4.0/topics/db/queries/#complex-lookups-with-q-objects
+ - Search form tutorial with code that I used when creating the search box https://learndjango.com/tutorials/django-search-tutorial#search-form
+ - I used this fix to center list items on the registration form https://stackoverflow.com/questions/28977320/how-do-i-get-the-bullets-of-an-unordered-list-to-center-with-the-text
+ - Bootstrap resource used for code for navbar and footer https://getbootstrap.com/docs/5.1/components/navs-tabs/
+ - Bootstrap resource used for implementing carousel https://getbootstrap.com/docs/5.1/components/carousel/
+ - Bootstrap progress bar code https://getbootstrap.com/docs/4.0/components/progress/
 
 
 ### Acknowledgements
+- Thank you to my mentor Medale Oluwanfemi for his advice and guidance on this project.
+- The tutoring team for their help at troubleshooting during the project.
 
 
