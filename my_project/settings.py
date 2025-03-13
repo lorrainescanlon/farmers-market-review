@@ -7,6 +7,7 @@ import os
 import sys  # noqa
 from django.contrib.messages import constants as messages
 import dj_database_url
+import cloudinary
 if os.path.isfile('env.py'):
     import env  # noqa
 
@@ -131,6 +132,8 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
 }
 
+# Add cloudinary config to ensure https
+cloudinary.config(secure=True,)
 
 # Static files (CSS, JavaScript, Images)
 

@@ -8,7 +8,6 @@
  - [CRUD Functionality](#crud-functionality)
  - [Account/Authentication](#account-authentication)
  - [Social Links](#social-links)
- - [404 errors 405 500](#404-errors)
 - [Lighthouse Testing](#lighthouse-testing)
  - [Mobile](#mobile)
  - [Laptop PC](#Laptop-PC)
@@ -109,6 +108,27 @@
 **Account Login**
 | **Test** | **Expected Outcome** | **Result** |
 | -------- | -------------------- | ---------- |
+| Login with a valid username and password | Account login sucessful message displayed, logged in as 'username' appears in logged in bar | Pass |
+| Login with a valid username and no password | Account login fail, 'please fill out this field' prompt displayed in password input | Pass |
+| Login with a valid username and incorrect password | Account login fail, 'The username and/or password you specified are not correct' message displayed. | Pass |
+| Login with a no username and no password | Account login fail, 'please fill out this field' prompt displayed in username input | Pass |
+| Login with a no username and a password | Account login fail, 'please fill out this field' prompt displayed in username input | Pass |
+
+**Account Logout**
+| **Test** | **Expected Outcome** | **Result** |
+| Logout using 'Log Out' button on Logout page | Account logout successfull, 'You have signed out' message appears and logged in as status changes to 'You are not logged in' | Pass |
+
+
+### Social Links
+    - Social media links tested on both mobile and desktop. 
+    - Social links tested in multiple browsers successfully.
+    - All open in a separate browser window.
+
+
+### Lighthouse Testing
+
+#### Mobile
+#### Laptop/PC
 
 
 ## Code Validaton
