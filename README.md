@@ -9,10 +9,9 @@ currently it focuses on farmers markets in and around County Kerry.
 ## Demo
 ![How the website looks on different devices](/static/docs/images/mockup.PNG)
 
-### A live demo of the site can be found [here](https://farmers-market-review-55ade4f51551.herokuapp.com/)
+A live demo of the site can be found [here](https://farmers-market-review-55ade4f51551.herokuapp.com/)
 
-
-# Tabe of Contents
+## Tabe of Contents
 - [Demo](#demo)
   - [A live demo of the site can be found here](#a-live-demo-of-the-site-can-be-found-here)
 - [Site Goals](#site-goals)
@@ -86,10 +85,10 @@ The user is presented with a landing page which lists the markets in paginated f
 - **Skeleton**:
 The website is desinged with a simple hierarchical structure which the user can navigate through with ease.
 
-
 - **Surface**:
 A uniform design has been used throught with consistent colour schemes and font to provide a seamless user experience.
 More on this is the design section below.
+
 
 ### Agile
 This project was designed and built using the agile approach. The first step in this process was to create the user stories, the expectations and needs of the site users.
@@ -129,7 +128,6 @@ Border styles and shadow are added to elements to add texture and interest. Pseu
 ![colour palate](/static/docs/images/colourpalette.PNG)
 
 
-
 ## Features
 
 ### Existing Features
@@ -149,7 +147,6 @@ Border styles and shadow are added to elements to add texture and interest. Pseu
  - It searches market names and location fields to see if they contain the search query. 
 
 ![Search Box](/static/docs/images/searchbox.PNG)
-
 
 #### Logged in display
  - Located under the navigation bar is tells the user wether they are logged in or not.
@@ -215,7 +212,6 @@ Border styles and shadow are added to elements to add texture and interest. Pseu
  ![News]()
 
 
-
 ### Future Features
 Newsletter section with calendar of events taking place that month.
 workshops coming up, popup markets, seasonal markets, fairs, festivals, food festivals, summer show, ploughing championships, bloom
@@ -225,7 +221,6 @@ New articles updated monthly.
 Users can subscribe to the newsletter once they have an account. 
 Was this review helpful like function
 Ability for user to upload images of their own along with their reviews.
-
 
 #### Newsletter
 
@@ -271,7 +266,6 @@ The CRUD principle was at the center of the design process for this project.
  - An authenticated user can delete their own review records from the Review model in the database.
 
 
-
 ## Technologies Used
 
 ### Development Enviornment and Hosting
@@ -284,6 +278,7 @@ The CRUD principle was at the center of the design process for this project.
  - [Cloudinary](https://cloudinary.com/) - Image hosting platform.
 
 ### Libraries
+
 #### Python
  - [Gunicorn](https://gunicorn.org/) - Python Http server for WSGI applications.
  - [pyscopg2](https://pypi.org/project/psycopg2/) - Python PostgresSQL Database adapter.
@@ -309,12 +304,14 @@ The CRUD principle was at the center of the design process for this project.
 
 ### Cloudinary
 
+
 ## Testing
 
 ### Testing File
 For detailed testing and results please refer to the [Testing Document](TESTING.md)
 
 ### Bugs
+
 #### Bugs Resolved
  - Google Maps. I ran into problems early on with locations not displaying correctly on the maps. I found that the coordinates being passed to render the maps center were not correct even though I had eneterd them correctly through the admin console. The latitude and longtitude fields were created as float point numbers, I changed this to Charfield and the issue resolved.
 
@@ -376,6 +373,7 @@ For detailed testing and results please refer to the [Testing Document](TESTING.
 
  - Errors on all auth signup template. Syntax rules as described in testing document which do not seem to affect the function of the form. 
 
+
 ## Deployment
 
 ### Pre-requisites
@@ -404,7 +402,6 @@ Ensure the following are installed and added to requirements.txt prior to deploy
   - Once created the app appears on your heroku dashboard. 
   - Click on app and your dashboard and 'Open app' from the app page. 
   - The app opens in a console loaded in a browser window.
-
 
 ### Forking and Cloning
 You can choose to fork or clone your project for development purposes. Forking creates a separate repository that shares code and visibility settings with the original repository. You can make changes to a forked repsotitory without affecting the original repository.

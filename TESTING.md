@@ -1,7 +1,6 @@
 #Farmers Market Review TESTING.md
 
 ## Table of Contents
-
 - [Manual Testing](#manual-testing)
  - [Navigation](#navigation)
  - [User Stories Testing](#user-stories-testing)
@@ -20,8 +19,8 @@
  - [JavaScript](#javascript)
 - [Browser Compatibility](#browser-compatibility)
 
-# Manual Testing
-## Navigation
+## Manual Testing
+### Navigation
 
 | **Feature** | **Expected Outcome** | **Result** |
 | ----------- | -------------------- | ---------- |
@@ -37,7 +36,7 @@
 | Instagram link | To be directed to the Instagram website | Pass |
 | YouTube link | To be directed to the YouTube website | Pass |
 
-## User Story Testing
+### User Story Testing
 
 | **User Story** | **Expected Outcome** | **Result** |
 |----------------|----------------------|------------|
@@ -52,7 +51,7 @@
 | As a Site Admin I can create or update the contact page content so that is it available to site users | Once logged in to the admin console, the site admin can update the contact details and text. | Pass |
 | As a Site Administrator I can upload market pictures so that I can support the written content | Once logged in to the admin console, the site admin can upload market pictures. | Pass |
 
-## Search Function
+### Search Function
 
 | **Feature**| **Expected Outcome** |  **Testing Perfomed** | **Outcome** | **Result** | 
 | -----------| -------------------- | --------------------- | ----------- | ---------- |
@@ -65,7 +64,7 @@
 | Search empty query | 'No Markets found' message returned | Search for '' |  Pass | 
 | **Feature** | **Expected Outcome** | **Testing Performed** | **Result** | **Pass/Fail** |
 
-## CRUD Functionality
+### CRUD Functionality
 
  **Create**                                                  
 
@@ -73,7 +72,6 @@
 | ----------- | ---------- | ------------------- | ---------- |
 | User account creation | Complete and submit the registration form | User can login using username and password. Username is displayed on logged in status bar | Pass |
 | Submit a review | A registered user logs in and navigates to the market detail page. Here they fill in the review form and submit | Form is submitted successfully message is displayed and the review awaits admin approval. Once approved by admin it is committed to the database. | Pass | 
-
 
  **Read** 
 
@@ -83,13 +81,11 @@
 | News Page | When a user lands on the news page news items are displayed | News articles with a staus of newsletter = True are displayed | Pass |      
 | Market details | When a user navigates to the markets details page further details associated with that market are displayed | Market description, location, times, ratings, map and pictures are returned | Pass |
 
-
 **Update**
 
 | **Feature** | **Action** | **Expected Result** | **Result** |
 | ----------- | ---------- | ------------------- | ---------- |
 | Edit user review | A logged in user can edit a review on the markets detail page | Reviews belonging to a logged on user are displayed with an edit button. The review is loaded in the form, the user edits accordingly and submits. A submit successful message is displayed and the change awaits admin approval | Pass |
-
 
  **Delete** 
 
@@ -98,7 +94,7 @@
 | Delete user review | A logged in user can delete a review from the markets detail page | Reviews belonging to a logged on user are displayed with a delete button. The review is loaded in the form, the user deletes. A confirmation modal is displayed, the user confirms and the delete is committed | Pass |
 
 
-## Authentication 
+### Authentication 
 
 **Acount Registration** 
 
@@ -110,17 +106,14 @@
 | Register new User with valid password, no username and no email | Account not created with username validation error message displayed | Pass |
 | Register new User with valid username, invalid password and no email | Account not created with password validation error message displayed | Pass |
 
-
-Account reigistration and validation - username and password
-
 **Account Login**
 | **Test** | **Expected Outcome** | **Result** |
 | -------- | -------------------- | ---------- |
 
 
+## Code Validaton
 
-# Code Validaton
-## HTML Validation [W3C validator](https://validator.w3.org/)
+### HTML Validation [W3C validator](https://validator.w3.org/)
 As this project contains Django tags and Jinja templating language the source code of each page was pasted into the validator directly as opposed to using the websites url.
 
 **Home page**
@@ -152,23 +145,23 @@ Document checking completed. No errors or warnings to show.
 Document checking completed. No errors or warnings to show.
 
 
-## CSS Validation [Jigsaw](https://jigsaw.w3.org/css-validator/)
+### CSS Validation [Jigsaw](https://jigsaw.w3.org/css-validator/)
 No errors reported 
 ![css validation](/static/docs/images/cssvalidation.PNG)
 
-## Javascript Validation [JSHint](https://jshint.com/)
+### Javascript Validation [JSHint](https://jshint.com/)
 One error returned regarding an undefined variable.
 ![javascript validation](/static/docs/images/jshint.PNG)
 
 No action required as this is a custom bootstrap variable and did not need to be defined inside the script.
 
-## Python Validation
+### Python Validation
 I installed and used the pycodestyle tool to validate the projects python code. 
 I ran the pycodestyle tool command for each app, contact, markets_review, my_project and news.
 I corrected errors returned and wrote the results of the last pycodestyle tests to the following text file [pycodestyle](/static/docs/pycodestyle.txt)
 The remaining errors are found within the migration files which cannot be corrected.
 
-# Browser Compatibility
+## Browser Compatibility
 This site was tested on the browsers below for functionality, consistency and responsiveness:
  - Google Chrome - *Pass*
  - Microsoft Edge - *Pass*
