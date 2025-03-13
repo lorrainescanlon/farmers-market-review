@@ -1,21 +1,21 @@
-#Farmers Market Review TESTING.md
+# Farmers Market Review TESTING.md
 
 ## Table of Contents
 - [Manual Testing](#manual-testing)
- - [Navigation](#navigation)
- - [User Stories Testing](#user-stories-testing)
- - [Search Function](#search)
- - [CRUD Functionality](#crud-functionality)
- - [Account/Authentication](#account-authentication)
- - [Social Links](#social-links)
+    - [Navigation](#navigation)
+    - [User Stories Testing](#user-stories-testing)
+    - [Search Function](#search)
+    - [CRUD Functionality](#crud-functionality)
+    - [Account/Authentication](#account-authentication)
+    - [Social Links](#social-links)
 - [Lighthouse Testing](#lighthouse-testing)
- - [Mobile](#mobile)
- - [Laptop PC](#Laptop-PC)
+    - [Mobile](#mobile)
+    - [Laptop PC](#Laptop-PC)
 - [Code Validation](#code-validation)
- - [HTML](#html)
- - [CSS](#css)
- - [Python](#python)
- - [JavaScript](#javascript)
+    - [HTML](#html)
+    - [CSS](#css)
+    - [Python](#python)
+    - [JavaScript](#javascript)
 - [Browser Compatibility](#browser-compatibility)
 
 ## Manual Testing
@@ -116,23 +116,24 @@
 
 **Account Logout**
 | **Test** | **Expected Outcome** | **Result** |
+| -------- | -------------------- | ---------- |
 | Logout using 'Log Out' button on Logout page | Account logout successfull, 'You have signed out' message appears and logged in as status changes to 'You are not logged in' | Pass |
 
 
 ### Social Links
-    - Social media links tested on both mobile and desktop. 
-    - Social links tested in multiple browsers successfully.
-    - All open in a separate browser window.
+ Social media links tested on both mobile and desktop. 
+ Social links tested in multiple browsers successfully.
+ All open in a separate browser window.
 
 
 ### Lighthouse Testing
 Lighthouse testing was carried out on both desktop and mobile devices using chrome developer tools.
 
 #### Mobile
-[Mobile Lighhouse Test](/static/docs/images/lighthousemob.PNG)
+![Mobile Lighhouse Test](/static/docs/images/lighthousemob.PNG)
 
 #### Laptop/PC
-[Desktop Lighthouse Test](/static/docs/images/lighthousedesk.PNG)
+![Desktop Lighthouse Test](/static/docs/images/lighthousedesk.PNG)
 
 
 ## Code Validaton
@@ -145,15 +146,19 @@ Document checking completed. No errors or warnings to show.
 
 **Market detail page**
 Error reported in realtion to parameter value passed to google maps url. There are spaces in the location name.
+
 ![Market details validation error](/static/docs/images/markedetailvalidation.PNG)
+
 ![Error highlight in code](/static/docs/images/mapserror.PNG)
 
-**Search results page.html**
+**Search results page**
 Document checking completed. No errors or warnings to show.
 
 **Register page**
+
 Errors reported in the all auth signup template. It looks like they have ul and li tags inside a span which is invalid.  
 ![Register validation error](/static/docs/images/registervalidation.PNG)
+
 ![Error highlight in code](/static/docs/images/registrationerror.PNG)
 
 **Login page**
@@ -171,10 +176,12 @@ Document checking completed. No errors or warnings to show.
 
 ### CSS Validation [Jigsaw](https://jigsaw.w3.org/css-validator/)
 No errors reported 
+
 ![css validation](/static/docs/images/cssvalidation.PNG)
 
 ### Javascript Validation [JSHint](https://jshint.com/)
-One error returned regarding an undefined variable.
+One warning returned regarding an undefined variable.
+
 ![javascript validation](/static/docs/images/jshint.PNG)
 
 No action required as this is a custom bootstrap variable and did not need to be defined inside the script.
@@ -186,7 +193,7 @@ I corrected errors returned and wrote the results of the last pycodestyle tests 
 The remaining errors are found within the migration files which cannot be corrected.
 
 ## Browser Compatibility
-This site was tested on the browsers below for functionality, consistency and responsiveness:
+This site was tested on the following browsers for functionality, consistency and responsiveness:
  - Google Chrome - *Pass*
  - Microsoft Edge - *Pass*
  - Mozilla Firefox - *Pass*

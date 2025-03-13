@@ -160,7 +160,7 @@ Border styles and shadow are added to elements to add texture and interest. Pseu
 
 #### Hero Image
  - A hero image is displayed on the home and seacrh results pages.
- - It depicts a market scene with a tradres stall full of colourful vegetables.
+ - It depicts a market scene with a traders stall full of colourful vegetables.
  
  ![Hero](/static/docs/images/heroimage.PNG)
 
@@ -193,7 +193,7 @@ Border styles and shadow are added to elements to add texture and interest. Pseu
  - The pictures tab shows an image carousel which displays images of the market and surrounding areas.
 
  #### Reviews 
- - A list of approved reviews are displayed in order of date created
+ - A list of approved reviews are displayed in order of date created.
  - If the user is logged in an edit and delete button will be displayed on reviews belonging to that user.
 
  ![Reviews](/static/docs/images/reviews.PNG)
@@ -232,16 +232,16 @@ Border styles and shadow are added to elements to add texture and interest. Pseu
 #### News
  - The news page is intended for future development.
  - Currently it displays a news article rendered from the News model. 
- - A newletter will appear here as a future add on as described below..
+ - A newletter will appear here as a future add on as described below.
 
  ![News](/static/docs/images/news.PNG)
 
 
 ### Future Features
- - Monthly Newsletter section with calendar of events taking place that like workshops, popup markets, seasonal markets, fairs, festivals, food festivals, competitions.
+ - Monthly Newsletter section with calendar of events taking place like workshops, popup markets, seasonal markets, fairs, festivals, food festivals, competitions.
  - Interview with producer/crafter of the month.
- - Users can subscribe to the newsletter once they have registered an account. 
- - Have a review like button, like if you found this review helpful.
+ - Users can subscribe and unsubscribe to the newsletter once they have registered an account. 
+ - Have a review like button, for users to like if they found a review helpful.
  - Ability for registered user to upload images of their own along with their reviews.
 
 
@@ -391,7 +391,7 @@ For detailed testing, validation and results please refer to the [Testing Docume
             }
   
 #### Bugs Remaining
- - Validator error for google maps url. Bad Value error. The value for the location parameter is being passed with spaces, this isn't affecting the rendering of the maps however. It is something I hadn't anticipated. Adding a function to the market_detail view to remove spaces before passing the value to the maps url may work. Or creating a new variable for the url value as the location variable is used elsewhere on the market_detail template.
+ - Validator error for google maps url. Bad Value error. The value for the location parameter is being passed with spaces, this isn't affecting the rendering of the maps however. Adding a function to the market_detail view to remove spaces before passing the value to the maps url may work. Or creating a new variable for the url value as the location variable is used elsewhere on the market_detail template.
 
  - Errors on all-auth signup template. Syntax rules as described in testing document which do not seem to affect the function of the form. 
 
@@ -459,7 +459,7 @@ To Clone
  - Content was written by myself.
 
 ### Code
- - I used the walkthrough blog project as a basis for farmers market review. I followed the same basic structure and file layout.
+ - I used the walkthrough blog project as a basis for farmers market review. I followed the same basic structure and file layout. In particular the javascript code for edit and delete button functionality.
  - Django documentation on aggregation that I used as a reference for calculation in market details view https://docs.djangoproject.com/en/5.1/topics/db/aggregation/
  - Google Maps Platform documentation for implementing iframe https://developers.google.com/maps/documentation/embed/embedding-map
  - Stackoverflow resolution for pagination problem https://stackoverflow.com/questions/57883376/error-cannot-use-none-as-a-query-value-when-trying-to-paginate-with-listview
