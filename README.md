@@ -65,7 +65,7 @@ currently it focuses on farmers markets in and around County Kerry.
 This website is aimed at people who have an interest in farmers markets. Its objective is to encourage users to visit their local markets and help them to grow.
 
 - **Strategy**: 
-The goal is to create a space where markets goers can get information about local markets and share reviews with others.
+The goal is to create a platform where markets goers can get information about local markets and share reviews with others.
 
 - **Scope**: 
 To include features that enhance the user experience and provide value to the user. Features like maps and market ratings help to achieve this.
@@ -93,7 +93,7 @@ A uniform design has been used throught with consistent colour schemes and font 
 More on this is the design section below.
 
 ### Agile
-This project was designed and built using the agile approach. The first step in this was to create the user stories, the expectations and needs of the site users.
+This project was designed and built using the agile approach. The first step in this process was to create the user stories, the expectations and needs of the site users.
 
 | **User Stories** |
 | --- |
@@ -108,14 +108,14 @@ This project was designed and built using the agile approach. The first step in 
 | As a Site Admin I can create or update the contact page content so that is it available to site users |
 | As a Site Administrator I can upload market pictures so that I can support the written content |
 
+
 I created a [GitHub project](https://github.com/users/lorrainescanlon/projects/3) and utilised the provided Kanban board method to split project elements into user stories and tasks. These tasks were updated as the project moved along until all tasks were completed.
 
 ![Kanban](/static/docs/images/kanban.PNG)
 
 
-
 ### Wireframes
-Wireframes were created using software. Frames were drafted for mobile and desktop design. Initial/ designs included met basic/early requirements and designs have evolved since. View the wireframe designs here ![Wireframes](/static/docs/wireframesmarketreview.pdf)
+Wireframes were created using Figma software. The initial designs met basic early requirements that have evolved since. View the wireframe designs here ![Wireframes](/static/docs/wireframesmarketreview.pdf)
 
 ![Wireframe1](/static/docs/images/wire1.PNG)
 
@@ -123,7 +123,7 @@ Wireframes were created using software. Frames were drafted for mobile and deskt
 
 
 ### Design
-There is a consistent colour scheme used throughout the site as shown on the colour palette below. These colours are complimented by the rich images of markets, they add interest and enhance the user experience.
+There is a consistent colour scheme used throughout the site as shown on the colour palette below. These colours are complimented by rich images of markets that add interest and enhance the user experience.
 The font used was Roboto from Google fonts. Icons were used to highlight certain elements of the website, the seedling icon is used within the heading to give a logo effect.
 Border styles and shadow are added to elements to add texture and interest. Pseudo classes such as hover, active and focus are used to add further styling and effects to elements when they change states.
  
@@ -309,4 +309,68 @@ The CRUD principle was at the center of the design process for this project.
  - [Google Maps](https://developers.google.com/maps) - Platform used to render maps on the website.
 
 ### Cloudinary
+
+## Testing
+
+### Testing File
+For detailed testing and results please refer to the [Testing Document](TESTING.md)
+
+### Bugs
+#### Bugs Resolved
+ - Google Maps. I ran into problems early on with locations not displaying correctly on the maps. I found that the coordinates being passed to render the maps center were not correct even though I had eneterd them correctly through the admin console. The latitude and longtitude fields were created as float point numbers, I changed this to Charfield and the issue resolved.
+
+ - Market Detail Error. When I deployed the site to Heroku it started throwing error 500 server errors when I tried to access some market detail pages. On the ide with debug set to true an error "name 'visityes_percent' is not defined" was returned. This was happening to markets who had no reviews against them yet, so no value for 'visityes_percent' or 'visitno_percent' was being calculated. I added an if statement to the markets_review views.py to ensure that if no reviews were present that a value of 0 was returned for 'visityes_percent' and 'visitno_percent'.
+
+    if review_count <= 0:
+      visityes_percent = 0
+      visitno_percent = 0
+    else:
+        visityes_percent = int((visityes_count/review_count)*100)
+        visitno_percent = int((visitno_count/review_count)*100)
+
+ - Pagination issue. When returning a search query that had more than one page of results the second page wouldnt load, it returned the following error. 
+ "ValueError at /search/ Cannot use None as a query value object_list = Market.objects.filter(Q(name__icontains=query) | Q(location__icontains=query)).order_by('name')."
+ I found a resolution on stackoverflow by doing a google search of the error https://stackoverflow.com/questions/57883376/error-cannot-use-none-as-a-query-value-when-trying-to-paginate-with-listview
+ I updated my code from 
+
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link link"> &laquo; PREV</a></li>
+    {% endif %}
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}" class="page-link link"> NEXT &raquo;</a></li>
+    {% endif %} 
+
+To the following
+
+    {% if page_obj.has_previous %}
+      <li><a href="/search?page={{ page_obj.previous_page_number }}&q={{ query }}" class="page-link link"> &laquo; PREV</a></li>
+    {% endif %}
+    {% if page_obj.has_next %}
+      <li><a href="/search?page={{ page_obj.next_page_number }}&q={{ query }}" class="page-link link"> NEXT &raquo;</a></li>
+    {% endif %}
+
+ - Review form not refreshing once submitted. During user testing I ran into an issue where the review form was not refreshing after a review had been submited, it was still populated with the review data. On investigation the line of code used to reset the form in the view had been indented incorrectly. I corrected the indentation and the form worked as expected.
+
+ - Search feature returning all markets for empty search string. During user testing it was found that the search function returned all records from the markets model for an empty search string. I added an if statement to search_view to return None for an empty search.
+    if query:
+        object_list = Market.objects.filter(
+            Q(name__icontains=query) | Q(location__icontains=query)
+            ).order_by('name')
+        paginator = Paginator(object_list, 6)
+        page_number = request.GET.get("page")
+        page_obj = paginator.get_page(page_number)
+
+        context = {
+            "query": query,
+            "object_list": object_list,
+            "page_obj": page_obj
+        }
+    else:
+        object_list = None
+        context = {
+            "query": query,
+            "object_list": object_list,
+        }
+  
+#### Bugs Remaining
 
