@@ -19,7 +19,7 @@ for (let button of editButtons) {
 }
 
 
-// Initializes delete functionality for review buttons.
+// Initializes delete functionality for delete buttons.
 for (let button of deleteButtons) {
     button.addEventListener("click", (e) => {
       let reviewId = e.target.getAttribute("value");
