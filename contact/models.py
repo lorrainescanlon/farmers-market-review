@@ -5,7 +5,7 @@ class Contact(models.Model):
     """
     A model to create and manage contact messages
     """
-    
+
     name = models.CharField(max_length=200)
     email = models.EmailField()
     message = models.TextField()

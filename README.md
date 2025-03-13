@@ -352,25 +352,25 @@ For detailed testing and results please refer to the [Testing Document](TESTING.
 
  - Search feature returning all markets for empty search string. During user testing it was found that the search function returned all records from the markets model for an empty search string. I added an if statement to search_view to return None for an empty search.
 
-    if query:
-        object_list = Market.objects.filter(
-            Q(name__icontains=query) | Q(location__icontains=query)
-            ).order_by('name')
-        paginator = Paginator(object_list, 6)
-        page_number = request.GET.get("page")
-        page_obj = paginator.get_page(page_number)
+        if query:
+            object_list = Market.objects.filter(
+                Q(name__icontains=query) | Q(location__icontains=query)
+                ).order_by('name')
+            paginator = Paginator(object_list, 6)
+            page_number = request.GET.get("page")
+            page_obj = paginator.get_page(page_number)
 
-        context = {
-            "query": query,
-            "object_list": object_list,
-            "page_obj": page_obj
-          }
-    else:
-        object_list = None
-        context = {
-          "query": query,
-          "object_list": object_list,
-        }
+            context = {
+                "query": query,
+                "object_list": object_list,
+                "page_obj": page_obj
+              }
+        else:
+            object_list = None
+            context = {
+              "query": query,
+              "object_list": object_list,
+            }
   
 #### Bugs Remaining
  - Validator error for google maps url. Bad Value error. The value for the location parameter is being passed with spaces, this isn't affecting the rendering of the maps however. It is something I hadn't anticipated. Adding a function to the market_detail view to remove spaces before passing the value to the maps url may work. Or creating a new variable for the url value as the location variable is used elsewhere on the market_detail template.
