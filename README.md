@@ -12,8 +12,6 @@ currently it focuses on farmers markets in and around County Kerry.
 A live demo of the site can be found [here](https://farmers-market-review-55ade4f51551.herokuapp.com/)
 
 ## Tabe of Contents
-- [Demo](#demo)
-  - [A live demo of the site can be found here](#a-live-demo-of-the-site-can-be-found-here)
 - [Site Goals](#site-goals)
 - [UI/UX](#ui-ux)
   - [Agile](#agile)
@@ -136,93 +134,102 @@ Border styles and shadow are added to elements to add texture and interest. Pseu
  - Navbar with seedling icon and page navigation links.
  - If user is authenticated/logged in the are presented with different navigation links.
  - Active link is highlighted in bold black text.
- - Collapsible burger menu with drop-down list on small to medium sized screens.
+ - The search box is located to the right of the navigation bar.
+ - A logged in display tells the user whether they are logged in or not.
+ - The navbar becomes a collapsible burger menu with drop-down list on small to medium sized screens.
 
 ![Nav Bar](/static/docs/images/navbar.PNG)
 
-![Nav Burger](/static/docs/images/navburger.PNG)
+![Mobile nav](/static/docs/images/mobvanbar.jpg)
 
-#### Search Box
- - The search box is located to the right of the navigation bar.
- - It searches market names and location fields to see if they contain the search query. 
+![Nav burger](/static/docs/images/navburger.jpg)
 
-![Search Box](/static/docs/images/searchbox.PNG)
-
-#### Logged in display
- - Located under the navigation bar is tells the user wether they are logged in or not.
- - If they are logged in their username is displayed here.
-
-![Logged In](/static/docs/images/loggedinas.PNG)
 
 #### Footer
 - The footer contains links to social media sites: Facebook, X, Instagram and YouTube.
 
-![Footer](/static/docs/images/footer2.PNG)
+ ![Footer](/static/docs/images/footer.PNG)
+
+ ![Mobile footer](/static/docs/images/mobfooter.jpg)
+
 
 #### Hero Image
  - A hero image is displayed on the home and seacrh results pages.
  - It depicts a market scene with a tradres stall full of colourful vegetables.
  - An overlay section with text describes the website.
 
-![Hero](/static/docs/images/heroimage.PNG)
+ ![Hero](/static/docs/images/heroimage.PNG)
+
+ ![Mobile hero](/static/docs/images/mobhero.jpg)
+
 
 #### Market List
  - Markets are displayed as card items in a grid structure and paginated to display 6 per page. 
 
-![Market Grid](/static/docs/images/marketgrid3.PNG)
+ ![Market grid](/static/docs/images/marketgrid.PNG)
+
+ ![Mobile grid](/static/docs/images/mobgrid.jpg)
 
 #### Market Description
  - This section gives some detail of the market traders, location and operating times.
  - It also provides an average star rating and visit again score based on approved user reviews.
-
-![Market Details](/static/docs/images/marketdetails2.PNG)
-
-#### Map
  - The map tab displays the location of the market.
-
-#### Image Carousel
  - The pictures tab shows an image carousel which displays images of the market and surrounding areas.
 
-#### Review List
+ ![Market details](/static/docs/images/marketdetails2.PNG)
+
+
+#### Reviews 
  - A list of approved reviews are displayed in order of date created
  - If the user is logged in an edit and delete button will be displayed on reviews belonging to that user.
+
+ ![Reviews](/static/docs/images/reviews.PNG)
+
 
 #### Review Form
  - The review form allows logged in users to submit a review.
  - The form contains a textarea, a drop down menu to select a star rating and a radio button to indicate whether or not you would visit again.
 
+ ![Review form](/static/docs/images/reviewform.PNG)
+
+
 #### Register
  - Registration form to become a site user.
  - Username and Password fields are required and validated.
 
+ ![Register](/static/docs/images/register.PNG)
+
 #### Login
  - Login form to authenticate user.
+
+ ![Login](/static/docs/images/loginpage.PNG)
+  
 
 #### Logout
  - Log out button to log user out.
 
+  ![Logout](/static/docs/images/logout2.PNG)
+
+
 #### Contact form
  - Contact form to enable users to provide feedback and/or contact the site administrator.
+
+  ![Contact](/static/docs/images/contact.PNG)
 
 #### News
  - The news page is intended for future development.
  - Currently it displays a news article rendered from the News model. 
  - A newletter will appear here as a future add on as described below..
 
- ![News]()
+ ![News](/static/docs/images/news.PNG)
 
 
 ### Future Features
-Newsletter section with calendar of events taking place that month.
-workshops coming up, popup markets, seasonal markets, fairs, festivals, food festivals, summer show, ploughing championships, bloom
-Interview with producer/crafter of the month.
-Seasonal grower gardener tips, recipies and craft ideas
-New articles updated monthly. 
-Users can subscribe to the newsletter once they have an account. 
-Was this review helpful like function
-Ability for user to upload images of their own along with their reviews.
-
-#### Newsletter
+ - Monthly Newsletter section with calendar of events taking place that like workshops, popup markets, seasonal markets, fairs, festivals, food festivals, competitions.
+ - Interview with producer/crafter of the month.
+ - Users can subscribe to the newsletter once they have registered an account. 
+ - Have a review like button, like if you found this review helpful.
+ - Ability for registered user to upload images of their own along with their reviews.
 
 
 ## Database Model
@@ -423,9 +430,21 @@ To Clone
 ## Credits
 
 ### Media
+- Images were taken from pexel and unsplash
+ - Hero image Photo by Wendy Wei [Pexels](https://www.pexels.com/photo/radish-and-carrots-1656663/)
+ - Caherdaniel market card picture by Paréj Richárd [Unsplash](https://unsplash.com/photos/clear-glass-jars-on-brown-wooden-shelf-F20_xtNvis4?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash)
+ - Dingle market card picture picture by Dave Takisaki [Unsplah](https://unsplash.com/photos/person-carrying-beige-tote-bag-in-front-of-food-stall-at-daytime-TFdkcrw-_4M?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+ - Inch market card picture by Michael Starkie [Unsplash](https://unsplash.com/photos/a-herd-of-cattle-standing-next-to-each-other-on-a-lush-green-field-BSCynDNMP2k?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash)
+ - Kenmare market card picture no author [Pixabay](https://pixabay.com/photos/shellfish-meal-food-yummy-seafood-2114006/)
+ - Listowel market card Clem Onojeghuo [Pexels](https://www.pexels.com/photo/man-standing-in-front-of-bowl-and-looking-towards-left-375889/)
+ - Miltown market card picture by Dahlia E. Akhaine [Unsplash](https://unsplash.com/photos/a-bunch-of-cheeses-that-are-on-a-table-DH13R1yMtdE?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash)
+ - Portmagee market card picture by tookapic [Pixabay](https://pixabay.com/photos/fish-fresh-market-food-seafood-933187/)
+ - Tralee market card picture by Bree Anne [Unsplash](https://unsplash.com/photos/a-woman-talking-on-a-cell-phone-next-to-a-table-full-of-vegetables-dafqajrdhYI?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash)
+
 
 ### Code
- - Project used the walkthrough blog project as a basis
+ - I used the walkthrough blog project as a basis for famrmers market review. I followed the same structure and file layout.
+
 
 ### Acknowledgements
 
