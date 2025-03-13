@@ -12,8 +12,7 @@ currently it focuses on farmers markets in and around County Kerry.
 ### A live demo of the site can be found [here](https://farmers-market-review-55ade4f51551.herokuapp.com/)
 
 
-
-## Tabe of Contents
+# Tabe of Contents
 - [Demo](#demo)
   - [A live demo of the site can be found here](#a-live-demo-of-the-site-can-be-found-here)
 - [Site Goals](#site-goals)
@@ -321,32 +320,32 @@ For detailed testing and results please refer to the [Testing Document](TESTING.
 
  - Market Detail Error. When I deployed the site to Heroku it started throwing error 500 server errors when I tried to access some market detail pages. On the ide with debug set to true an error "name 'visityes_percent' is not defined" was returned. This was happening to markets who had no reviews against them yet, so no value for 'visityes_percent' or 'visitno_percent' was being calculated. I added an if statement to the markets_review views.py to ensure that if no reviews were present that a value of 0 was returned for 'visityes_percent' and 'visitno_percent'.
 
-    if review_count <= 0:
-      visityes_percent = 0
-      visitno_percent = 0
-    else:
-        visityes_percent = int((visityes_count/review_count)*100)
-        visitno_percent = int((visitno_count/review_count)*100)
+        if review_count <= 0:
+          visityes_percent = 0
+          visitno_percent = 0
+        else:
+            visityes_percent = int((visityes_count/review_count)*100)
+            visitno_percent = int((visitno_count/review_count)*100)
 
  - Pagination issue. When returning a search query that had more than one page of results the second page wouldnt load, it returned the following error. 
  "ValueError at /search/ Cannot use None as a query value object_list = Market.objects.filter(Q(name__icontains=query) | Q(location__icontains=query)).order_by('name')."
  I found a resolution on stackoverflow by doing a google search of the error https://stackoverflow.com/questions/57883376/error-cannot-use-none-as-a-query-value-when-trying-to-paginate-with-listview I updated my code from 
 
-    {% if page_obj.has_previous %}
-      <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link link"> &laquo; PREV</a></li>
-    {% endif %}
-    {% if page_obj.has_next %}
-      <li><a href="?page={{ page_obj.next_page_number }}" class="page-link link"> NEXT &raquo;</a></li>
-    {% endif %} 
+        {% if page_obj.has_previous %}
+          <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link link"> &laquo; PREV</a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+          <li><a href="?page={{ page_obj.next_page_number }}" class="page-link link"> NEXT &raquo;</a></li>
+        {% endif %} 
 
     To the following
 
-    {% if page_obj.has_previous %}
-      <li><a href="/search?page={{ page_obj.previous_page_number }}&q={{ query }}" class="page-link link"> &laquo; PREV</a></li>
-    {% endif %}
-    {% if page_obj.has_next %}
-      <li><a href="/search?page={{ page_obj.next_page_number }}&q={{ query }}" class="page-link link"> NEXT &raquo;</a></li>
-    {% endif %}
+        {% if page_obj.has_previous %}
+          <li><a href="/search?page={{ page_obj.previous_page_number }}&q={{ query }}" class="page-link link"> &laquo; PREV</a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+          <li><a href="/search?page={{ page_obj.next_page_number }}&q={{ query }}" class="page-link link"> NEXT &raquo;</a></li>
+        {% endif %}
 
  - Review form not refreshing once submitted. During user testing I ran into an issue where the review form was not refreshing after a review had been submited, it was still populated with the review data. On investigation the line of code used to reset the form in the view had been indented incorrectly. I corrected the indentation and the form worked as expected.
 
@@ -376,4 +375,61 @@ For detailed testing and results please refer to the [Testing Document](TESTING.
  - Validator error for google maps url. Bad Value error. The value for the location parameter is being passed with spaces, this isn't affecting the rendering of the maps however. It is something I hadn't anticipated. Adding a function to the market_detail view to remove spaces before passing the value to the maps url may work. Or creating a new variable for the url value as the location variable is used elsewhere on the market_detail template.
 
  - Errors on all auth signup template. Syntax rules as described in testing document which do not seem to affect the function of the form. 
+
+## Deployment
+
+### Pre-requisites
+Ensure the following are installed and added to requirements.txt prior to deployment to Heroku.
+- Gunicorn, required by Heroku to run Django.
+- Pyscopg2, required to connect to PostgreSQL
+- Whitenoise, to enable the serving of static files in prodution environment.
+- Cloudinary, to host images and video files.
+
+### Heroku Deployment
+- The site was deployed to Heroku, the steps used were as follows: 
+  - Create and login to your heroku account. 
+  - On your heroku dashboard, click the new button and 'create new app' from the dropdown menu.
+  - Enter the name of the app 'farmers-market-review', select region as 'Europe' and click the 'Create app' button
+  - On the app screen select the 'Settings' tab.
+  - Find the 'Config Vars' section and populate the following Key : Value pairs
+   - CLOUDINARY_URL *your key value*
+   - DATABASE_URL *your key value* 
+   - GMAPS_API_KEY *your key value*
+   - SECRET_KEY *your key value*
+  - Scroll back to the top of this page and find the Deploy tab. 
+  - On this page find 'Deployment method' and select 'GitHub'.
+  - In the 'Connect to Github' section enter the name of your repository and click 'Connect'.
+  - On the deploy page select your preferred deployment type I choose 'Enable Automatic Deploys'.
+  - The app will be built on your next push to github.
+  - Once created the app appears on your heroku dashboard. 
+  - Click on app and your dashboard and 'Open app' from the app page. 
+  - The app opens in a console loaded in a browser window.
+
+
+### Forking and Cloning
+You can choose to fork or clone your project for development purposes. Forking creates a separate repository that shares code and visibility settings with the original repository. You can make changes to a forked repsotitory without affecting the original repository.
+You can clone your repository to create a local copy on your computer and sync between the two locations. Changes made to a clone repository will affect the original repository.
+
+To Fork
+- Log in to GitHub.
+- Find the repository for your project.
+- Click the Fork button in the top right corner of the screen.
+
+To Clone
+- Log in to GitHub.
+- Find the repository for this project.
+- Click the Code button and select whether you would like to clone with HTTPS, SSH or GitHub CLI. Copy the link displayed.
+- Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+- Type 'git clone' into the terminal and then paste the link you copied in the previous steps. 
+
+
+## Credits
+
+### Media
+
+### Code
+ - Project used the walkthrough blog project as a basis
+
+### Acknowledgements
+
 

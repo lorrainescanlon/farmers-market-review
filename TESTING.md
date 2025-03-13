@@ -104,7 +104,13 @@
 
 | **Test** | **Expected Outcome** | **Result** |
 | -------- | -------------------- | ---------- |
-|
+| Register new User with valid username, email and password | Account created and registration sucessful message displayed | Pass |
+| Register new User with valid username and password, no email | Account created and registration sucessful message displayed | Pass |
+| Register new User with valid username, no password and no email | Account not created with password validation error message displayed | Pass |
+| Register new User with valid password, no username and no email | Account not created with username validation error message displayed | Pass |
+| Register new User with valid username, invalid password and no email | Account not created with password validation error message displayed | Pass |
+
+
 Account reigistration and validation - username and password
 
 **Account Login**
@@ -112,7 +118,6 @@ Account reigistration and validation - username and password
 | -------- | -------------------- | ---------- |
 
 
-Account login and valiation
 
 # Code Validaton
 ## HTML Validation [W3C validator](https://validator.w3.org/)
@@ -162,3 +167,9 @@ I installed and used the pycodestyle tool to validate the projects python code.
 I ran the pycodestyle tool command for each app, contact, markets_review, my_project and news.
 I corrected errors returned and wrote the results of the last pycodestyle tests to the following text file [pycodestyle](/static/docs/pycodestyle.txt)
 The remaining errors are found within the migration files which cannot be corrected.
+
+# Browser Compatibility
+This site was tested on the browsers below for functionality, consistency and responsiveness:
+ - Google Chrome - *Pass*
+ - Microsoft Edge - *Pass*
+ - Mozilla Firefox - *Pass*
