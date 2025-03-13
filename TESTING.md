@@ -126,9 +126,13 @@
 
 
 ### Lighthouse Testing
+Lighthouse testing was carried out on both desktop and mobile devices using chrome developer tools.
 
 #### Mobile
+[Mobile Lighhouse Test](/static/docs/images/lighthousemob.PNG)
+
 #### Laptop/PC
+[Desktop Lighthouse Test](/static/docs/images/lighthousedesk.PNG)
 
 
 ## Code Validaton
