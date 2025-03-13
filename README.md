@@ -138,51 +138,61 @@ Border styles and shadow are added to elements to add texture and interest. Pseu
  - If user is authenticated/logged in they are presented with different navigation links.
  - An active link is highlighted in bold black text.
  - The search box is located to the right of the navigation bar.
+
+ ![Nav Bar](/static/docs/images/navbar.PNG)
+
  - A logged in display tells the user whether they are logged in or not.
+
+ ![Mobile nav](/static/docs/images/mobvanbar.jpg)
+
  - The navbar becomes a collapsible burger menu with drop-down list on small to medium sized screens.
 
-![Nav Bar](/static/docs/images/navbar.PNG)
-
-![Mobile nav](/static/docs/images/mobvanbar.jpg)
-
-![Nav burger](/static/docs/images/navburger.jpg)
-
+ ![Nav burger](/static/docs/images/navburger.jpg)
 
 #### Footer
-- The footer contains links to social media sites: Facebook, X, Instagram and YouTube.
+ - The footer contains links to social media sites: Facebook, X, Instagram and YouTube.
 
  ![Footer](/static/docs/images/footer.PNG)
 
- ![Mobile footer](/static/docs/images/mobfooter.jpg)
+ - The quotes stack vertically on mobile screens.
 
+ ![Mobile footer](/static/docs/images/mobfooter.jpg)
 
 #### Hero Image
  - A hero image is displayed on the home and seacrh results pages.
  - It depicts a market scene with a tradres stall full of colourful vegetables.
- - An overlay section with text describes the website.
-
+ 
  ![Hero](/static/docs/images/heroimage.PNG)
 
- ![Mobile hero](/static/docs/images/mobhero.jpg)
+ - An overlay section with text describes the website.
 
+ ![Mobile hero](/static/docs/images/mobhero.jpg)
 
 #### Market List
  - Markets are displayed as card items in a grid structure and paginated to display 6 per page. 
 
  ![Market grid](/static/docs/images/marketgrid.PNG)
 
+ - Market cards stack vertically on mobile devices.
+
  ![Mobile grid](/static/docs/images/mobgrid.jpg)
 
 #### Market Description
  - This section gives some detail of the market traders, location and operating times.
- - It also provides an average star rating and visit again score based on approved user reviews.
- - The map tab displays the location of the market.
- - The pictures tab shows an image carousel which displays images of the market and surrounding areas.
 
  ![Market details](/static/docs/images/marketdetails2.PNG)
 
+ - It also provides an average star rating and visit again score based on approved user reviews.
 
-#### Reviews 
+ ![Mobile detail](/static/docs/images/mobdetails.jpg)
+
+ - The map tab displays the location of the market.
+
+ ![Mobile carousel](/static/docs/images/mobcarousel.jpg)
+
+ - The pictures tab shows an image carousel which displays images of the market and surrounding areas.
+
+ #### Reviews 
  - A list of approved reviews are displayed in order of date created
  - If the user is logged in an edit and delete button will be displayed on reviews belonging to that user.
 
@@ -383,7 +393,7 @@ For detailed testing, validation and results please refer to the [Testing Docume
 #### Bugs Remaining
  - Validator error for google maps url. Bad Value error. The value for the location parameter is being passed with spaces, this isn't affecting the rendering of the maps however. It is something I hadn't anticipated. Adding a function to the market_detail view to remove spaces before passing the value to the maps url may work. Or creating a new variable for the url value as the location variable is used elsewhere on the market_detail template.
 
- - Errors on all auth signup template. Syntax rules as described in testing document which do not seem to affect the function of the form. 
+ - Errors on all-auth signup template. Syntax rules as described in testing document which do not seem to affect the function of the form. 
 
 
 ## Deployment
