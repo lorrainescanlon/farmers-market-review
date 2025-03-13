@@ -3,6 +3,10 @@ from django import forms
 
 
 class ReviewForm(forms.ModelForm):
+    """
+    Form for submitting market reviews
+    """
+    
     class Meta:
         model = Review
         fields = ['body', 'stars_rating', 'visit_again']

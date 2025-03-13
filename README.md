@@ -330,8 +330,7 @@ For detailed testing and results please refer to the [Testing Document](TESTING.
 
  - Pagination issue. When returning a search query that had more than one page of results the second page wouldnt load, it returned the following error. 
  "ValueError at /search/ Cannot use None as a query value object_list = Market.objects.filter(Q(name__icontains=query) | Q(location__icontains=query)).order_by('name')."
- I found a resolution on stackoverflow by doing a google search of the error https://stackoverflow.com/questions/57883376/error-cannot-use-none-as-a-query-value-when-trying-to-paginate-with-listview
- I updated my code from 
+ I found a resolution on stackoverflow by doing a google search of the error https://stackoverflow.com/questions/57883376/error-cannot-use-none-as-a-query-value-when-trying-to-paginate-with-listview I updated my code from 
 
     {% if page_obj.has_previous %}
       <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link link"> &laquo; PREV</a></li>
@@ -340,7 +339,7 @@ For detailed testing and results please refer to the [Testing Document](TESTING.
       <li><a href="?page={{ page_obj.next_page_number }}" class="page-link link"> NEXT &raquo;</a></li>
     {% endif %} 
 
-To the following
+    To the following
 
     {% if page_obj.has_previous %}
       <li><a href="/search?page={{ page_obj.previous_page_number }}&q={{ query }}" class="page-link link"> &laquo; PREV</a></li>
@@ -352,6 +351,7 @@ To the following
  - Review form not refreshing once submitted. During user testing I ran into an issue where the review form was not refreshing after a review had been submited, it was still populated with the review data. On investigation the line of code used to reset the form in the view had been indented incorrectly. I corrected the indentation and the form worked as expected.
 
  - Search feature returning all markets for empty search string. During user testing it was found that the search function returned all records from the markets model for an empty search string. I added an if statement to search_view to return None for an empty search.
+
     if query:
         object_list = Market.objects.filter(
             Q(name__icontains=query) | Q(location__icontains=query)
@@ -364,13 +364,16 @@ To the following
             "query": query,
             "object_list": object_list,
             "page_obj": page_obj
-        }
+          }
     else:
         object_list = None
         context = {
-            "query": query,
-            "object_list": object_list,
+          "query": query,
+          "object_list": object_list,
         }
   
 #### Bugs Remaining
+ - Validator error for google maps url. Bad Value error. The value for the location parameter is being passed with spaces, this isn't affecting the rendering of the maps however. It is something I hadn't anticipated. Adding a function to the market_detail view to remove spaces before passing the value to the maps url may work. Or creating a new variable for the url value as the location variable is used elsewhere on the market_detail template.
+
+ - Errors on all auth signup template. Syntax rules as described in testing document which do not seem to affect the function of the form. 
 

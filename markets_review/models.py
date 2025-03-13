@@ -8,8 +8,11 @@ RATING = ((5, "5 *"), (4, "4 *"), (3, "3 *"), (2, "2 *"), (1, "1 *"),
 VISIT = ((True, "Yes"), (False, "No"))
 
 
-# Create your models here.
 class Market(models.Model):
+    """
+    A model to create and manage market information
+    """
+
     name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE,
@@ -31,6 +34,10 @@ class Market(models.Model):
 
 
 class Review(models.Model):
+    """
+    A model to create and manage market reviews
+    """
+
     market = models.ForeignKey(Market, on_delete=models.CASCADE,
                                related_name="reviews")
     author = models.ForeignKey(User, on_delete=models.CASCADE,
@@ -50,16 +57,11 @@ class Review(models.Model):
                 on {self.created_on}"
 
 
-"""class Ratings(models.Model):
-    market = models.ForeignKey(Market, on_delete=models.CASCADE,
-                               related_name="market_ratings")
-    stars = models.IntegerField()
-
-    def __str__(self):
-        return f"{self.market} - {self.stars}"""
-
-
 class Picture(models.Model):
+    """
+    A model to manage market pictures
+    """
+
     market = models.ForeignKey(Market, on_delete=models.CASCADE,
                                related_name="market_pictures")
     image = CloudinaryField('image')

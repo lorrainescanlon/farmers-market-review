@@ -3,6 +3,9 @@ from .models import News
 
 
 def news_letter(request):
+    """
+    A view to return news items
+    """
 
     news = News.objects.filter(status=1)
     articles = news.filter(newsletter=True)

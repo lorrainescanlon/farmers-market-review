@@ -10,6 +10,6 @@ def handler404(request, exception):
 
 def handler500(request):
     """
-    Render custo 500 page
+    Render custom 500 page
     """
     return render(request, "errors/500.html", status=500)

@@ -9,6 +9,7 @@ def contact(request):
     """
     Renders the Contact page and form
     """
+    
     if request.method == "POST":
         contact_form = ContactForm(data=request.POST)
         if contact_form.is_valid():

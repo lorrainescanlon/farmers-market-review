@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Market, Review, Picture
-from news.models import News
 from .forms import ReviewForm
 from django.conf import settings
 from django.db.models import Sum, Q
@@ -10,19 +9,19 @@ from django.core.paginator import Paginator
 
 
 def market_list(request):
-    """Return all approved markets and approved newsletter headlines"""
+    """
+    Return all approved markets
+    Display 6 markets per page
+    """
+
     queryset = Market.objects.all().order_by('name')
     markets = queryset.filter(status=1)
     paginator = Paginator(markets, 6)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
-    news = News.objects.filter(status=1)
-    headlines = news.filter(newsletter=True)
-
     context = {
         "markets": markets,
-        "headlines": headlines,
         "page_obj": page_obj
     }
 
@@ -30,7 +29,11 @@ def market_list(request):
 
 
 def search_view(request):
-    """Return search results"""
+    """
+    Return search results
+    Display 6 results per page
+    """
+
     query = request.GET.get('q')
 
     if query:
@@ -57,20 +60,21 @@ def search_view(request):
 
 
 def market_detail(request, slug):
-    """Display information for an individual market details"""
+    """
+    Display detail information for an individual market
+    Display reviews assocaited with an individual market
+    Count reviews and calculate visityes, visitno and market_stars values
+    """
 
     queryset = Market.objects.filter(status=1)
     market = get_object_or_404(queryset, slug=slug)
 
-    """display reviews associated with the market, count returned reviews"""
     reviews = market.reviews.all().order_by("-created_on")
     review_count = market.reviews.filter(approved=True).count()
 
-    """count reviews with visit again value of yes and no"""
     visityes_count = market.reviews.filter(visit_again=True).count()
     visitno_count = market.reviews.filter(visit_again=False).count()
 
-    """calculate percentage of visit again yes and no choices"""
     if review_count <= 0:
         visityes_percent = 0
         visitno_percent = 0
@@ -78,7 +82,6 @@ def market_detail(request, slug):
         visityes_percent = int((visityes_count/review_count)*100)
         visitno_percent = int((visitno_count/review_count)*100)
 
-    """calculate review stars ratings for the market"""
     if review_count <= 0:
         market_stars = "No reviews yet"
     else:
@@ -125,7 +128,10 @@ def market_detail(request, slug):
 
 
 def review_edit(request, slug, review_id):
-    """view to edit review"""
+    """
+    view to edit review
+    """
+
     if request.method == "POST":
 
         queryset = Market.objects.filter(status=1)
@@ -147,7 +153,9 @@ def review_edit(request, slug, review_id):
 
 
 def review_delete(request, slug, review_id):
-    """view to delete review"""
+    """
+    view to delete review
+    """
 
     queryset = Market.objects.filter(status=1)
     market = get_object_or_404(queryset, slug=slug)  # noqa

@@ -1,14 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
-import cloudinary
 from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
-# News Model.
-
 
 class News(models.Model):
+    """
+    A model to create and manage news items
+    """
+
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
